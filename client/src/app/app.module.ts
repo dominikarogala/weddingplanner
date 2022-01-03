@@ -1,16 +1,17 @@
-import { NgModule } from '@angular/core'
-import { BrowserModule } from '@angular/platform-browser'
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core'
-import { HttpClient } from '@angular/common/http'
-import { TranslateHttpLoader } from '@ngx-translate/http-loader'
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { HttpClient } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-import { AppRoutingModule } from './app-routing.module'
-import { AppComponent } from './app.component'
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import { CoreModule } from './core/core.module'
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CoreModule } from './core/core.module';
+import { NgxLocalStorageModule } from 'ngx-localstorage';
 
 export function HttpLoaderFactory(http: HttpClient) {
-    return new TranslateHttpLoader(http)
+    return new TranslateHttpLoader(http);
 }
 
 @NgModule({
@@ -27,6 +28,7 @@ export function HttpLoaderFactory(http: HttpClient) {
             },
         }),
         CoreModule,
+        NgxLocalStorageModule.forRoot(),
     ],
     providers: [],
     bootstrap: [AppComponent],
