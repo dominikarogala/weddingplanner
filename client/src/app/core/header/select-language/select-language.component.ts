@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { LocalStorageService } from 'ngx-localstorage';
-import { LocalStorage } from 'src/app/shared/constants/localstorage';
 
+import { LocalStorage } from 'src/app/shared/constants';
 @Component({
     selector: 'wp-select-language',
     templateUrl: './select-language.component.html',

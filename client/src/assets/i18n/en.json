@@ -1,5 +1,11 @@
 {
     "header": { 
         "title":"My wedding"
+    },
+    "toDoList": {
+        "title": "Tasks",
+        "description": "",
+        "addCategory": "add category",
+        "downloadToDoList": "download tasks list"
     }
 }

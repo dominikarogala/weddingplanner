@@ -4,8 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { MatMenuModule } from '@angular/material/menu';
 import { TranslateService } from '@ngx-translate/core';
 import { LocalStorageService } from 'ngx-localstorage';
-import { LocalStorageMock, TranslateMock } from 'src/app/tests';
 
+import { LocalStorageMock, TranslateMock } from 'src/app/tests';
 import { SelectLanguageComponent } from './select-language.component';
 
 describe('SelectLanguageComponent', () => {

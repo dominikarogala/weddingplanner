@@ -1,16 +1,27 @@
-import { NgModule } from '@angular/core'
-import { CommonModule } from '@angular/common'
-import { TranslateModule } from '@ngx-translate/core'
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
-import { MatMenuModule } from '@angular/material/menu'
-import { MatIconModule } from '@angular/material/icon'
-import { MatButtonModule } from '@angular/material/button'
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatExpansionModule } from '@angular/material/expansion';
 
-const materialModules = [MatMenuModule, MatIconModule, MatButtonModule]
+import { Components } from './components';
+
+const materialModules = [
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule,
+    MatCardModule,
+    MatButtonModule,
+    MatExpansionModule,
+];
 
 @NgModule({
-    declarations: [],
+    declarations: [...Components],
     imports: [...materialModules],
-    exports: [...materialModules, CommonModule, TranslateModule],
+    exports: [...materialModules, ...Components, CommonModule, TranslateModule],
 })
 export class SharedModule {}

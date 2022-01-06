@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { LocalStorageService } from 'ngx-localstorage';
 
-import { Langs } from './shared/constants/langs';
-import { LocalStorage } from './shared/constants/localstorage';
+import { Langs, LocalStorage } from './shared/constants';
 
 @Component({
     selector: 'wp-root',

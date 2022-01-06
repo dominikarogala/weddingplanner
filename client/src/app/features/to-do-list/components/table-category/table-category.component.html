@@ -1,0 +1,15 @@
+<mat-expansion-panel
+    class="category"
+    [ngClass]="{ 'category--open': panelOpenState }"
+    (opened)="panelOpenState = true"
+    (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            {{ category.name }}
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <wp-table-element
+        *ngFor="let task of category.tasks"
+        [task]="task"></wp-table-element>
+</mat-expansion-panel>
