@@ -14,7 +14,7 @@ export class TranslateMock {
             lang: lang,
             translations: [],
         };
-        this._onLangChange.emit(valueToEmit);
+        this.onLangChange.emit(valueToEmit);
     }
 
     addLangs(langs: string[]) {

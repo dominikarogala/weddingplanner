@@ -1,2 +1,2 @@
-export * from './localStorageMock';
-export * from './translateMock';
+export * from './services/localStorage.mock';
+export * from './services/translate.mock';
