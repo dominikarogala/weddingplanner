@@ -7,6 +7,15 @@
         <mat-panel-title>
             {{ category.name }}
         </mat-panel-title>
+        <div class="category--progress">
+            <span>Postęp przygotowań: {{ progress }}%</span>
+            <mat-progress-bar
+                class="category--progress-bar"
+                color="primary"
+                mode="determinate"
+                [value]="progress">
+            </mat-progress-bar>
+        </div>
     </mat-expansion-panel-header>
 
     <button mat-raised-button color="primary">
