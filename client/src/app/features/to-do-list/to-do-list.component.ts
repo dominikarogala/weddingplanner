@@ -15,18 +15,18 @@ export class ToDoListComponent implements OnInit {
                     name: 'Wybierz datę ślubu',
                     endDate: '01-01-2022',
                     isFinished: false,
-                    notes: '',
+                    notes: 'gfdgfd gdf gdf g df g d',
                 },
                 {
                     name: 'Wybierz rodzaj ślubu',
                     endDate: '01-01-2022',
-                    isFinished: false,
-                    notes: '',
+                    isFinished: true,
+                    notes: 'gdfgdf g df gdf g df gd fg df gdfhgfhbdgfch n dtyxh bf',
                 },
                 {
                     name: 'Wybierz miejsce ślubu',
                     endDate: '01-01-2022',
-                    isFinished: false,
+                    isFinished: true,
                     notes: '',
                 },
                 {

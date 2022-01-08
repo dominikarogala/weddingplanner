@@ -1,33 +1,36 @@
-<div class="buttons">
-    <button mat-raised-button color="primary">
-        <mat-icon>add</mat-icon>
-        <span>
-            {{ 'toDoList.addCategory' | translate }}
-        </span>
-    </button>
-    <button mat-raised-button color="primary">
-        <mat-icon>save_alt</mat-icon>
-        <span>
-            {{ 'toDoList.downloadToDoList' | translate }}
-        </span>
-    </button>
-</div>
 <div class="table">
-    <ng-container *ngIf="!!categories.length; else emptyCategories">
-        <button mat-button color="primary" (click)="accordion.openAll()">
-            <span> rozwin </span>
-        </button>
-        <button mat-button color="primary" (click)="accordion.closeAll()">
-            <span> zwin </span>
-        </button>
+    <div class="table--buttons">
+        <div>
+            <button mat-raised-button color="primary">
+                <mat-icon>add</mat-icon>
+                <span>
+                    {{ 'toDoList.addCategory' | translate }}
+                </span>
+            </button>
+            <button mat-raised-button color="accent">
+                <mat-icon>save_alt</mat-icon>
+                <span>
+                    {{ 'toDoList.downloadToDoList' | translate }}
+                </span>
+            </button>
+        </div>
+        <div>
+            <button mat-button color="primary" (click)="accordion.openAll()">
+                <span> {{ 'toDoList.expandAll' | translate }} </span>
+            </button>
+            <button mat-button color="primary" (click)="accordion.closeAll()">
+                <span> {{ 'toDoList.collapseAll' | translate }} </span>
+            </button>
+        </div>
+    </div>
 
-        <mat-accordion #accordion="matAccordion" [multi]="true">
-            <wp-table-category
-                *ngFor="let category of categories"
-                [category]="category">
-            </wp-table-category>
-        </mat-accordion>
-    </ng-container>
+    <mat-accordion #accordion="matAccordion" [multi]="true">
+        <wp-table-category
+            *ngFor="let category of categories"
+            [category]="category">
+        </wp-table-category>
+    </mat-accordion>
+
     <ng-template #emptyCategories>
         <p>Brak kategorii!</p>
     </ng-template>

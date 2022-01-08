@@ -1,6 +1,17 @@
-<div>
-    <p>{{ task.name }}</p>
-    <p>{{ task.endDate }}</p>
-    <p>{{ task.isFinished }}</p>
-    <p>{{ task.notes }}</p>
+<div class="task">
+    <div
+        class="task--header"
+        (click)="isDescriptionVisible = !isDescriptionVisible">
+        <mat-checkbox
+            class="example-margin"
+            [(ngModel)]="task.isFinished"></mat-checkbox>
+        <span>{{ task.name }}</span>
+        <span>{{ task.endDate }}</span>
+    </div>
+    <div class="task--description" *ngIf="isDescriptionVisible">
+        <mat-form-field class="task--description-text" appearance="fill">
+            <mat-label>{{ 'toDoList.addNotes' | translate }}</mat-label>
+            <textarea matInput [(ngModel)]="task.notes"></textarea>
+        </mat-form-field>
+    </div>
 </div>

@@ -9,6 +9,8 @@ import { ITask } from 'src/app/features/models/toDoList.model';
 export class TableElementComponent implements OnInit {
     @Input() task!: ITask;
 
+    isDescriptionVisible = false;
+
     constructor() {}
 
     ngOnInit(): void {}

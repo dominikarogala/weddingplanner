@@ -5,7 +5,11 @@
     "toDoList": {
         "title": "Tasks",
         "description": "",
-        "addCategory": "add category",
-        "downloadToDoList": "download tasks list"
+        "addCategory": "add new category",
+        "addTask": "add new task",
+        "downloadToDoList": "download tasks list",
+        "expandAll": "expand all",
+        "collapseAll": "collapse all",
+        "addNotes": "Add some notes..."
     }
 }

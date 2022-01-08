@@ -9,7 +9,12 @@ import { TableElementComponent } from './components/table-element/table-element.
 import { TableCategoryComponent } from './components/table-category/table-category.component';
 
 @NgModule({
-    declarations: [ToDoListComponent, TableComponent, TableElementComponent, TableCategoryComponent],
-    imports: [CommonModule, ToDoListRoutingModule, SharedModule],
+    declarations: [
+        ToDoListComponent,
+        TableComponent,
+        TableElementComponent,
+        TableCategoryComponent,
+    ],
+    imports: [ToDoListRoutingModule, SharedModule],
 })
 export class ToDoListModule {}
