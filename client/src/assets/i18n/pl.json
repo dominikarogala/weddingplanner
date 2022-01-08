@@ -1,5 +1,15 @@
 {
     "header": { 
         "title":"Moje wesele"
+    },
+    "toDoList": {
+        "title": "Zadania",
+        "description": "Zorganizuj i zaplanuj swój czas. Dzięki liście zadań do zrobienia nie zapomnisz o niczym!",
+        "addCategory": "dodaj kategorię",
+        "addTask": "dodaj zadanie",
+        "downloadToDoList": "pobierz listę zadań",
+        "expandAll": "rozwiń wszystkie",
+        "collapseAll": "zwiń wszystkie",
+        "addNotes": "Dodaj notatki..."
     }
 }

@@ -1,0 +1,31 @@
+<mat-expansion-panel
+    class="category"
+    [ngClass]="{ 'category--open': panelOpenState }"
+    (opened)="panelOpenState = true"
+    (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            {{ category.name }}
+        </mat-panel-title>
+        <div class="category--progress">
+            <span>Postęp przygotowań: {{ progress }}%</span>
+            <mat-progress-bar
+                class="category--progress-bar"
+                color="primary"
+                mode="determinate"
+                [value]="progress">
+            </mat-progress-bar>
+        </div>
+    </mat-expansion-panel-header>
+
+    <button mat-raised-button color="primary">
+        <mat-icon>add</mat-icon>
+        <span>
+            {{ 'toDoList.addTask' | translate }}
+        </span>
+    </button>
+
+    <wp-table-element
+        *ngFor="let task of category.tasks"
+        [task]="task"></wp-table-element>
+</mat-expansion-panel>
