@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ICategory } from 'src/app/features/models/toDoList.model';
+import { ICategory } from 'src/app/features/to-do-list/models/toDoList.model';
 
 @Component({
     selector: 'wp-table-category',
@@ -16,11 +16,9 @@ export class TableCategoryComponent implements OnInit {
 
     ngOnInit(): void {
         this.progress = this._calculateProgress();
-        console.log(this.progress);
     }
 
     private _calculateProgress(): number {
-        debugger;
         if (this.category.tasks.length < 1) {
             return 0;
         }

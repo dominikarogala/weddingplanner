@@ -2,6 +2,9 @@
     "header": { 
         "title":"My wedding"
     },
+    "budget": {
+        "title": "Budget"
+    },
     "toDoList": {
         "title": "Tasks",
         "description": "",
@@ -10,6 +13,7 @@
         "downloadToDoList": "download tasks list",
         "expandAll": "expand all",
         "collapseAll": "collapse all",
-        "addNotes": "Add some notes..."
+        "addNotes": "Add some notes...",
+        "progress": "Progress of the arrangements"
     }
 }
