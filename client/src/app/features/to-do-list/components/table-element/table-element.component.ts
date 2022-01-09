@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ITask } from 'src/app/features/models/toDoList.model';
+import { ITask } from 'src/app/features/to-do-list/models/toDoList.model';
 
 @Component({
     selector: 'wp-table-element',

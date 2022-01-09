@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ICategory } from '../models/toDoList.model';
+import { ICategory } from './models/toDoList.model';
 
 @Component({
     selector: 'wp-to-do-list',

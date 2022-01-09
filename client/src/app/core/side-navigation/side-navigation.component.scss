@@ -1,0 +1,36 @@
+@import 'variables.scss';
+
+.navigation {
+    height: 100vh;
+
+    &--bar {
+        width: 220px;
+        background-color: $accent;
+        color: $white;
+    }
+
+    &--item {
+        padding: 10px 25px;
+        column-gap: 5px;
+        display: flex;
+        align-items: center;
+
+        &:hover {
+            cursor: pointer;
+            background-color: $accent2;
+        }
+    }
+}
+
+.logo {
+    border: 3px solid $accent-light;
+    margin: 10px 10px 40px 10px;
+
+    h2 {
+        color: $accent-light;
+        margin: 0;
+        padding: 5px 10px;
+        text-align: center;
+        font-family: 'Montserrat', sans-serif;
+    }
+}
