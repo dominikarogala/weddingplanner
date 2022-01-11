@@ -10,6 +10,8 @@
         "description": "Zorganizuj i zaplanuj swój czas. Dzięki liście zadań do zrobienia nie zapomnisz o niczym!",
         "addCategory": "dodaj kategorię",
         "addTask": "dodaj zadanie",
+        "editTask": "edytuj zadanie",
+        "deleteTask": "usuń zadanie",
         "downloadToDoList": "pobierz listę zadań",
         "expandAll": "rozwiń wszystkie",
         "collapseAll": "zwiń wszystkie",

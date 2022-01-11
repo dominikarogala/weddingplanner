@@ -12,6 +12,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { Components } from './components';
 import { FormsModule } from '@angular/forms';
@@ -28,6 +29,7 @@ const materialModules = [
     MatMenuModule,
     MatProgressBarModule,
     MatSidenavModule,
+    MatTooltipModule,
 ];
 
 @NgModule({

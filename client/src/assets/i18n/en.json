@@ -10,6 +10,8 @@
         "description": "",
         "addCategory": "add new category",
         "addTask": "add new task",
+        "editTask": "edit task",
+        "deleteTask": "delete task",
         "downloadToDoList": "download tasks list",
         "expandAll": "expand all",
         "collapseAll": "collapse all",

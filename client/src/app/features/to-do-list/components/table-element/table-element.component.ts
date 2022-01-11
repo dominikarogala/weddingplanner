@@ -14,4 +14,12 @@ export class TableElementComponent implements OnInit {
     constructor() {}
 
     ngOnInit(): void {}
+
+    editTask(): void {
+        console.log('EDIT');
+    }
+
+    deleteTask(): void {
+        console.log('DELETE');
+    }
 }
