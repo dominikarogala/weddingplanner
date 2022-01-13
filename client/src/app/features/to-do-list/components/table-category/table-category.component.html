@@ -27,5 +27,6 @@
 
     <wp-table-element
         *ngFor="let task of category.tasks"
-        [task]="task"></wp-table-element>
+        [task]="task"
+        (deleteTask)="onDeleteTask($event)"></wp-table-element>
 </mat-expansion-panel>

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ICategory } from 'src/app/features/to-do-list/models/toDoList.model';
+import { ICategory } from 'src/app/features/to-do-list/models/tasks.model';
 
 @Component({
     selector: 'wp-table-category',
@@ -16,6 +16,14 @@ export class TableCategoryComponent implements OnInit {
 
     ngOnInit(): void {
         this.progress = this._calculateProgress();
+    }
+
+    onDeleteTask(id: string): void {
+        const index = this.category.tasks.findIndex((task) => task.id === id);
+
+        if (index > -1) {
+            this.category.tasks.splice(index, 1);
+        }
     }
 
     private _calculateProgress(): number {

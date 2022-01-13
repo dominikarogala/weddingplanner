@@ -17,11 +17,28 @@
             </button>
             <button
                 mat-icon-button
+                [matMenuTriggerFor]="deleteMenu"
                 [matTooltip]="'toDoList.deleteTask' | translate"
-                (click)="deleteTask(); $event.stopPropagation()"
+                (click)="$event.stopPropagation()"
                 class="task--icons-delete">
                 <mat-icon>delete</mat-icon>
             </button>
+            <mat-menu #deleteMenu="matMenu">
+                <div class="popup">
+                    <h4>{{ 'toDoList.deleteTaskQuestion' | translate }}</h4>
+                    <div class="popup--buttons">
+                        <button mat-stroked-button>
+                            {{ 'app.no' | translate }}
+                        </button>
+                        <button
+                            mat-raised-button
+                            color="primary"
+                            (click)="deleteTask.emit(task.id)">
+                            {{ 'app.yes' | translate }}
+                        </button>
+                    </div>
+                </div>
+            </mat-menu>
         </div>
     </div>
     <div class="task--description" *ngIf="isDescriptionVisible">

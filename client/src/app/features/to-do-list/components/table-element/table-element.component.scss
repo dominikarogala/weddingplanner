@@ -45,3 +45,13 @@
         }
     }
 }
+
+.popup {
+    padding: 5px 15px;
+
+    &--buttons {
+        display: flex;
+        justify-content: flex-end;
+        column-gap: 10px;
+    }
+}

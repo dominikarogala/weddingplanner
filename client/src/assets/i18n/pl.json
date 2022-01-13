@@ -16,6 +16,14 @@
         "expandAll": "rozwiń wszystkie",
         "collapseAll": "zwiń wszystkie",
         "addNotes": "Dodaj notatki...",
-        "progress": "Postęp przygotowań"
+        "progress": "Postęp przygotowań",
+        "deleteTaskQuestion": "Czy na pewno chcesz usunać zadanie?",
+        "newTaskTitle": "Dodaj nowe zadanie",
+        "taskEditionTitle": "Edytuj zadanie"
+    },
+    "app": {
+        "yes": "tak",
+        "no": "nie",
+        "cancel": "anuluj"
     }
 }

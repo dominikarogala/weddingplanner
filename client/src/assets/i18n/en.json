@@ -16,6 +16,14 @@
         "expandAll": "expand all",
         "collapseAll": "collapse all",
         "addNotes": "Add some notes...",
-        "progress": "Progress of the arrangements"
+        "progress": "Progress of the arrangements",
+        "deleteTaskQuestion": "Do you really want to delete the task?",
+        "newTaskTitle": "Add new task",
+        "taskEditionTitle": "Edit task"
+    },
+    "app": {
+        "yes": "yes",
+        "no": "no",
+        "cancel": "cancel"
     }
 }
