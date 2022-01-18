@@ -10,6 +10,7 @@ import { ITaskDialogData, TaskDialogMode } from '../../models/dialog.model';
 })
 export class TaskDialogComponent implements OnInit {
     title = '';
+    confirmButtonLabel = '';
 
     constructor(
         public dialogRef: MatDialogRef<TaskDialogComponent>,
@@ -21,6 +22,9 @@ export class TaskDialogComponent implements OnInit {
             this.data.mode === TaskDialogMode.Creation
                 ? 'toDoList.newTaskTitle'
                 : 'toDoList.taskEditionTitle';
+
+        this.confirmButtonLabel =
+            this.data.mode === TaskDialogMode.Creation ? 'app.add' : 'app.save';
     }
 
     onCancelClick(): void {

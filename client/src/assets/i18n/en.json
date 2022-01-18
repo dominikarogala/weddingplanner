@@ -19,11 +19,17 @@
         "progress": "Progress of the arrangements",
         "deleteTaskQuestion": "Do you really want to delete the task?",
         "newTaskTitle": "Add new task",
-        "taskEditionTitle": "Edit task"
+        "taskEditionTitle": "Edit task",
+        "taskName": "Task name",
+        "taskDate": "Task date",
+        "notes": "Notes",
+        "markAsDone": "Mark task as done"
     },
     "app": {
         "yes": "yes",
         "no": "no",
-        "cancel": "cancel"
+        "cancel": "cancel",
+        "save": "save",
+        "add": "add"
     }
 }

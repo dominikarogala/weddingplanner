@@ -31,6 +31,7 @@ export class TableElementComponent implements OnInit {
         };
 
         const dialogRef = this._dialog.open(TaskDialogComponent, {
+            width: '30rem',
             data: dialogData,
         });
 

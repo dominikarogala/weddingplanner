@@ -8,7 +8,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
-import { NgxLocalStorageModule } from 'ngx-localstorage';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);
@@ -28,7 +27,6 @@ export function HttpLoaderFactory(http: HttpClient) {
             },
         }),
         CoreModule,
-        NgxLocalStorageModule.forRoot(),
     ],
     providers: [],
     bootstrap: [AppComponent],

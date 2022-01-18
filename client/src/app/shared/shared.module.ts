@@ -14,6 +14,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { Components } from './components';
@@ -35,6 +36,7 @@ const materialModules = [
     MatNativeDateModule,
     MatProgressBarModule,
     MatSidenavModule,
+    MatSlideToggleModule,
     MatTooltipModule,
 ];
 

@@ -19,11 +19,17 @@
         "progress": "Postęp przygotowań",
         "deleteTaskQuestion": "Czy na pewno chcesz usunać zadanie?",
         "newTaskTitle": "Dodaj nowe zadanie",
-        "taskEditionTitle": "Edytuj zadanie"
+        "taskEditionTitle": "Edytuj zadanie",
+        "taskName": "Nazwa zadania",
+        "taskDate": "Data zadania",
+        "notes": "Notatki",
+        "markAsDone": "Oznacz zadanie jako wykonane"
     },
     "app": {
         "yes": "tak",
         "no": "nie",
-        "cancel": "anuluj"
+        "cancel": "anuluj",
+        "save": "zapisz",
+        "add": "dodaj"
     }
 }

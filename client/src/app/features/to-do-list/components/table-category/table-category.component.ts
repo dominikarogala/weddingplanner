@@ -1,5 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ICategory } from 'src/app/features/to-do-list/models/tasks.model';
+import { MatDialog } from '@angular/material/dialog';
+
+import {
+    ICategory,
+    ITask,
+    Task,
+} from 'src/app/features/to-do-list/models/tasks.model';
+import { ITaskDialogData, TaskDialogMode } from '../../models/dialog.model';
+import { TaskDialogComponent } from '../task-dialog/task-dialog.component';
 
 @Component({
     selector: 'wp-table-category',
@@ -12,7 +20,7 @@ export class TableCategoryComponent implements OnInit {
     panelOpenState = false;
     progress = 0;
 
-    constructor() {}
+    constructor(private _dialog: MatDialog) {}
 
     ngOnInit(): void {
         this.progress = this._calculateProgress();
@@ -24,6 +32,24 @@ export class TableCategoryComponent implements OnInit {
         if (index > -1) {
             this.category.tasks.splice(index, 1);
         }
+    }
+
+    openDialog(): void {
+        const dialogData: ITaskDialogData = {
+            mode: TaskDialogMode.Creation,
+            task: new Task(),
+        };
+
+        const dialogRef = this._dialog.open(TaskDialogComponent, {
+            width: '30rem',
+            data: dialogData,
+        });
+
+        dialogRef.afterClosed().subscribe((result: ITask) => {
+            if (!!result) {
+                this.category.tasks.push(result);
+            }
+        });
     }
 
     private _calculateProgress(): number {

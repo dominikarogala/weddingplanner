@@ -1,4 +1,8 @@
 .dialog {
     display: flex;
     flex-direction: column;
+
+    &--switch {
+        margin: 10px 0;
+    }
 }

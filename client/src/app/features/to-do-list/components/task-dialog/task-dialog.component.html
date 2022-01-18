@@ -1,12 +1,16 @@
 <h1 mat-dialog-title>{{ title | translate }}</h1>
 <div mat-dialog-content class="dialog">
+    <mat-slide-toggle
+        class="dialog--switch"
+        [(ngModel)]="data.task.isFinished"
+        >{{ 'toDoList.markAsDone' | translate }}</mat-slide-toggle
+    >
     <mat-form-field appearance="fill">
-        <mat-label>Nazwa zadania</mat-label>
+        <mat-label>{{ 'toDoList.taskName' | translate }}</mat-label>
         <input matInput [(ngModel)]="data.task.name" />
     </mat-form-field>
-
     <mat-form-field appearance="fill">
-        <mat-label>Data zadania</mat-label>
+        <mat-label>{{ 'toDoList.taskDate' | translate }}</mat-label>
         <input
             matInput
             [matDatepicker]="picker"
@@ -16,15 +20,19 @@
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-        <mat-label>Notatki</mat-label>
+        <mat-label>{{ 'toDoList.notes' | translate }}</mat-label>
         <textarea matInput [(ngModel)]="data.task.notes"></textarea>
     </mat-form-field>
 </div>
-<div mat-dialog-actions>
-    <button mat-button (click)="onCancelClick()">
+<div mat-dialog-actions align="end">
+    <button mat-stroked-button (click)="onCancelClick()">
         {{ 'app.cancel' | translate }}
     </button>
-    <button mat-button [mat-dialog-close]="data.task" cdkFocusInitial>
-        Ok
+    <button
+        mat-raised-button
+        color="primary"
+        [mat-dialog-close]="data.task"
+        cdkFocusInitial>
+        {{ confirmButtonLabel | translate }}
     </button>
 </div>
