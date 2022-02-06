@@ -6,7 +6,7 @@
             [(ngModel)]="task.isFinished"
             (click)="$event.stopPropagation()"></mat-checkbox>
         <span>{{ task.name }}</span>
-        <span>{{ task.endDate }}</span>
+        <span>{{ task.endDate | date: 'dd-MM-yyyy' }}</span>
         <div class="task--icons">
             <button
                 mat-icon-button

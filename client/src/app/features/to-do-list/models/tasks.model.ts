@@ -15,7 +15,7 @@ export class Task implements ITask {
 
     constructor() {
         this.name = '';
-        this.endDate = new Date().toString();
+        this.endDate = '';
         this.isFinished = false;
         this.notes = '';
     }
