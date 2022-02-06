@@ -3,10 +3,43 @@
         class="task--header"
         (click)="isDescriptionVisible = !isDescriptionVisible">
         <mat-checkbox
-            class="example-margin"
-            [(ngModel)]="task.isFinished"></mat-checkbox>
+            [(ngModel)]="task.isFinished"
+            (click)="$event.stopPropagation()"></mat-checkbox>
         <span>{{ task.name }}</span>
-        <span>{{ task.endDate }}</span>
+        <span>{{ task.endDate | date: 'dd-MM-yyyy' }}</span>
+        <div class="task--icons">
+            <button
+                mat-icon-button
+                [matTooltip]="'toDoList.editTask' | translate"
+                (click)="editTask(); $event.stopPropagation()"
+                class="task--icons-edit">
+                <mat-icon>edit</mat-icon>
+            </button>
+            <button
+                mat-icon-button
+                [matMenuTriggerFor]="deleteMenu"
+                [matTooltip]="'toDoList.deleteTask' | translate"
+                (click)="$event.stopPropagation()"
+                class="task--icons-delete">
+                <mat-icon>delete</mat-icon>
+            </button>
+            <mat-menu #deleteMenu="matMenu">
+                <div class="popup">
+                    <h4>{{ 'toDoList.deleteTaskQuestion' | translate }}</h4>
+                    <div class="popup--buttons">
+                        <button mat-stroked-button>
+                            {{ 'app.no' | translate }}
+                        </button>
+                        <button
+                            mat-raised-button
+                            color="primary"
+                            (click)="deleteTask.emit(task.id)">
+                            {{ 'app.yes' | translate }}
+                        </button>
+                    </div>
+                </div>
+            </mat-menu>
+        </div>
     </div>
     <div class="task--description" *ngIf="isDescriptionVisible">
         <mat-form-field class="task--description-text" appearance="fill">

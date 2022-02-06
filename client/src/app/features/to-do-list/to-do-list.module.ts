@@ -7,6 +7,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { TableComponent } from './components/table/table.component';
 import { TableElementComponent } from './components/table-element/table-element.component';
 import { TableCategoryComponent } from './components/table-category/table-category.component';
+import { TaskDialogComponent } from './components/task-dialog/task-dialog.component';
 
 @NgModule({
     declarations: [
@@ -14,6 +15,7 @@ import { TableCategoryComponent } from './components/table-category/table-catego
         TableComponent,
         TableElementComponent,
         TableCategoryComponent,
+        TaskDialogComponent,
     ],
     imports: [ToDoListRoutingModule, SharedModule],
 })

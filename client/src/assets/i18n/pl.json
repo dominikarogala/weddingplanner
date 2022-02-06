@@ -10,10 +10,26 @@
         "description": "Zorganizuj i zaplanuj swój czas. Dzięki liście zadań do zrobienia nie zapomnisz o niczym!",
         "addCategory": "dodaj kategorię",
         "addTask": "dodaj zadanie",
+        "editTask": "edytuj zadanie",
+        "deleteTask": "usuń zadanie",
         "downloadToDoList": "pobierz listę zadań",
         "expandAll": "rozwiń wszystkie",
         "collapseAll": "zwiń wszystkie",
         "addNotes": "Dodaj notatki...",
-        "progress": "Postęp przygotowań"
+        "progress": "Postęp przygotowań",
+        "deleteTaskQuestion": "Czy na pewno chcesz usunać zadanie?",
+        "newTaskTitle": "Dodaj nowe zadanie",
+        "taskEditionTitle": "Edytuj zadanie",
+        "taskName": "Nazwa zadania",
+        "taskDate": "Data zadania",
+        "notes": "Notatki",
+        "markAsDone": "Oznacz zadanie jako wykonane"
+    },
+    "app": {
+        "yes": "tak",
+        "no": "nie",
+        "cancel": "anuluj",
+        "save": "zapisz",
+        "add": "dodaj"
     }
 }

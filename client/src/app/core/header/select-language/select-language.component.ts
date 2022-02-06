@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
-import { LocalStorageService } from 'ngx-localstorage';
 
 import { LocalStorage } from 'src/app/shared/constants';
 @Component({
@@ -21,10 +20,7 @@ export class SelectLanguageComponent implements OnInit {
         },
     ];
 
-    constructor(
-        private _translate: TranslateService,
-        private _localStorage: LocalStorageService
-    ) {}
+    constructor(private _translate: TranslateService) {}
 
     ngOnInit(): void {
         this._translate.onLangChange.subscribe((event: LangChangeEvent) => {
@@ -37,7 +33,7 @@ export class SelectLanguageComponent implements OnInit {
     selectLang(index: number): void {
         const selectedLang = this.langs[index].label;
 
-        this._localStorage.set(LocalStorage.LANG, selectedLang);
+        localStorage.setItem(LocalStorage.LANG, selectedLang);
         this._translate.use(selectedLang);
     }
 }

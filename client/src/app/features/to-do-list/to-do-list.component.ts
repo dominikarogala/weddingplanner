@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ICategory } from './models/toDoList.model';
+import { ICategory } from './models/tasks.model';
 
 @Component({
     selector: 'wp-to-do-list',
@@ -12,24 +12,28 @@ export class ToDoListComponent implements OnInit {
             name: 'Planowanie',
             tasks: [
                 {
+                    id: '1',
                     name: 'Wybierz datę ślubu',
                     endDate: '01-01-2022',
                     isFinished: false,
                     notes: 'gfdgfd gdf gdf g df g d',
                 },
                 {
+                    id: '2',
                     name: 'Wybierz rodzaj ślubu',
                     endDate: '01-01-2022',
                     isFinished: true,
                     notes: 'gdfgdf g df gdf g df gd fg df gdfhgfhbdgfch n dtyxh bf',
                 },
                 {
+                    id: '3',
                     name: 'Wybierz miejsce ślubu',
                     endDate: '01-01-2022',
                     isFinished: true,
                     notes: '',
                 },
                 {
+                    id: '4',
                     name: 'Wybierz miejsce wesela',
                     endDate: '01-01-2022',
                     isFinished: false,
@@ -41,6 +45,7 @@ export class ToDoListComponent implements OnInit {
             name: 'Formalności',
             tasks: [
                 {
+                    id: 'dfw3',
                     name: 'Poinformuj o urlopie w pracy',
                     endDate: '01-01-2022',
                     isFinished: false,

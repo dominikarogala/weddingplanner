@@ -10,10 +10,26 @@
         "description": "",
         "addCategory": "add new category",
         "addTask": "add new task",
+        "editTask": "edit task",
+        "deleteTask": "delete task",
         "downloadToDoList": "download tasks list",
         "expandAll": "expand all",
         "collapseAll": "collapse all",
         "addNotes": "Add some notes...",
-        "progress": "Progress of the arrangements"
+        "progress": "Progress of the arrangements",
+        "deleteTaskQuestion": "Do you really want to delete the task?",
+        "newTaskTitle": "Add new task",
+        "taskEditionTitle": "Edit task",
+        "taskName": "Task name",
+        "taskDate": "Task date",
+        "notes": "Notes",
+        "markAsDone": "Mark task as done"
+    },
+    "app": {
+        "yes": "yes",
+        "no": "no",
+        "cancel": "cancel",
+        "save": "save",
+        "add": "add"
     }
 }
