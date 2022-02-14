@@ -30,6 +30,13 @@
         "no": "nie",
         "cancel": "anuluj",
         "save": "zapisz",
-        "add": "dodaj"
+        "add": "dodaj",
+        "signin":"zaloguj się",
+        "signup": "zarejestruj się",
+        "login": "login",
+        "password": "hasło",
+        "email": "email",
+        "name": "imię",
+        "confirmPassword": "potwierdź hasło"
     }
 }

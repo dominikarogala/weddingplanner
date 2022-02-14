@@ -1,0 +1,24 @@
+<div class="register">
+    <h2>Rejestracja</h2>
+    <mat-form-field appearance="fill">
+        <mat-label>{{ 'app.name' | translate }}</mat-label>
+        <input matInput required />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>{{ 'app.email' | translate }}</mat-label>
+        <input matInput required />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>{{ 'app.password' | translate }}</mat-label>
+        <input type="password" matInput required />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>{{ 'app.confirmPassword' | translate }}</mat-label>
+        <input type="password" matInput required />
+    </mat-form-field>
+    <button mat-raised-button color="primary" routerLink="/signin">
+        <span>
+            {{ 'app.signup' | translate }}
+        </span>
+    </button>
+</div>

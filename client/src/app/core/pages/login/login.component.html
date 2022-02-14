@@ -1,0 +1,16 @@
+<div class="login">
+    <h2>Logowanie</h2>
+    <mat-form-field appearance="fill">
+        <mat-label>{{ 'app.login' | translate }}</mat-label>
+        <input matInput required />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>{{ 'app.password' | translate }}</mat-label>
+        <input type="password" matInput required />
+    </mat-form-field>
+    <button mat-raised-button color="primary">
+        <span>
+            {{ 'app.signin' | translate }}
+        </span>
+    </button>
+</div>

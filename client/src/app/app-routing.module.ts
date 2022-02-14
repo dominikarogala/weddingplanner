@@ -1,30 +1,30 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
-import { HomeComponent } from './features/home/home.component';
+import { LandingpageComponent } from './core/pages/landingpage/landingpage.component';
+import { LoginComponent } from './core/pages/login/login.component';
+import { RegisterComponent } from './core/pages/register/register.component';
 
 const routes: Routes = [
     {
-        path: 'todos',
-        loadChildren: () =>
-            import('./features/to-do-list/to-do-list.module').then(
-                (m) => m.ToDoListModule
-            ),
+        path: 'landingpage',
+        component: LandingpageComponent,
     },
     {
-        path: 'budget',
-        loadChildren: () =>
-            import('./features/budget/budget.module').then(
-                (m) => m.BudgetModule
-            ),
+        path: 'signin',
+        component: LoginComponent,
     },
     {
-        path: 'home',
-        component: HomeComponent,
+        path: 'signup',
+        component: RegisterComponent,
+    },
+    {
+        path: 'app',
+        loadChildren: () =>
+            import('./features/features.module').then((m) => m.FeaturesModule),
     },
     {
         path: '**',
-        redirectTo: 'home',
+        redirectTo: 'landingpage',
     },
 ];
 
