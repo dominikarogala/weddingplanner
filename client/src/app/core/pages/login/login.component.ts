@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+
+interface ILoginData {
+    email: string;
+    password: string;
+}
 
 @Component({
-  selector: 'wp-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+    selector: 'wp-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.scss', '../styles.scss'],
 })
 export class LoginComponent implements OnInit {
+    loginData: ILoginData = { email: '', password: '' };
 
-  constructor() { }
+    constructor() {}
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {}
 
+    login(): void {}
 }
