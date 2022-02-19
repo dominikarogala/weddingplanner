@@ -1,9 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-
-interface ILoginData {
-    email: string;
-    password: string;
-}
+import { ILoginData } from '../../models';
 
 @Component({
     selector: 'wp-login',

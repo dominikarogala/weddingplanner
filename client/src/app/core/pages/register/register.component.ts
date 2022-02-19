@@ -1,12 +1,10 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import { IRegisterData } from '../../models';
 
-interface IRegisterData {
-    name: string;
-    email: string;
-    password: string;
-    repeatPassword: string;
-}
+import { AccountService } from '../../services';
 
 @Component({
     selector: 'wp-register',
@@ -21,9 +19,38 @@ export class RegisterComponent implements OnInit {
         repeatPassword: new FormControl('', Validators.required),
     });
 
-    constructor() {}
+    constructor(
+        private _account: AccountService,
+        private _toastr: ToastrService
+    ) {}
 
     ngOnInit(): void {}
 
-    onFormSubmit(): void {}
+    onFormSubmit(): void {
+        const accountData: IRegisterData = {
+            name: this.registerForm.get('name')?.value,
+            email: this.registerForm.get('email')?.value,
+            password: this.registerForm.get('password')?.value,
+        };
+
+        this._account.createAccount(accountData).subscribe({
+            next: (value) => {
+                this._toastr.success(
+                    'Udało się utworzyć dla Ciebie konto. Zaloguj się i baw się dobrze, podczas korzystania z Wedding Planner!',
+                    'Konto utworzone!'
+                );
+            },
+            error: (err: HttpErrorResponse) => {
+                debugger;
+                if (
+                    err.error.statusCode === 400 &&
+                    err.error.message === 'user exists'
+                ) {
+                    this._toastr.error(
+                        'Konto o podanym adresie e-mail już istnieje'
+                    );
+                }
+            },
+        });
+    }
 }

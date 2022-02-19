@@ -1,1 +1,3 @@
-const enum URLs {}
+export const enum ApiUrls {
+    users = 'users',
+}

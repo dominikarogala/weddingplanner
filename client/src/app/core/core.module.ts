@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { Pages } from './pages';
 import { SharedModule } from '../shared/shared.module';
 import { DoubleScreenComponent } from './components/double-screen/double-screen.component';
+import { AccountService } from './services';
 
 @NgModule({
     declarations: [...Pages, DoubleScreenComponent],
@@ -18,5 +19,6 @@ import { DoubleScreenComponent } from './components/double-screen/double-screen.
         SharedModule,
         RouterModule,
     ],
+    providers: [AccountService],
 })
 export class CoreModule {}
