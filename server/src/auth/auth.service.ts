@@ -1,31 +1,37 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
+import { User, UserViewModel } from 'src/users/users.model';
 
 import { UsersService } from 'src/users/users.service';
 
 @Injectable()
 export class AuthService {
-	constructor(
-		private _usersService: UsersService,
-		private _jwtService: JwtService,
-	) {}
+    constructor(private _usersService: UsersService, private _jwtService: JwtService) {}
 
-	async validateUser(username: string, password: string): Promise<any> {
-		// const user = await this._usersService.findOne(username);
+    async validateUser(email: string, password: string): Promise<UserViewModel> {
+        const user = await this._usersService.findUser(email);
 
-		// if (user && user.password === password) {
-		// 	const { password, username, ...rest } = user;
-		// 	return rest;
-		// }
+        if (!user) {
+            return null;
+        }
 
-		return null;
-	}
+        const isPasswordCorrect = await this._usersService.checkIsPasswordCorrect(password, user.password);
+        if (isPasswordCorrect) {
+            let viewModel: UserViewModel = {
+                userName: user.name,
+                userUuid: user.uuid,
+            };
+            return viewModel;
+        }
 
-	async login(user: any) {
-		const payload = { name: user.name, sub: user.id };
+        return null;
+    }
 
-		return {
-			access_token: this._jwtService.sign(payload),
-		};
-	}
+    async login(user: any) {
+        const payload = { name: user.name, sub: user.id };
+
+        return {
+            access_token: this._jwtService.sign(payload),
+        };
+    }
 }

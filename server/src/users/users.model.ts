@@ -14,3 +14,8 @@ export interface User extends mongoose.Document {
     uuid: string;
     password?: string;
 }
+
+export class UserViewModel {
+    userUuid: string;
+    userName: string;
+}

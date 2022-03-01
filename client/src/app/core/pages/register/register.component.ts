@@ -2,8 +2,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { IRegisterData } from '../../models';
 
+import { IRegisterData } from '../../models';
 import { AccountService } from '../../services';
 
 @Component({
@@ -36,12 +36,11 @@ export class RegisterComponent implements OnInit {
         this._account.createAccount(accountData).subscribe({
             next: (value) => {
                 this._toastr.success(
-                    'Udało się utworzyć dla Ciebie konto. Zaloguj się i baw się dobrze, podczas korzystania z Wedding Planner!',
+                    'Udało się utworzyć konto. Zaloguj się i baw się dobrze, podczas korzystania z Wedding Planner!',
                     'Konto utworzone!'
                 );
             },
             error: (err: HttpErrorResponse) => {
-                debugger;
                 if (
                     err.error.statusCode === 400 &&
                     err.error.message === 'user exists'

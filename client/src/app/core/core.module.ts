@@ -8,6 +8,7 @@ import { Pages } from './pages';
 import { SharedModule } from '../shared/shared.module';
 import { DoubleScreenComponent } from './components/double-screen/double-screen.component';
 import { AccountService } from './services';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
     declarations: [...Pages, DoubleScreenComponent],
@@ -19,6 +20,6 @@ import { AccountService } from './services';
         SharedModule,
         RouterModule,
     ],
-    providers: [AccountService],
+    providers: [AccountService, AuthService],
 })
 export class CoreModule {}

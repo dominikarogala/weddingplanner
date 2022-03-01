@@ -26,6 +26,15 @@ export class UsersService {
         await newUser.save();
     }
 
+    async findUser(email: string): Promise<User> {
+        const user = await this.userModel.findOne({ email });
+        return user;
+    }
+
+    async checkIsPasswordCorrect(password, hash) {
+        return await bcrypt.compare(password, hash);
+    }
+
     private async _createHash(password: string): Promise<string> {
         const salt = await bcrypt.genSalt();
         const hash = await bcrypt.hash(password, salt);
