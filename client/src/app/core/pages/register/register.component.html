@@ -1,0 +1,45 @@
+<wp-double-screen>
+    <form
+        class="form"
+        left
+        [formGroup]="registerForm"
+        (ngSubmit)="onFormSubmit()">
+        <h2 class="form--title">Rejestracja</h2>
+        <div class="form--data">
+            <mat-form-field appearance="fill">
+                <mat-label>{{ 'app.name' | translate }}</mat-label>
+                <input matInput required formControlName="name" />
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>{{ 'app.email' | translate }}</mat-label>
+                <input matInput required formControlName="email" />
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>{{ 'app.password' | translate }}</mat-label>
+                <input
+                    type="password"
+                    matInput
+                    required
+                    formControlName="password" />
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>{{ 'app.confirmPassword' | translate }}</mat-label>
+                <input
+                    type="password"
+                    matInput
+                    required
+                    formControlName="repeatPassword" />
+            </mat-form-field>
+        </div>
+
+        <button
+            mat-raised-button
+            color="primary"
+            type="submit"
+            [disabled]="!registerForm.valid">
+            <span>
+                {{ 'app.signup' | translate }}
+            </span>
+        </button>
+    </form>
+</wp-double-screen>

@@ -1,27 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
-
-import { HeaderComponent } from './header/header.component';
-import { SharedModule } from '../shared/shared.module';
-import { SelectLanguageComponent } from './header/select-language/select-language.component';
-import { SideNavigationComponent } from './side-navigation/side-navigation.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
+import { Pages } from './pages';
+import { SharedModule } from '../shared/shared.module';
+import { DoubleScreenComponent } from './components/double-screen/double-screen.component';
+import { AccountService } from './services';
+import { AuthService } from './services/auth.service';
+
 @NgModule({
-    declarations: [
-        HeaderComponent,
-        SelectLanguageComponent,
-        SideNavigationComponent,
-    ],
+    declarations: [...Pages, DoubleScreenComponent],
     imports: [
         CommonModule,
         HttpClientModule,
         FormsModule,
+        ReactiveFormsModule,
         SharedModule,
         RouterModule,
     ],
-    exports: [HeaderComponent, SideNavigationComponent],
+    providers: [AccountService, AuthService],
 })
 export class CoreModule {}

@@ -18,9 +18,9 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { Components } from './components';
-import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+
 import { MatNativeDateModule } from '@angular/material/core';
+import { FormsModule } from '@angular/forms';
 
 const materialModules = [
     MatButtonModule,
