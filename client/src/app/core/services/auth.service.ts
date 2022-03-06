@@ -27,7 +27,6 @@ export class AuthService {
     }
 
     private _checkIsTokenExpired(): boolean {
-        debugger;
         const token = this.getToken();
         const expirationTime = JSON.parse(atob(token.split('.')[1])).exp;
         const x = Math.floor(new Date().getTime() / 1000) >= expirationTime;
