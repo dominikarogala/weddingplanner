@@ -17,6 +17,6 @@ export class TenantsService {
     }
 
     async findById(name: string): Promise<ITenant> {
-        return await this._tenantModel.findOne({ name });
+        return await this._tenantModel.findOne({ tenantId: name });
     }
 }

@@ -3,7 +3,6 @@ import { InjectModel } from '@nestjs/mongoose';
 import { randomUUID } from 'crypto';
 import { Model } from 'mongoose';
 
-import * as mongoose from 'mongoose';
 import * as bcrypt from 'bcrypt';
 
 import { UserValidator } from 'src/shared/validators/user.validator';
