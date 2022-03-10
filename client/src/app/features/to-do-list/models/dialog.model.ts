@@ -1,21 +1,16 @@
 import { ITask, Task } from './tasks.model';
 
-export const enum TaskDialogMode {
+export const enum DialogMode {
     Creation,
     Edition,
 }
-
-export interface ITaskDialogData {
-    mode: TaskDialogMode;
+interface IDialogMode {
+    mode: DialogMode;
+}
+export interface ITaskDialogData extends IDialogMode {
     task: ITask;
 }
 
-export class TaskDialogData implements ITaskDialogData {
-    mode: TaskDialogMode;
-    task: ITask;
-
-    constructor() {
-        this.mode = TaskDialogMode.Creation;
-        this.task = new Task();
-    }
+export interface ICategoryDialogData extends IDialogMode {
+    categoryName: string;
 }

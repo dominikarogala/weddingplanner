@@ -6,7 +6,7 @@ import {
     ITask,
     Task,
 } from 'src/app/features/to-do-list/models/tasks.model';
-import { ITaskDialogData, TaskDialogMode } from '../../models/dialog.model';
+import { ITaskDialogData, DialogMode } from '../../models/dialog.model';
 import { TaskDialogComponent } from '../task-dialog/task-dialog.component';
 
 @Component({
@@ -36,7 +36,7 @@ export class TableCategoryComponent implements OnInit {
 
     openDialog(): void {
         const dialogData: ITaskDialogData = {
-            mode: TaskDialogMode.Creation,
+            mode: DialogMode.Creation,
             task: new Task(),
         };
 

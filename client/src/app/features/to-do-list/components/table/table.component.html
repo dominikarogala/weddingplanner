@@ -1,7 +1,10 @@
 <div class="table">
     <div class="table--buttons">
         <div>
-            <button mat-raised-button color="primary">
+            <button
+                mat-raised-button
+                color="primary"
+                (click)="openNewCategoryDialog()">
                 <mat-icon>add</mat-icon>
                 <span>
                     {{ 'toDoList.addCategory' | translate }}

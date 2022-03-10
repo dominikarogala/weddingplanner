@@ -23,7 +23,10 @@
         "taskName": "Task name",
         "taskDate": "Task date",
         "notes": "Notes",
-        "markAsDone": "Mark task as done"
+        "markAsDone": "Mark task as done",
+        "categoryName": "Category name",
+        "newCategoryTitle": "Add new category",
+        "categoryEditionTitle": "Edit category name"
     },
     "app": {
         "yes": "yes",

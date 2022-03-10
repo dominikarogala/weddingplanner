@@ -23,7 +23,10 @@
         "taskName": "Nazwa zadania",
         "taskDate": "Data zadania",
         "notes": "Notatki",
-        "markAsDone": "Oznacz zadanie jako wykonane"
+        "markAsDone": "Oznacz zadanie jako wykonane",
+        "categoryName": "Nazwa kategorii",
+        "newCategoryTitle": "Dodaj nową kategorię",
+        "categoryEditionTitle": "Edytuj nazwę kategorii"
     },
     "app": {
         "yes": "tak",

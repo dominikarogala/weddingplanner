@@ -1,0 +1,21 @@
+<h1 mat-dialog-title>{{ title | translate }}</h1>
+<div mat-dialog-content>
+    <mat-form-field appearance="fill" style="width: 100%">
+        <mat-label>{{ 'toDoList.categoryName' | translate }}</mat-label>
+        <input matInput [(ngModel)]="data.categoryName" required />
+    </mat-form-field>
+</div>
+
+<div mat-dialog-actions align="end">
+    <button mat-stroked-button (click)="onCancelClick()">
+        {{ 'app.cancel' | translate }}
+    </button>
+    <button
+        mat-raised-button
+        color="primary"
+        [mat-dialog-close]="data.categoryName"
+        [disabled]="!data.categoryName.length"
+        cdkFocusInitial>
+        {{ confirmButtonLabel | translate }}
+    </button>
+</div>

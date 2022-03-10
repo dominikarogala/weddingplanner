@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ITask } from 'src/app/features/to-do-list/models/tasks.model';
-import { ITaskDialogData, TaskDialogMode } from '../../models/dialog.model';
+import { ITaskDialogData, DialogMode } from '../../models/dialog.model';
 import { TaskDialogComponent } from '../task-dialog/task-dialog.component';
 
 @Component({
@@ -26,7 +26,7 @@ export class TableElementComponent implements OnInit {
 
     openDialog(): void {
         const dialogData: ITaskDialogData = {
-            mode: TaskDialogMode.Edition,
+            mode: DialogMode.Edition,
             task: { ...this.task },
         };
 

@@ -8,6 +8,7 @@ import { TableComponent } from './components/table/table.component';
 import { TableElementComponent } from './components/table-element/table-element.component';
 import { TableCategoryComponent } from './components/table-category/table-category.component';
 import { TaskDialogComponent } from './components/task-dialog/task-dialog.component';
+import { CategoryDialogComponent } from './components/category-dialog/category-dialog.component';
 
 @NgModule({
     declarations: [
@@ -16,6 +17,7 @@ import { TaskDialogComponent } from './components/task-dialog/task-dialog.compon
         TableElementComponent,
         TableCategoryComponent,
         TaskDialogComponent,
+        CategoryDialogComponent,
     ],
     imports: [ToDoListRoutingModule, SharedModule],
 })
