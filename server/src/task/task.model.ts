@@ -4,7 +4,6 @@ export interface Task extends mongoose.Document {
     endDate: string;
     isFinished: boolean;
     notes: string;
-    id?: string;
 }
 
 export interface Category extends mongoose.Document {

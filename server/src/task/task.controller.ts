@@ -1,4 +1,4 @@
-import { Body, Controller, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 import { Task } from './task.model';
 import { TaskService } from './task.service';
@@ -7,15 +7,21 @@ import { TaskService } from './task.service';
 export class TaskController {
     constructor(private readonly _taskService: TaskService) {}
 
+    @Post()
+    async addNewTask(@Body('categoryId') categoryId: string, @Body('task') task: Task): Promise<string> {
+        const generatedId = await this._taskService.addNewTask(categoryId, task);
+        return generatedId;
+    }
+
     @Post('category')
-    async addCategory(@Body('category') categoryName: string): Promise<string> {
+    async addNewCategory(@Body('category') categoryName: string): Promise<string> {
         const generatedId = await this._taskService.addNewCategory(categoryName);
         return generatedId;
     }
 
-    @Post()
-    async addTask(@Body() task: Task) {
-        const generatedId = await this._taskService.addNewTask(task);
-        return { id: generatedId };
+    @Get()
+    async getAllTasks() {
+        const allTasks = await this._taskService.getAllTasks();
+        return allTasks;
     }
 }

@@ -7,11 +7,14 @@ export class TenantAwareMiddleware implements NestMiddleware {
 
     async use(req: any, res: any, next: () => void) {
         const { headers } = req;
-        const authorization = headers.authorization.replace('Bearer ', '');
-        const token = this._jwtService.decode(authorization);
-        const tenantId = token.sub;
 
-        req['tenantId'] = tenantId;
+        if (!!headers.authorization) {
+            const authorization = headers.authorization?.replace('Bearer ', '');
+            const token = this._jwtService.decode(authorization);
+            const tenantId = token.sub;
+
+            req['tenantId'] = tenantId;
+        }
 
         next();
     }
