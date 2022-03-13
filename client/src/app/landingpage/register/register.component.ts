@@ -3,8 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 
-import { IRegisterData } from '../../models';
-import { AccountService } from '../../services';
+import { IRegisterData } from 'src/app/core/models';
+import { AccountService } from 'src/app/core/services';
 
 @Component({
     selector: 'wp-register',

@@ -17,10 +17,10 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
-import { Components } from './components';
+import { SharedComponents } from './components';
 
 import { MatNativeDateModule } from '@angular/material/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const materialModules = [
     MatButtonModule,
@@ -41,13 +41,14 @@ const materialModules = [
 ];
 
 @NgModule({
-    declarations: [...Components],
+    declarations: [...SharedComponents],
     imports: [...materialModules, FormsModule],
     exports: [
         ...materialModules,
-        ...Components,
+        ...SharedComponents,
         CommonModule,
         FormsModule,
+        ReactiveFormsModule,
         TranslateModule,
     ],
 })

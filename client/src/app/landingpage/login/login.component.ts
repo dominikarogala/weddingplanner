@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { ILoginData } from '../../models';
-import { AuthService } from '../../services/auth.service';
+import { ILoginData } from 'src/app/core/models';
+import { AuthService } from 'src/app/core/services';
 
 @Component({
     selector: 'wp-login',

@@ -20,9 +20,11 @@
         <div>
             <button mat-button color="primary" (click)="accordion.openAll()">
                 <span> {{ 'toDoList.expandAll' | translate }} </span>
+                <mat-icon>expand_more</mat-icon>
             </button>
             <button mat-button color="primary" (click)="accordion.closeAll()">
                 <span> {{ 'toDoList.collapseAll' | translate }} </span>
+                <mat-icon>expand_less</mat-icon>
             </button>
         </div>
     </div>
