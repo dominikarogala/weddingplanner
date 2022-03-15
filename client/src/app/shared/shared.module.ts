@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
+import { MatNativeDateModule } from '@angular/material/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -18,9 +22,6 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { SharedComponents } from './components';
-
-import { MatNativeDateModule } from '@angular/material/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const materialModules = [
     MatButtonModule,
@@ -42,14 +43,16 @@ const materialModules = [
 
 @NgModule({
     declarations: [...SharedComponents],
-    imports: [...materialModules, FormsModule],
+    imports: [FormsModule, ...materialModules],
     exports: [
         ...materialModules,
         ...SharedComponents,
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
+        HttpClientModule,
         TranslateModule,
+        RouterModule,
     ],
 })
 export class SharedModule {}

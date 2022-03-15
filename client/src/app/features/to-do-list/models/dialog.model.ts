@@ -1,4 +1,4 @@
-import { ITask, Task } from './tasks.model';
+import { ITask, Task } from '../../../shared/models/tasks.model';
 
 export const enum DialogMode {
     Creation,

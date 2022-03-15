@@ -1,11 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/core/store/state/app.state';
+import { addNewTask } from 'src/app/core/store/task';
 
-import {
-    ICategory,
-    ITask,
-    Task,
-} from 'src/app/features/to-do-list/models/tasks.model';
+import { ICategory, ITask, Task } from 'src/app/shared/models/tasks.model';
 import { ITaskDialogData, DialogMode } from '../../models/dialog.model';
 import { TaskDialogComponent } from '../task-dialog/task-dialog.component';
 
@@ -20,7 +19,7 @@ export class TableCategoryComponent implements OnInit {
     panelOpenState = false;
     progress = 0;
 
-    constructor(private _dialog: MatDialog) {}
+    constructor(private _dialog: MatDialog, private _store: Store<AppState>) {}
 
     ngOnInit(): void {
         this.progress = this._calculateProgress();
@@ -47,7 +46,15 @@ export class TableCategoryComponent implements OnInit {
 
         dialogRef.afterClosed().subscribe((result: ITask) => {
             if (!!result) {
-                this.category.tasks.push(result);
+                // this.category.tasks.push(result);
+                this._store.dispatch(
+                    addNewTask({
+                        payload: {
+                            categoryId: this.category.id,
+                            task: { ...result },
+                        },
+                    })
+                );
             }
         });
     }

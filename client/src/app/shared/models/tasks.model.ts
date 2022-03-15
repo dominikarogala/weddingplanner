@@ -24,4 +24,10 @@ export class Task implements ITask {
 export interface ICategory {
     name: string;
     tasks: ITask[];
+    id?: string;
+}
+
+export interface ITaskDTO {
+    categoryId: string;
+    task: ITask;
 }

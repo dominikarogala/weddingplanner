@@ -1,7 +1,7 @@
-import { BadRequestException, Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { User, UserViewModel } from 'src/users/users.model';
 
+import { UserViewModel } from 'src/users/users.model';
 import { UsersService } from 'src/users/users.service';
 
 @Injectable()

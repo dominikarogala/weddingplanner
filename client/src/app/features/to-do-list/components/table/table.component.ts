@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
-import { ICategory } from 'src/app/features/to-do-list/models/tasks.model';
+import { ICategory } from 'src/app/shared/models/tasks.model';
 import { DialogMode, ICategoryDialogData } from '../../models';
 import { CategoryDialogComponent } from '../category-dialog/category-dialog.component';
 

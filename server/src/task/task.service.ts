@@ -19,11 +19,10 @@ export class TaskService {
 
     async addNewTask(categoryId: string, newTask: Task): Promise<string> {
         const category = await this._findCategory(categoryId);
+        const index: number = category.tasks.push(newTask);
+        const result: Category = await category.save();
 
-        category.tasks.push(newTask);
-        category.save();
-
-        return;
+        return result.tasks[index - 1]._id;
     }
 
     async getAllTasks() {
