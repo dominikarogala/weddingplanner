@@ -8,13 +8,14 @@ export class TaskService {
     constructor(@Inject('CATEGORY_MODEL') private readonly categoryModel: Model<Category>) {}
 
     async addNewCategory(categoryName: string) {
+        console.log(categoryName);
         const newCategory = new this.categoryModel({
             name: categoryName,
             tasks: [],
         });
 
         const result = await newCategory.save();
-        return result.id;
+        return result._id;
     }
 
     async addNewTask(categoryId: string, newTask: Task): Promise<string> {

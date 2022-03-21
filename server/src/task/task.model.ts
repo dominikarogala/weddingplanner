@@ -3,7 +3,7 @@ export interface Task extends mongoose.Document {
     name: string;
     endDate: string;
     isFinished: boolean;
-    notes: string;
+    notes?: string;
 }
 
 export interface Category extends mongoose.Document {
@@ -15,7 +15,7 @@ export const TaskSchema = new mongoose.Schema({
     name: { type: String, required: true },
     endDate: { type: String, required: true },
     isFinished: { type: Boolean, required: true },
-    notes: { type: String, required: true },
+    notes: { type: String, required: false },
 });
 
 export const CategorySchema = new mongoose.Schema({
@@ -25,7 +25,7 @@ export const CategorySchema = new mongoose.Schema({
             name: { type: String, required: true },
             endDate: { type: String, required: true },
             isFinished: { type: Boolean, required: true },
-            notes: { type: String, required: true },
+            notes: { type: String, required: false },
         },
     ],
 });

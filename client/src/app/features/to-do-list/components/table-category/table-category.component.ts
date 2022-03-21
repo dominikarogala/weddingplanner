@@ -46,7 +46,6 @@ export class TableCategoryComponent implements OnInit {
 
         dialogRef.afterClosed().subscribe((result: ITask) => {
             if (!!result) {
-                // this.category.tasks.push(result);
                 this._store.dispatch(
                     addNewTask({
                         payload: {

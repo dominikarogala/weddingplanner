@@ -3,4 +3,5 @@ export const enum ApiUrls {
     auth = 'auth',
     login = 'auth/login',
     task = 'task',
+    category = 'task/category',
 }

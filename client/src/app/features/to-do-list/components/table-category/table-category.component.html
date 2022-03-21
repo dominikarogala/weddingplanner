@@ -8,7 +8,10 @@
             {{ category.name }}
         </mat-panel-title>
         <div class="category--progress">
-            <span>{{ 'toDoList.progress' | translate }} {{ progress }}%</span>
+            <span
+                >{{ 'toDoList.progress' | translate }}
+                {{ progress | number: '1.0-0' }}%</span
+            >
             <mat-progress-bar
                 class="category--progress-bar"
                 color="primary"

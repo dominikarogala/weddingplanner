@@ -16,7 +16,7 @@ export class TaskController {
     }
 
     @Post('category')
-    async addNewCategory(@Body('category') categoryName: string): Promise<string> {
+    async addNewCategory(@Body('categoryName') categoryName: string): Promise<string> {
         const generatedId = await this._taskService.addNewCategory(categoryName);
         return generatedId;
     }

@@ -11,8 +11,6 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { FeaturesModule } from './features/features.module';
 import { TokenInterceptor } from './core/interceptors/token/token.interceptor';
-import { StoreModule } from '@ngrx/store';
-import { environment } from 'src/environments/environment';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);

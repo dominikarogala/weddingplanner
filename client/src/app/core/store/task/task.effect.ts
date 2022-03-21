@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { catchError, EMPTY, map, of, switchMap, tap } from 'rxjs';
-import { ITaskDTO } from 'src/app/shared/models';
+import { catchError, EMPTY, map, switchMap } from 'rxjs';
 
 import { addNewTask, addNewTaskSuccess, loadTasks, loadTasksSuccess } from '.';
+import { addNewCategory, addNewCategorySuccess } from './task.action';
 import { TaskService } from './task.service';
 
 @Injectable()
@@ -22,7 +22,7 @@ export class TaskEffects {
         );
     });
 
-    addNewTask = createEffect(() => {
+    createNewTask = createEffect(() => {
         return this._actions$.pipe(
             ofType(addNewTask),
             switchMap((action) => {
@@ -30,10 +30,32 @@ export class TaskEffects {
                     map((result) =>
                         addNewTaskSuccess({
                             payload: { ...action.payload.task, id: result },
+                            categoryId: action.payload.categoryId,
                         })
                     ),
                     catchError((error) => EMPTY)
                 );
+            })
+        );
+    });
+
+    createNewCategory = createEffect(() => {
+        return this._actions$.pipe(
+            ofType(addNewCategory),
+            switchMap((action) => {
+                return this.service
+                    .addNewCategory(action.payload.categoryName)
+                    .pipe(
+                        map((result) =>
+                            addNewCategorySuccess({
+                                payload: {
+                                    categoryId: result,
+                                    categoryName: action.payload.categoryName,
+                                },
+                            })
+                        ),
+                        catchError((error) => EMPTY)
+                    );
             })
         );
     });

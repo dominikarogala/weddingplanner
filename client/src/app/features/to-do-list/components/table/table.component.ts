@@ -1,6 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Store } from '@ngrx/store';
 
+import { AppState } from 'src/app/core/store/state/app.state';
+import { addNewCategory } from 'src/app/core/store/task';
 import { ICategory } from 'src/app/shared/models/tasks.model';
 import { DialogMode, ICategoryDialogData } from '../../models';
 import { CategoryDialogComponent } from '../category-dialog/category-dialog.component';
@@ -13,7 +16,7 @@ import { CategoryDialogComponent } from '../category-dialog/category-dialog.comp
 export class TableComponent implements OnInit {
     @Input() categories: ICategory[] = [];
 
-    constructor(private _dialog: MatDialog) {}
+    constructor(private _dialog: MatDialog, private _store: Store<AppState>) {}
 
     ngOnInit(): void {}
 
@@ -28,8 +31,8 @@ export class TableComponent implements OnInit {
             data: dialogData,
         });
 
-        dialogRef.afterClosed().subscribe((result: ICategory) => {
-            console.log(result);
+        dialogRef.afterClosed().subscribe((categoryName: string) => {
+            this._store.dispatch(addNewCategory({ payload: { categoryName } }));
         });
     }
 }

@@ -22,4 +22,9 @@ export class TaskService {
             task: taskDTO.task,
         });
     }
+
+    addNewCategory(categoryName: string): Observable<string> {
+        const url = environment.baseUrl + ApiUrls.category;
+        return this._http.post<string>(url, { categoryName });
+    }
 }
