@@ -1,9 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { catchError, EMPTY, map, switchMap } from 'rxjs';
+import { catchError, EMPTY, exhaustMap, map, switchMap } from 'rxjs';
 
 import { addNewTask, addNewTaskSuccess, loadTasks, loadTasksSuccess } from '.';
-import { addNewCategory, addNewCategorySuccess } from './task.action';
+import {
+    addNewCategory,
+    addNewCategorySuccess,
+    deleteTask,
+    deleteTaskSuccess,
+} from './task.action';
 import { TaskService } from './task.service';
 
 @Injectable()
@@ -51,6 +56,30 @@ export class TaskEffects {
                                 payload: {
                                     categoryId: result,
                                     categoryName: action.payload.categoryName,
+                                },
+                            })
+                        ),
+                        catchError((error) => EMPTY)
+                    );
+            })
+        );
+    });
+
+    deleteTask = createEffect(() => {
+        return this._actions$.pipe(
+            ofType(deleteTask),
+            exhaustMap((action) => {
+                return this.service
+                    .deleteTask(
+                        action.payload.categoryId,
+                        action.payload.taskId
+                    )
+                    .pipe(
+                        map((result) =>
+                            deleteTaskSuccess({
+                                payload: {
+                                    categoryId: action.payload.categoryId,
+                                    taskId: action.payload.taskId,
                                 },
                             })
                         ),

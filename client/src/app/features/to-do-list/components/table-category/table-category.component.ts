@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/core/store/state/app.state';
-import { addNewTask } from 'src/app/core/store/task';
+import { addNewTask, deleteTask } from 'src/app/core/store/task';
 
 import { ICategory, ITask, Task } from 'src/app/shared/models/tasks.model';
 import { ITaskDialogData, DialogMode } from '../../models/dialog.model';
@@ -25,12 +25,10 @@ export class TableCategoryComponent implements OnInit {
         this.progress = this._calculateProgress();
     }
 
-    onDeleteTask(id: string): void {
-        const index = this.category.tasks.findIndex((task) => task.id === id);
-
-        if (index > -1) {
-            this.category.tasks.splice(index, 1);
-        }
+    onDeleteTask(taskId: string): void {
+        this._store.dispatch(
+            deleteTask({ payload: { categoryId: this.category.id, taskId } })
+        );
     }
 
     openDialog(): void {

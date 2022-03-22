@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Post, UseGuards } from '@nestjs/common';
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 
 import { Task } from './task.model';
@@ -25,5 +25,11 @@ export class TaskController {
     async getAllTasks() {
         const allTasks = await this._taskService.getAllTasks();
         return allTasks;
+    }
+
+    @Delete()
+    @HttpCode(204)
+    async deleteTask(@Body('categoryId') categoryId: string, @Body('taskId') taskId: string) {
+        return await this._taskService.deleteTask(categoryId, taskId);
     }
 }

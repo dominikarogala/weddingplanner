@@ -25,3 +25,12 @@ export const addNewCategorySuccess = createAction(
     '[Task] Add New Category Success',
     props<{ payload: { categoryId: string; categoryName: string } }>()
 );
+
+export const deleteTask = createAction(
+    '[Task] Delete Task',
+    props<{ payload: { categoryId: string; taskId: string } }>()
+);
+export const deleteTaskSuccess = createAction(
+    '[Task] Delete Task Success',
+    props<{ payload: { categoryId: string; taskId: string } }>()
+);

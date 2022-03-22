@@ -27,4 +27,9 @@ export class TaskService {
         const url = environment.baseUrl + ApiUrls.category;
         return this._http.post<string>(url, { categoryName });
     }
+
+    deleteTask(categoryId: string, taskId: string): Observable<any> {
+        const url = environment.baseUrl + ApiUrls.task;
+        return this._http.delete(url, { body: { categoryId, taskId } });
+    }
 }

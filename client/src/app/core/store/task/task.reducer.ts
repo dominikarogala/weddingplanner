@@ -1,7 +1,11 @@
 import { createReducer, on } from '@ngrx/store';
 
 import { loadTasksSuccess, initialTaskState } from '.';
-import { addNewCategorySuccess, addNewTaskSuccess } from './task.action';
+import {
+    addNewCategorySuccess,
+    addNewTaskSuccess,
+    deleteTaskSuccess,
+} from './task.action';
 
 export const taskReducer = createReducer(
     initialTaskState,
@@ -31,5 +35,19 @@ export const taskReducer = createReducer(
                 name: action.payload.categoryName,
             },
         ],
+    })),
+    on(deleteTaskSuccess, (state, action) => ({
+        ...state,
+        categories: state.categories.map((category) => {
+            if (category.id === action.payload.categoryId) {
+                return {
+                    ...category,
+                    tasks: category.tasks.filter(
+                        (task) => task.id !== action.payload.taskId
+                    ),
+                };
+            }
+            return category;
+        }),
     }))
 );
