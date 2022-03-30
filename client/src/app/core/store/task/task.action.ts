@@ -34,3 +34,8 @@ export const deleteTaskSuccess = createAction(
     '[Task] Delete Task Success',
     props<{ payload: { categoryId: string; taskId: string } }>()
 );
+
+export const changeCategoryExpansionState = createAction(
+    '[Task] Change Category Expansion State',
+    props<{ payload: { categoryId: string; isCategoryOpened: boolean } }>()
+);

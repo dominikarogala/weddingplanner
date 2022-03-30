@@ -1,7 +1,5 @@
 <div class="task">
-    <div
-        class="task--header"
-        (click)="isDescriptionVisible = !isDescriptionVisible">
+    <div class="task--header" (click)="task.isOpened = !task.isOpened">
         <mat-checkbox
             [(ngModel)]="task.isFinished"
             (click)="$event.stopPropagation()"></mat-checkbox>
@@ -41,7 +39,7 @@
             </mat-menu>
         </div>
     </div>
-    <div class="task--description" *ngIf="isDescriptionVisible">
+    <div class="task--description" *ngIf="task.isOpened">
         <mat-form-field class="task--description-text" appearance="fill">
             <mat-label>{{ 'toDoList.addNotes' | translate }}</mat-label>
             <textarea matInput [(ngModel)]="task.notes"></textarea>

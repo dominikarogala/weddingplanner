@@ -4,14 +4,14 @@ import { loadTasksSuccess, initialTaskState } from '.';
 import {
     addNewCategorySuccess,
     addNewTaskSuccess,
+    changeCategoryExpansionState,
     deleteTaskSuccess,
 } from './task.action';
 
 export const taskReducer = createReducer(
     initialTaskState,
     on(loadTasksSuccess, (state, action) => ({
-        ...state,
-        categories: [...state.categories, ...action.payload],
+        categories: [...action.payload],
     })),
     on(addNewTaskSuccess, (state, action) => ({
         ...state,
@@ -33,6 +33,7 @@ export const taskReducer = createReducer(
                 id: action.payload.categoryId,
                 tasks: [],
                 name: action.payload.categoryName,
+                isOpened: false,
             },
         ],
     })),
@@ -48,6 +49,19 @@ export const taskReducer = createReducer(
                 };
             }
             return category;
+        }),
+    })),
+    on(changeCategoryExpansionState, (state, action) => ({
+        ...state,
+        categories: state.categories.map((category) => {
+            if (category.id === action.payload.categoryId) {
+                return {
+                    ...category,
+                    isOpened: action.payload.isCategoryOpened,
+                };
+            } else {
+                return category;
+            }
         }),
     }))
 );

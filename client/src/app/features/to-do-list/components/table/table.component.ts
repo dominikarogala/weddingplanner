@@ -35,4 +35,8 @@ export class TableComponent implements OnInit {
             this._store.dispatch(addNewCategory({ payload: { categoryName } }));
         });
     }
+
+    identifierFn(index: number, item: any): string {
+        return item.id;
+    }
 }

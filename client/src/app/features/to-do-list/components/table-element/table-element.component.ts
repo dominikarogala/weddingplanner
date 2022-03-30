@@ -11,10 +11,7 @@ import { TaskDialogComponent } from '../task-dialog/task-dialog.component';
 })
 export class TableElementComponent implements OnInit {
     @Input() task!: ITask;
-
     @Output() deleteTask: EventEmitter<string> = new EventEmitter();
-
-    isDescriptionVisible = false;
 
     constructor(private _dialog: MatDialog) {}
 

@@ -24,7 +24,6 @@ export class SelectLanguageComponent implements OnInit {
 
     ngOnInit(): void {
         this._translate.onLangChange.subscribe((event: LangChangeEvent) => {
-            debugger;
             this.selectedLang = this.langs.find(
                 (elem) => elem.label === event.lang
             );

@@ -31,7 +31,7 @@
 
     <mat-accordion #accordion="matAccordion" [multi]="true">
         <wp-table-category
-            *ngFor="let category of categories"
+            *ngFor="let category of categories; trackBy: identifierFn"
             [category]="category">
         </wp-table-category>
     </mat-accordion>
@@ -40,5 +40,3 @@
         <p>Brak kategorii!</p>
     </ng-template>
 </div>
-
-<!-- <pre> {{ categories | json }}</pre> -->

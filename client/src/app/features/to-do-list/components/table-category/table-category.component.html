@@ -1,8 +1,9 @@
+{{ category.isOpened }}
 <mat-expansion-panel
     class="category"
-    [ngClass]="{ 'category--open': panelOpenState }"
-    (opened)="panelOpenState = true"
-    (closed)="panelOpenState = false">
+    [ngClass]="{ 'category--open': category.isOpened }"
+    (opened)="onCategoryPanelClick(true)"
+    (closed)="onCategoryPanelClick(false)">
     <mat-expansion-panel-header>
         <mat-panel-title>
             {{ category.name }}

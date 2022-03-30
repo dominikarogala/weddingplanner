@@ -20,7 +20,18 @@ export class TaskEffects {
             ofType(loadTasks),
             switchMap(() => {
                 return this.service.getTasks().pipe(
-                    map((tasks) => loadTasksSuccess({ payload: [...tasks] })),
+                    map((tasks) =>
+                        loadTasksSuccess({
+                            payload: tasks.map((categories) => ({
+                                ...categories,
+                                isOpened: false,
+                                tasks: categories.tasks.map((task) => ({
+                                    ...task,
+                                    isOpened: false,
+                                })),
+                            })),
+                        })
+                    ),
                     catchError((error) => EMPTY)
                 );
             })

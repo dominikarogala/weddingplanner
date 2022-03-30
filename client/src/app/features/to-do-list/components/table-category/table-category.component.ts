@@ -2,7 +2,11 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/core/store/state/app.state';
-import { addNewTask, deleteTask } from 'src/app/core/store/task';
+import {
+    addNewTask,
+    changeCategoryExpansionState,
+    deleteTask,
+} from 'src/app/core/store/task';
 
 import { ICategory, ITask, Task } from 'src/app/shared/models/tasks.model';
 import { ITaskDialogData, DialogMode } from '../../models/dialog.model';
@@ -16,7 +20,6 @@ import { TaskDialogComponent } from '../task-dialog/task-dialog.component';
 export class TableCategoryComponent implements OnInit {
     @Input() category!: ICategory;
 
-    panelOpenState = false;
     progress = 0;
 
     constructor(private _dialog: MatDialog, private _store: Store<AppState>) {}
@@ -28,6 +31,14 @@ export class TableCategoryComponent implements OnInit {
     onDeleteTask(taskId: string): void {
         this._store.dispatch(
             deleteTask({ payload: { categoryId: this.category.id, taskId } })
+        );
+    }
+
+    onCategoryPanelClick(isCategoryOpened: boolean): void {
+        this._store.dispatch(
+            changeCategoryExpansionState({
+                payload: { categoryId: this.category.id, isCategoryOpened },
+            })
         );
     }
 

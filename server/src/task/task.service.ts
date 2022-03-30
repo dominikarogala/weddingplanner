@@ -8,7 +8,6 @@ export class TaskService {
     constructor(@Inject('CATEGORY_MODEL') private readonly categoryModel: Model<Category>) {}
 
     async addNewCategory(categoryName: string) {
-        console.log(categoryName);
         const newCategory = new this.categoryModel({
             name: categoryName,
             tasks: [],
@@ -28,10 +27,16 @@ export class TaskService {
 
     async getAllTasks() {
         const allTasks = await this.categoryModel.find().exec();
-        return allTasks.map((task: Category) => ({
-            id: task._id,
-            name: task.name,
-            tasks: task.tasks,
+        return allTasks.map((category: Category) => ({
+            id: category._id,
+            name: category.name,
+            tasks: category.tasks.map(task => ({
+                name: task.name,
+                endDate: task.endDate,
+                isFinished: task.isFinished,
+                id: task._id,
+                notes: task?.notes,
+            })),
         }));
     }
 
