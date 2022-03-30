@@ -1,5 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Store } from '@ngrx/store';
+
+import { AppState } from 'src/app/core/store/state/app.state';
+import { changeTaskExpansionState, deleteTask } from 'src/app/core/store/task';
 import { ITask } from 'src/app/shared/models/tasks.model';
 import { ITaskDialogData, DialogMode } from '../../models/dialog.model';
 import { TaskDialogComponent } from '../task-dialog/task-dialog.component';
@@ -11,9 +15,9 @@ import { TaskDialogComponent } from '../task-dialog/task-dialog.component';
 })
 export class TableElementComponent implements OnInit {
     @Input() task!: ITask;
-    @Output() deleteTask: EventEmitter<string> = new EventEmitter();
+    @Input() categoryId = '';
 
-    constructor(private _dialog: MatDialog) {}
+    constructor(private _dialog: MatDialog, private _store: Store<AppState>) {}
 
     ngOnInit(): void {}
 
@@ -37,5 +41,25 @@ export class TableElementComponent implements OnInit {
                 this.task = { ...result };
             }
         });
+    }
+
+    onTaskPanelClick(isTaskOpened: boolean): void {
+        this._store.dispatch(
+            changeTaskExpansionState({
+                payload: {
+                    categoryId: this.categoryId,
+                    taskId: this.task.id,
+                    isTaskOpened,
+                },
+            })
+        );
+    }
+
+    deleteTask(): void {
+        this._store.dispatch(
+            deleteTask({
+                payload: { categoryId: this.categoryId, taskId: this.task.id },
+            })
+        );
     }
 }

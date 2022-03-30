@@ -1,5 +1,5 @@
 <div class="task">
-    <div class="task--header" (click)="task.isOpened = !task.isOpened">
+    <div class="task--header" (click)="onTaskPanelClick(!task.isOpened)">
         <mat-checkbox
             [(ngModel)]="task.isFinished"
             (click)="$event.stopPropagation()"></mat-checkbox>
@@ -31,7 +31,7 @@
                         <button
                             mat-raised-button
                             color="primary"
-                            (click)="deleteTask.emit(task.id)">
+                            (click)="deleteTask()">
                             {{ 'app.yes' | translate }}
                         </button>
                     </div>

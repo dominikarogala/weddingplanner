@@ -18,21 +18,20 @@ import { TaskDialogComponent } from '../task-dialog/task-dialog.component';
     styleUrls: ['./table-category.component.scss'],
 })
 export class TableCategoryComponent implements OnInit {
-    @Input() category!: ICategory;
+    @Input() set category(value: ICategory) {
+        this._category = value;
+        this.progress = this._calculateProgress();
+    }
+    get category(): ICategory {
+        return this._category;
+    }
+    private _category: ICategory;
 
     progress = 0;
 
     constructor(private _dialog: MatDialog, private _store: Store<AppState>) {}
 
-    ngOnInit(): void {
-        this.progress = this._calculateProgress();
-    }
-
-    onDeleteTask(taskId: string): void {
-        this._store.dispatch(
-            deleteTask({ payload: { categoryId: this.category.id, taskId } })
-        );
-    }
+    ngOnInit(): void {}
 
     onCategoryPanelClick(isCategoryOpened: boolean): void {
         this._store.dispatch(

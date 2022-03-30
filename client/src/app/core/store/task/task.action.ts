@@ -39,3 +39,10 @@ export const changeCategoryExpansionState = createAction(
     '[Task] Change Category Expansion State',
     props<{ payload: { categoryId: string; isCategoryOpened: boolean } }>()
 );
+
+export const changeTaskExpansionState = createAction(
+    '[Task] Change Task Expansion State',
+    props<{
+        payload: { categoryId: string; taskId: string; isTaskOpened: boolean };
+    }>()
+);
