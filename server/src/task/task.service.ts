@@ -42,10 +42,53 @@ export class TaskService {
 
     async deleteTask(categoryId: string, taskId: string) {
         try {
-            return await this.categoryModel.updateOne({ _id: categoryId }, { $pull: { tasks: { _id: taskId } } }).exec();
+            const result = await this.categoryModel.updateOne({ _id: categoryId }, { $pull: { tasks: { _id: taskId } } }).exec();
+            if (result.modifiedCount > 0) {
+                return result;
+            } else {
+                throw new NotFoundException('Could not find a task or category.');
+            }
         } catch (error) {
             throw new NotFoundException('Could not find a task or category.');
         }
+    }
+
+    async deleteCategory(categoryId: string) {
+        try {
+            const result = await this.categoryModel.deleteOne({ _id: categoryId });
+            if (result.deletedCount > 0) {
+                return result;
+            } else {
+                throw new NotFoundException('Could not find a category.');
+            }
+        } catch (error) {
+            throw new NotFoundException('Could not find a category.');
+        }
+    }
+
+    async editTask(categoryId: string, task: Task) {
+        try {
+            const category = await this._findCategory(categoryId);
+            const newCategory = new this.categoryModel({
+                ...category,
+                tasks: category.tasks.map(t => {
+                    if (t.id === task.id) {
+                        return task;
+                    } else {
+                        return t;
+                    }
+                }),
+            });
+
+            const result = await newCategory.save();
+            // const result = await this.categoryModel.updateOne({ _id: categoryId }, { $set: { dupa: task } }).exec();
+        } catch (error) {
+            throw new NotFoundException('Could not update a task.');
+        }
+    }
+
+    async editCategory(categoryId: string, categoryName: string) {
+        return await this.categoryModel.findOneAndUpdate({ _id: categoryId }, { name: categoryName });
     }
 
     private async _findCategory(categoryId: string): Promise<any> {

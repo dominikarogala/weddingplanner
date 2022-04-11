@@ -1,48 +1,30 @@
 <div class="task">
-    <div class="task--header" (click)="onTaskPanelClick(!task.isOpened)">
+    <div
+        class="task--header"
+        (click)="onTaskPanelClick(!task.isOpened)"
+        [ngClass]="{ 'task--header-selected': task.isOpened }">
         <mat-checkbox
             [(ngModel)]="task.isFinished"
             (click)="$event.stopPropagation()"></mat-checkbox>
         <span>{{ task.name }}</span>
         <span>{{ task.endDate | date: 'dd-MM-yyyy' }}</span>
-        <div class="task--icons">
-            <button
-                mat-icon-button
-                [matTooltip]="'toDoList.editTask' | translate"
-                (click)="editTask(); $event.stopPropagation()"
-                class="task--icons-edit">
-                <mat-icon>edit</mat-icon>
-            </button>
-            <button
-                mat-icon-button
-                [matMenuTriggerFor]="deleteMenu"
-                [matTooltip]="'toDoList.deleteTask' | translate"
-                (click)="$event.stopPropagation()"
-                class="task--icons-delete">
-                <mat-icon>delete</mat-icon>
-            </button>
-            <mat-menu #deleteMenu="matMenu">
-                <div class="popup">
-                    <h4>{{ 'toDoList.deleteTaskQuestion' | translate }}</h4>
-                    <div class="popup--buttons">
-                        <button mat-stroked-button>
-                            {{ 'app.no' | translate }}
-                        </button>
-                        <button
-                            mat-raised-button
-                            color="primary"
-                            (click)="deleteTask()">
-                            {{ 'app.yes' | translate }}
-                        </button>
-                    </div>
-                </div>
-            </mat-menu>
-        </div>
+        <wp-edition
+            (editElement)="editTask()"
+            (deleteElement)="deleteTask()"></wp-edition>
     </div>
     <div class="task--description" *ngIf="task.isOpened">
-        <mat-form-field class="task--description-text" appearance="fill">
-            <mat-label>{{ 'toDoList.addNotes' | translate }}</mat-label>
-            <textarea matInput [(ngModel)]="task.notes"></textarea>
-        </mat-form-field>
+        <ng-container *ngIf="!!task.notes.length; else emptyNotesTmpl">
+            <div class="task--description-text">
+                <span>{{ task.notes }}</span>
+            </div>
+        </ng-container>
+        <ng-template #emptyNotesTmpl>
+            <div class="task--description-button">
+                <button mat-button color="primary" (click)="editTask()">
+                    <mat-icon>add</mat-icon>
+                    <span> {{ 'toDoList.addNotes' | translate }}</span>
+                </button>
+            </div>
+        </ng-template>
     </div>
 </div>

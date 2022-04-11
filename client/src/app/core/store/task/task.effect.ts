@@ -1,13 +1,19 @@
 import { Injectable } from '@angular/core';
-import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { act, Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, EMPTY, exhaustMap, map, switchMap } from 'rxjs';
 
 import { addNewTask, addNewTaskSuccess, loadTasks, loadTasksSuccess } from '.';
 import {
     addNewCategory,
     addNewCategorySuccess,
+    deleteCategory,
+    deleteCategorySuccess,
     deleteTask,
     deleteTaskSuccess,
+    editCategory,
+    editCategorySuccess,
+    editTask,
+    editTaskSuccess,
 } from './task.action';
 import { TaskService } from './task.service';
 
@@ -91,6 +97,71 @@ export class TaskEffects {
                                 payload: {
                                     categoryId: action.payload.categoryId,
                                     taskId: action.payload.taskId,
+                                },
+                            })
+                        ),
+                        catchError((error) => EMPTY)
+                    );
+            })
+        );
+    });
+
+    deleteCategory = createEffect(() => {
+        return this._actions$.pipe(
+            ofType(deleteCategory),
+            exhaustMap((action) => {
+                return this.service
+                    .deleteCategory(action.payload.categoryId)
+                    .pipe(
+                        map((result) =>
+                            deleteCategorySuccess({
+                                payload: {
+                                    categoryId: action.payload.categoryId,
+                                },
+                            })
+                        ),
+                        catchError((error) => EMPTY)
+                    );
+            })
+        );
+    });
+
+    editTask = createEffect(() => {
+        return this._actions$.pipe(
+            ofType(editTask),
+            exhaustMap((action) => {
+                return this.service
+                    .editTask(action.payload.categoryId, action.payload.task)
+                    .pipe(
+                        map((result) =>
+                            editTaskSuccess({
+                                payload: {
+                                    categoryId: action.payload.categoryId,
+                                    task: action.payload.task,
+                                },
+                            })
+                        ),
+                        catchError((error) => EMPTY)
+                    );
+            })
+        );
+    });
+
+    editCategory = createEffect(() => {
+        return this._actions$.pipe(
+            ofType(editCategory),
+            switchMap((action) => {
+                return this.service
+                    .editCategory(
+                        action.payload.categoryId,
+                        action.payload.categoryName
+                    )
+                    .pipe(
+                        map((result) =>
+                            editCategorySuccess({
+                                payload: {
+                                    categoryId: action.payload.categoryId,
+                                    categoryName: action.payload.categoryName,
                                 },
                             })
                         ),

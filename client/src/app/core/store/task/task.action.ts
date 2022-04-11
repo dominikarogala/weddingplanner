@@ -39,10 +39,36 @@ export const changeCategoryExpansionState = createAction(
     '[Task] Change Category Expansion State',
     props<{ payload: { categoryId: string; isCategoryOpened: boolean } }>()
 );
-
 export const changeTaskExpansionState = createAction(
     '[Task] Change Task Expansion State',
     props<{
         payload: { categoryId: string; taskId: string; isTaskOpened: boolean };
     }>()
+);
+
+export const deleteCategory = createAction(
+    '[Task] Delete Category',
+    props<{ payload: { categoryId: string } }>()
+);
+export const deleteCategorySuccess = createAction(
+    '[Task] Delete Category Success',
+    props<{ payload: { categoryId: string } }>()
+);
+
+export const editTask = createAction(
+    '[Task] Edit Task',
+    props<{ payload: { categoryId: string; task: ITask } }>()
+);
+export const editTaskSuccess = createAction(
+    '[Task] Edit Task Success',
+    props<{ payload: { categoryId: string; task: ITask } }>()
+);
+
+export const editCategory = createAction(
+    '[Task] Edit Category',
+    props<{ payload: { categoryId: string; categoryName: string } }>()
+);
+export const editCategorySuccess = createAction(
+    '[Task] Edit Category Success',
+    props<{ payload: { categoryId: string; categoryName: string } }>()
 );

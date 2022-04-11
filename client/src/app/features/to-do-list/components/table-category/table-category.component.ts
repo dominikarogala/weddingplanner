@@ -5,11 +5,18 @@ import { AppState } from 'src/app/core/store/state/app.state';
 import {
     addNewTask,
     changeCategoryExpansionState,
+    deleteCategory,
     deleteTask,
+    editCategory,
 } from 'src/app/core/store/task';
 
 import { ICategory, ITask, Task } from 'src/app/shared/models/tasks.model';
-import { ITaskDialogData, DialogMode } from '../../models/dialog.model';
+import {
+    ITaskDialogData,
+    DialogMode,
+    ICategoryDialogData,
+} from '../../models/dialog.model';
+import { CategoryDialogComponent } from '../category-dialog/category-dialog.component';
 import { TaskDialogComponent } from '../task-dialog/task-dialog.component';
 
 @Component({
@@ -60,6 +67,34 @@ export class TableCategoryComponent implements OnInit {
                             categoryId: this.category.id,
                             task: { ...result },
                         },
+                    })
+                );
+            }
+        });
+    }
+
+    deleteCategory(): void {
+        this._store.dispatch(
+            deleteCategory({ payload: { categoryId: this.category.id } })
+        );
+    }
+
+    editCategory(): void {
+        const dialogData: ICategoryDialogData = {
+            mode: DialogMode.Edition,
+            categoryName: this.category.name,
+        };
+
+        const dialogRef = this._dialog.open(CategoryDialogComponent, {
+            width: '30rem',
+            data: dialogData,
+        });
+
+        dialogRef.afterClosed().subscribe((categoryName: string) => {
+            if (!!categoryName) {
+                this._store.dispatch(
+                    editCategory({
+                        payload: { categoryId: this.category.id, categoryName },
                     })
                 );
             }

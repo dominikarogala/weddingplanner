@@ -1,0 +1,48 @@
+<ng-container *ngIf="!isExpanded; else expandedTmpl">
+    <button
+        mat-icon-button
+        (click)="isExpanded = true; $event.stopPropagation()">
+        <mat-icon>more_vert</mat-icon>
+    </button>
+</ng-container>
+
+<ng-template #expandedTmpl>
+    <div class="icons">
+        <button
+            mat-icon-button
+            [matTooltip]="'toDoList.editTask' | translate"
+            (click)="editElement.emit(); $event.stopPropagation()"
+            class="icons--edit">
+            <mat-icon>edit</mat-icon>
+        </button>
+        <button
+            mat-icon-button
+            [matMenuTriggerFor]="deleteMenu"
+            [matTooltip]="'toDoList.deleteTask' | translate"
+            (click)="$event.stopPropagation()"
+            class="icons--delete">
+            <mat-icon>delete</mat-icon>
+        </button>
+        <button
+            mat-icon-button
+            (click)="isExpanded = false; $event.stopPropagation()">
+            <mat-icon>close</mat-icon>
+        </button>
+        <mat-menu #deleteMenu="matMenu">
+            <div class="popup">
+                <h4>{{ 'toDoList.deleteTaskQuestion' | translate }}</h4>
+                <div class="popup--buttons">
+                    <button mat-stroked-button>
+                        {{ 'app.no' | translate }}
+                    </button>
+                    <button
+                        mat-raised-button
+                        color="primary"
+                        (click)="deleteElement.emit()">
+                        {{ 'app.yes' | translate }}
+                    </button>
+                </div>
+            </div>
+        </mat-menu>
+    </div>
+</ng-template>

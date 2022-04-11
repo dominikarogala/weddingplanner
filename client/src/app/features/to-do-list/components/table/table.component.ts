@@ -32,7 +32,11 @@ export class TableComponent implements OnInit {
         });
 
         dialogRef.afterClosed().subscribe((categoryName: string) => {
-            this._store.dispatch(addNewCategory({ payload: { categoryName } }));
+            if (!!categoryName) {
+                this._store.dispatch(
+                    addNewCategory({ payload: { categoryName } })
+                );
+            }
         });
     }
 

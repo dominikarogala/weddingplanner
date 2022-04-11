@@ -6,7 +6,10 @@ import {
     addNewTaskSuccess,
     changeCategoryExpansionState,
     changeTaskExpansionState,
+    deleteCategorySuccess,
     deleteTaskSuccess,
+    editCategorySuccess,
+    editTaskSuccess,
 } from './task.action';
 
 export const taskReducer = createReducer(
@@ -81,6 +84,47 @@ export const taskReducer = createReducer(
                             return task;
                         }
                     }),
+                };
+            } else {
+                return category;
+            }
+        }),
+    })),
+    on(deleteCategorySuccess, (state, action) => ({
+        ...state,
+        categories: state.categories.filter(
+            (category) => category.id !== action.payload.categoryId
+        ),
+    })),
+    on(editTaskSuccess, (state, action) => ({
+        ...state,
+        categories: state.categories.map((category) => {
+            if (category.id === action.payload.categoryId) {
+                return {
+                    ...category,
+                    tasks: category.tasks.map((task) => {
+                        if (task.id === action.payload.task.id) {
+                            return {
+                                ...task,
+                                ...action.payload.task,
+                            };
+                        } else {
+                            return task;
+                        }
+                    }),
+                };
+            } else {
+                return category;
+            }
+        }),
+    })),
+    on(editCategorySuccess, (state, action) => ({
+        ...state,
+        categories: state.categories.map((category) => {
+            if (category.id === action.payload.categoryId) {
+                return {
+                    ...category,
+                    name: action.payload.categoryName,
                 };
             } else {
                 return category;

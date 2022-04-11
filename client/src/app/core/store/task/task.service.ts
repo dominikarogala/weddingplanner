@@ -30,6 +30,21 @@ export class TaskService {
 
     deleteTask(categoryId: string, taskId: string): Observable<any> {
         const url = environment.baseUrl + ApiUrls.task;
-        return this._http.delete(url, { body: { categoryId, taskId } });
+        return this._http.delete(url, { params: { categoryId, taskId } });
+    }
+
+    deleteCategory(categoryId: string): Observable<any> {
+        const url = environment.baseUrl + ApiUrls.category;
+        return this._http.delete(url, { params: { categoryId } });
+    }
+
+    editTask(categoryId: string, task: ITask): Observable<any> {
+        const url = environment.baseUrl + ApiUrls.task;
+        return this._http.put(url, { categoryId, task });
+    }
+
+    editCategory(categoryId: string, categoryName: string): Observable<any> {
+        const url = environment.baseUrl + ApiUrls.category;
+        return this._http.put(url, { categoryId, categoryName });
     }
 }
