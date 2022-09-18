@@ -42,14 +42,7 @@ export class TableElementComponent implements OnInit {
 
         dialogRef.afterClosed().subscribe((result: ITask) => {
             if (!!result) {
-                this._store.dispatch(
-                    editTask({
-                        payload: {
-                            categoryId: this.categoryId,
-                            task: { ...result },
-                        },
-                    })
-                );
+                this._dispatchEditTaskAction(result);
             }
         });
     }
@@ -70,6 +63,21 @@ export class TableElementComponent implements OnInit {
         this._store.dispatch(
             deleteTask({
                 payload: { categoryId: this.categoryId, taskId: this.task.id },
+            })
+        );
+    }
+
+    changeFinishStatus() {
+        this._dispatchEditTaskAction(this.task);
+    }
+
+    private _dispatchEditTaskAction(task: ITask) {
+        this._store.dispatch(
+            editTask({
+                payload: {
+                    categoryId: this.categoryId,
+                    task: { ...task },
+                },
             })
         );
     }

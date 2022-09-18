@@ -68,21 +68,17 @@ export class TaskService {
 
     async editTask(categoryId: string, task: Task) {
         try {
-            const category = await this._findCategory(categoryId);
-            const newCategory = new this.categoryModel({
-                ...category,
-                tasks: category.tasks.map(t => {
-                    if (t.id === task.id) {
-                        return task;
-                    } else {
-                        return t;
-                    }
-                }),
-            });
-
-            const result = await newCategory.save();
-            // const result = await this.categoryModel.updateOne({ _id: categoryId }, { $set: { dupa: task } }).exec();
+            return await this.categoryModel.findOneAndUpdate(
+                { 'tasks._id': task.id },
+                {
+                    'tasks.$.isFinished': task.isFinished,
+                    'tasks.$.name': task.name,
+                    'tasks.$.endDate': task.endDate,
+                    'tasks.$.notes': task.notes,
+                },
+            );
         } catch (error) {
+            console.log(error);
             throw new NotFoundException('Could not update a task.');
         }
     }
