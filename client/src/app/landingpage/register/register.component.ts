@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 
 import { IRegisterData } from 'src/app/core/models';
@@ -22,7 +23,8 @@ export class RegisterComponent implements OnInit {
     constructor(
         private _account: AccountService,
         private _toastr: ToastrService,
-        private _fb: FormBuilder
+        private _fb: FormBuilder,
+        private _translate: TranslateService
     ) {}
 
     ngOnInit(): void {}
@@ -37,8 +39,10 @@ export class RegisterComponent implements OnInit {
         this._account.createAccount(accountData).subscribe({
             next: (value) => {
                 this._toastr.success(
-                    'Udało się utworzyć konto. Zaloguj się i baw się dobrze, podczas korzystania z Wedding Planner!',
-                    'Konto utworzone!'
+                    this._translate.instant(
+                        'toaster.accountCreatedDescription'
+                    ),
+                    this._translate.instant('toaster.accountCreated')
                 );
             },
             error: (err: HttpErrorResponse) => {
@@ -47,7 +51,7 @@ export class RegisterComponent implements OnInit {
                     err.error.message === 'user exists'
                 ) {
                     this._toastr.error(
-                        'Konto o podanym adresie e-mail już istnieje'
+                        this._translate.instant('toaster.accountExists')
                     );
                 }
             },

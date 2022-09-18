@@ -2,8 +2,31 @@
     "header": { 
         "title":"Moje wesele"
     },
+    "app": {
+        "yes": "tak",
+        "no": "nie",
+        "cancel": "anuluj",
+        "save": "zapisz",
+        "add": "dodaj",
+        "signin":"zaloguj się",
+        "signup": "zarejestruj się",
+        "login": "login",
+        "password": "hasło",
+        "email": "email",
+        "name": "imię",
+        "confirmPassword": "potwierdź hasło"
+    },
+    "toaster": {
+        "accountCreated": "Konto utworzone!",
+        "accountCreatedDescription": "Udało się utworzyć konto. Zaloguj się i baw się dobrze, podczas korzystania z Wedding Planner!",
+        "accountExists": "Konto o podanym adresie e-mail już istnieje"
+    },
+    "dashboard": {
+        "description": "Zorganizuj Twoje wesele marzeń! Zobacz najnowsze informacje odnośnie zaproszonych gości, zaplanowanych zadań oraz akutualnego budżetu."
+    },
     "budget": {
-        "title": "Budżet"
+        "title": "Budżet",
+        "description": "Zarządzaj swoimi finansami - wszystkie wydatki pod Twoją kontrolą! "
     },
     "toDoList": {
         "title": "Zadania",
@@ -27,19 +50,5 @@
         "categoryName": "Nazwa kategorii",
         "newCategoryTitle": "Dodaj nową kategorię",
         "categoryEditionTitle": "Edytuj nazwę kategorii"
-    },
-    "app": {
-        "yes": "tak",
-        "no": "nie",
-        "cancel": "anuluj",
-        "save": "zapisz",
-        "add": "dodaj",
-        "signin":"zaloguj się",
-        "signup": "zarejestruj się",
-        "login": "login",
-        "password": "hasło",
-        "email": "email",
-        "name": "imię",
-        "confirmPassword": "potwierdź hasło"
-    }
+    }  
 }

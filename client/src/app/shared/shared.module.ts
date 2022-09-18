@@ -43,7 +43,7 @@ const materialModules = [
 
 @NgModule({
     declarations: [...SharedComponents],
-    imports: [FormsModule, ...materialModules],
+    imports: [CommonModule, FormsModule, ...materialModules],
     exports: [
         ...materialModules,
         ...SharedComponents,

@@ -21,7 +21,7 @@ import {
                     <ng-content></ng-content>
                 </mat-card-content>
             </div>
-            <img [src]="image" />
+            <img *ngIf="!!image.length" [src]="image" />
         </mat-card>
     `,
 })

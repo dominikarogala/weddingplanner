@@ -19,7 +19,7 @@
             mat-icon-button
             [matMenuTriggerFor]="deleteMenu"
             [matTooltip]="'toDoList.deleteTask' | translate"
-            (click)="$event.stopPropagation()"
+            (click)="deleteElement.emit(); $event.stopPropagation()"
             class="icons--delete">
             <mat-icon>delete</mat-icon>
         </button>
