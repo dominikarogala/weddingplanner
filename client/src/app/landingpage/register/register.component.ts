@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 
 import { IRegisterData } from 'src/app/core/models';
@@ -12,11 +12,11 @@ import { AccountService } from 'src/app/core/services';
     styleUrls: ['./register.component.scss', '../styles.scss'],
 })
 export class RegisterComponent implements OnInit {
-    registerForm = new FormGroup({
-        name: new FormControl('', Validators.required),
-        email: new FormControl('', [Validators.required, Validators.email]),
-        password: new FormControl('', Validators.required),
-        repeatPassword: new FormControl('', Validators.required),
+    registerForm = new UntypedFormGroup({
+        name: new UntypedFormControl('', Validators.required),
+        email: new UntypedFormControl('', [Validators.required, Validators.email]),
+        password: new UntypedFormControl('', Validators.required),
+        repeatPassword: new UntypedFormControl('', Validators.required),
     });
 
     constructor(
