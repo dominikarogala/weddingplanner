@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 
 import { IRegisterData } from 'src/app/core/models';
@@ -12,25 +12,26 @@ import { AccountService } from 'src/app/core/services';
     styleUrls: ['./register.component.scss', '../styles.scss'],
 })
 export class RegisterComponent implements OnInit {
-    registerForm = new UntypedFormGroup({
-        name: new UntypedFormControl('', Validators.required),
-        email: new UntypedFormControl('', [Validators.required, Validators.email]),
-        password: new UntypedFormControl('', Validators.required),
-        repeatPassword: new UntypedFormControl('', Validators.required),
+    registerForm = this._fb.group({
+        name: ['', { validators: [Validators.required] }],
+        email: ['', { validators: [Validators.required, Validators.email] }],
+        password: ['', { validators: [Validators.required] }],
+        repeatPassword: ['', { validators: [Validators.required] }],
     });
 
     constructor(
         private _account: AccountService,
-        private _toastr: ToastrService
+        private _toastr: ToastrService,
+        private _fb: FormBuilder
     ) {}
 
     ngOnInit(): void {}
 
     onFormSubmit(): void {
         const accountData: IRegisterData = {
-            name: this.registerForm.get('name')?.value,
-            email: this.registerForm.get('email')?.value,
-            password: this.registerForm.get('password')?.value,
+            name: this.registerForm.value.name.toString(),
+            email: this.registerForm.value.email.toString(),
+            password: this.registerForm.value.password.toString(),
         };
 
         this._account.createAccount(accountData).subscribe({

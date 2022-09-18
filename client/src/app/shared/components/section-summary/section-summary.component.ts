@@ -10,20 +10,24 @@ import {
     styleUrls: ['./section-summary.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     template: `
-        <mat-card class="content">
-            <mat-card-title>
-                <h1>
-                    {{ title }}
-                </h1>
-            </mat-card-title>
-            <mat-card-content>
-                <ng-content></ng-content>
-            </mat-card-content>
+        <mat-card class="card">
+            <div>
+                <mat-card-title>
+                    <h1>
+                        {{ title }}
+                    </h1>
+                </mat-card-title>
+                <mat-card-content>
+                    <ng-content></ng-content>
+                </mat-card-content>
+            </div>
+            <img [src]="image" />
         </mat-card>
     `,
 })
 export class SectionSummaryComponent implements OnInit {
     @Input() title = 'Section summary';
+    @Input() image = '';
 
     constructor() {}
 

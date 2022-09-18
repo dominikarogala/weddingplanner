@@ -21,7 +21,7 @@
         "newTaskTitle": "Dodaj nowe zadanie",
         "taskEditionTitle": "Edytuj zadanie",
         "taskName": "Nazwa zadania",
-        "taskDate": "Data zadania",
+        "taskEndDate": "Data zakończenia zadania",
         "notes": "Notatki",
         "markAsDone": "Oznacz zadanie jako wykonane",
         "categoryName": "Nazwa kategorii",

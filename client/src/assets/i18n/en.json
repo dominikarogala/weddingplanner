@@ -21,7 +21,7 @@
         "newTaskTitle": "Add new task",
         "taskEditionTitle": "Edit task",
         "taskName": "Task name",
-        "taskDate": "Task date",
+        "taskEndDate": "Task end date",
         "notes": "Notes",
         "markAsDone": "Mark task as done",
         "categoryName": "Category name",
