@@ -2,6 +2,12 @@
     "header": { 
         "title":"Moje wesele"
     },
+    "landingpage": {
+        "login": "Logowanie",
+        "loginDescription": "Zaloguj się do swojego konta",
+        "register": "Rejestracja",
+        "registerDescription": " Załóż konto w serwisie WeddingPlanner, aby w pełni korzystać ze wszystkich funkcjonalności."
+    },
     "app": {
         "yes": "tak",
         "no": "nie",
@@ -26,7 +32,7 @@
     },
     "budget": {
         "title": "Budżet",
-        "description": "Zarządzaj swoimi finansami - wszystkie wydatki pod Twoją kontrolą! "
+        "description": "Zarządzaj swoimi finansami - wszystkie wydatki pod Twoją kontrolą!"
     },
     "toDoList": {
         "title": "Zadania",

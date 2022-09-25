@@ -25,7 +25,6 @@ const routes: Routes = [
         path: 'app',
         loadChildren: () =>
             import('./features/features.module').then((m) => m.FeaturesModule),
-
         canActivate: [AuthGuard],
     },
     {

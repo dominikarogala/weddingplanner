@@ -1,8 +1,6 @@
 <mat-drawer-container class="navigation">
     <mat-drawer class="navigation--bar" mode="side" opened>
-        <div class="logo clickable" routerLink="./dashboard">
-            <h2>WeddingPlanner</h2>
-        </div>
+        <wp-logo [type]="'light'" routerLink="./dashboard"></wp-logo>
 
         <div class="navigation--item" routerLink="./todos">
             <mat-icon>playlist_add_check</mat-icon>
@@ -12,7 +10,7 @@
         </div>
         <mat-divider></mat-divider>
         <div class="navigation--item" routerLink="./budget">
-            <mat-icon> attach_money</mat-icon>
+            <mat-icon>attach_money</mat-icon>
             <span>
                 {{ 'budget.title' | translate }}
             </span>

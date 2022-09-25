@@ -22,6 +22,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { SharedComponents } from './components';
+import { LogoComponent } from './components/logo/logo.component';
 
 const materialModules = [
     MatButtonModule,
@@ -42,7 +43,7 @@ const materialModules = [
 ];
 
 @NgModule({
-    declarations: [...SharedComponents],
+    declarations: [...SharedComponents, LogoComponent],
     imports: [CommonModule, FormsModule, ...materialModules],
     exports: [
         ...materialModules,

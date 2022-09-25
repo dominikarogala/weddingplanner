@@ -4,7 +4,8 @@
         left
         [formGroup]="registerForm"
         (ngSubmit)="onFormSubmit()">
-        <h2 class="form--title">Rejestracja</h2>
+        <wp-logo class="logo" routerLink="../"></wp-logo>
+        <h1 class="form--title">{{ 'landingpage.register' | translate }}</h1>
         <div class="form--data">
             <mat-form-field appearance="fill">
                 <mat-label>{{ 'app.name' | translate }}</mat-label>
@@ -42,4 +43,11 @@
             </span>
         </button>
     </form>
+
+    <div class="image" right>
+        <img src="assets/images/register.svg" />
+        <h2>
+            {{ 'landingpage.registerDescription' | translate }}
+        </h2>
+    </div>
 </wp-double-screen>
