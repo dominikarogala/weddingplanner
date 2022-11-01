@@ -10,7 +10,10 @@
                     {{ 'toDoList.addCategory' | translate }}
                 </span>
             </button>
-            <button mat-raised-button color="accent">
+            <button
+                mat-raised-button
+                color="accent"
+                (click)="downloadTasksList()">
                 <mat-icon>save_alt</mat-icon>
                 <span>
                     {{ 'toDoList.downloadToDoList' | translate }}
@@ -18,12 +21,22 @@
             </button>
         </div>
         <div>
-            <button mat-button color="primary" (click)="accordion.openAll()">
-                <span> {{ 'toDoList.expandAll' | translate }} </span>
+            <button
+                mat-button
+                color="primary"
+                (click)="accordion.openAll(); isExpanded = true"
+                [disabled]="isExpanded"
+                [matTooltip]="'toDoList.expandAll' | translate"
+                matTooltipPosition="above">
                 <mat-icon>expand_more</mat-icon>
             </button>
-            <button mat-button color="primary" (click)="accordion.closeAll()">
-                <span> {{ 'toDoList.collapseAll' | translate }} </span>
+            <button
+                mat-button
+                color="primary"
+                (click)="accordion.closeAll(); isExpanded = false"
+                [disabled]="!isExpanded"
+                [matTooltip]="'toDoList.collapseAll' | translate"
+                matTooltipPosition="above">
                 <mat-icon>expand_less</mat-icon>
             </button>
         </div>

@@ -1,12 +1,12 @@
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
-import { MongooseModule } from '@nestjs/mongoose';
 import { Connection } from 'mongoose';
+
 import { AuthModule } from 'src/auth/auth.module';
+import { PdfPrinterService } from 'src/shared/services/pdf-printer/pdf-printer.service';
 import { TenantAwareMiddleware } from 'src/tenant/tenant-aware.middleware';
 import { TenantModule } from 'src/tenant/tenant.module';
-import { UserSchema } from 'src/users/users.model';
 import { TaskController } from './task.controller';
-import { CategorySchema, TaskSchema } from './task.model';
+import { CategorySchema } from './task.model';
 import { TaskService } from './task.service';
 
 @Module({
@@ -14,6 +14,7 @@ import { TaskService } from './task.service';
     imports: [TenantModule, AuthModule],
     providers: [
         TaskService,
+        PdfPrinterService,
         {
             provide: 'CATEGORY_MODEL',
             useFactory: (connection: Connection) => connection.model('Category', CategorySchema),

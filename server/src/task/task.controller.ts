@@ -1,13 +1,16 @@
-import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Param, Post, Put, Query, UseGuards } from '@nestjs/common';
-import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
+import { Body, Controller, Delete, Get, HttpCode, Post, Put, Query, Res, UseGuards } from '@nestjs/common';
 
+import type { Response } from 'express';
+
+import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
+import { PdfPrinterService } from 'src/shared/services/pdf-printer/pdf-printer.service';
 import { Task } from './task.model';
 import { TaskService } from './task.service';
 
 @UseGuards(JwtAuthGuard)
 @Controller('task')
 export class TaskController {
-    constructor(private readonly _taskService: TaskService) {}
+    constructor(private readonly _taskService: TaskService, private readonly _pdfPrinterService: PdfPrinterService) {}
 
     @Post()
     async addNewTask(@Body('categoryId') categoryId: string, @Body('task') task: Task): Promise<string> {
@@ -47,5 +50,15 @@ export class TaskController {
     @Put('category')
     async updateCategory(@Body('categoryId') categoryId: string, @Body('categoryName') categoryName: string) {
         return await this._taskService.editCategory(categoryId, categoryName);
+    }
+
+    @Get('pdf')
+    async getPDF(@Res() res: Response): Promise<void> {
+        const doc = await this._pdfPrinterService.generatePDF();
+        res.set({
+            'Content-Type': 'application/pdf',
+            'Content-Disposition': 'attachment; filename="test.json"',
+        });
+        doc.pipe(res);
     }
 }

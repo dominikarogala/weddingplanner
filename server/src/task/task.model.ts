@@ -29,3 +29,17 @@ export const CategorySchema = new mongoose.Schema({
         },
     ],
 });
+
+export interface ICategory {
+    id: string;
+    name: string;
+    tasks: ITask[];
+}
+
+export interface ITask {
+    name: string;
+    endDate: string;
+    isFinished: boolean;
+    id: string;
+    notes: string;
+}

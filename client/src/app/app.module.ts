@@ -2,7 +2,11 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
+import {
+    HttpClient,
+    HttpClientModule,
+    HTTP_INTERCEPTORS,
+} from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
@@ -19,6 +23,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
     declarations: [AppComponent],
     imports: [
+        HttpClientModule,
         BrowserModule,
         AppRoutingModule,
         BrowserAnimationsModule,

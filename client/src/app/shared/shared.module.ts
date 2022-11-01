@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { MatNativeDateModule } from '@angular/material/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+
 import { RouterModule } from '@angular/router';
 
 import { MatButtonModule } from '@angular/material/button';
@@ -19,6 +19,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { SharedComponents } from './components';
@@ -39,6 +40,7 @@ const materialModules = [
     MatProgressBarModule,
     MatSidenavModule,
     MatSlideToggleModule,
+    MatProgressSpinnerModule,
     MatTooltipModule,
 ];
 
@@ -51,7 +53,7 @@ const materialModules = [
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
-        HttpClientModule,
+
         TranslateModule,
         RouterModule,
     ],
