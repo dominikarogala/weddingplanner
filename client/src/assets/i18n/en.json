@@ -34,7 +34,6 @@
         "expandAll": "expand all",
         "collapseAll": "collapse all",
         "addNotes": "Add new notes",
-        "progress": "Progress of the arrangements",
         "deleteTaskQuestion": "Do you really want to delete the task?",
         "newTaskTitle": "Add new task",
         "taskEditionTitle": "Edit task",
@@ -44,6 +43,8 @@
         "markAsDone": "Mark task as done",
         "categoryName": "Category name",
         "newCategoryTitle": "Add new category",
-        "categoryEditionTitle": "Edit category name"
+        "categoryEditionTitle": "Edit category name",
+        "finished": "Finished",
+        "from": "from"
     }    
 }

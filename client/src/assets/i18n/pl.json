@@ -45,7 +45,6 @@
         "expandAll": "rozwiń wszystkie",
         "collapseAll": "zwiń wszystkie",
         "addNotes": "Dodaj nowe notatki",
-        "progress": "Postęp przygotowań",
         "deleteTaskQuestion": "Czy na pewno chcesz usunać zadanie?",
         "newTaskTitle": "Dodaj nowe zadanie",
         "taskEditionTitle": "Edytuj zadanie",
@@ -55,6 +54,8 @@
         "markAsDone": "Oznacz zadanie jako wykonane",
         "categoryName": "Nazwa kategorii",
         "newCategoryTitle": "Dodaj nową kategorię",
-        "categoryEditionTitle": "Edytuj nazwę kategorii"
+        "categoryEditionTitle": "Edytuj nazwę kategorii",
+        "finished": "Ukończono",
+        "from": "z"
     }  
 }

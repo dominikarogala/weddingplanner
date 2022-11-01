@@ -13,7 +13,9 @@
                     class="category--progress-bar"
                     color="primary"
                     mode="determinate"
-                    [value]="progress">
+                    [value]="
+                        (finishedTasksAmount / category.tasks.length) * 100
+                    ">
                 </mat-progress-bar>
             </div>
         </ng-container>
@@ -24,14 +26,16 @@
 
     <div class="category--progress-extended">
         <span>
-            {{ 'toDoList.progress' | translate }}
-            {{ progress | number: '1.0-0' }}%
+            {{ 'toDoList.finished' | translate }}:
+            {{ finishedTasksAmount }}
+            {{ 'toDoList.from' | translate }}
+            {{ category.tasks.length }}
         </span>
         <mat-progress-bar
             class="category--progress-bar"
             color="primary"
             mode="determinate"
-            [value]="progress">
+            [value]="(finishedTasksAmount / category.tasks.length) * 100">
         </mat-progress-bar>
     </div>
 

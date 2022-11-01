@@ -27,14 +27,14 @@ import { TaskDialogComponent } from '../task-dialog/task-dialog.component';
 export class TableCategoryComponent implements OnInit {
     @Input() set category(value: ICategory) {
         this._category = value;
-        this.progress = this._calculateProgress();
+        this.finishedTasksAmount = this._calculatefinishedTasksAmount();
     }
     get category(): ICategory {
         return this._category;
     }
     private _category: ICategory;
 
-    progress = 0;
+    finishedTasksAmount = 0;
 
     constructor(private _dialog: MatDialog, private _store: Store<AppState>) {}
 
@@ -101,7 +101,7 @@ export class TableCategoryComponent implements OnInit {
         });
     }
 
-    private _calculateProgress(): number {
+    private _calculatefinishedTasksAmount(): number {
         if (this.category.tasks.length < 1) {
             return 0;
         }
@@ -110,6 +110,6 @@ export class TableCategoryComponent implements OnInit {
             (task) => task.isFinished
         );
 
-        return (finishedTasks.length / this.category.tasks.length) * 100;
+        return finishedTasks.length;
     }
 }
