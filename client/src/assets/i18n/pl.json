@@ -32,7 +32,11 @@
     },
     "budget": {
         "title": "Budżet",
-        "description": "Zarządzaj swoimi finansami - wszystkie wydatki pod Twoją kontrolą!"
+        "description": "Zarządzaj swoimi finansami - wszystkie wydatki pod Twoją kontrolą!",
+        "plannedMoney": "Zaplanowane wydatki",
+        "moneyLeft": "Pozostało do wydania",
+        "determineBudget": "Określ budżet",
+        "amount": "Kwota"
     },
     "toDoList": {
         "title": "Zadania",

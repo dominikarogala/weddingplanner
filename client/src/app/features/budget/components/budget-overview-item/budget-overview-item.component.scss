@@ -1,0 +1,22 @@
+.item {
+    flex-basis: max-content;
+    padding: 1.5em;
+
+    p {
+        font-size: 1.8em;
+    }
+
+    &--icon {
+        position: absolute;
+        right: 0.5em;
+        top: 0.5em;
+    }
+
+    .money-left {
+        color: green;
+    }
+
+    .money-spent {
+        color: red;
+    }
+}
