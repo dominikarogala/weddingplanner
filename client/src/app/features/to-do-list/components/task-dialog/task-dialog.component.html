@@ -34,8 +34,7 @@
         mat-raised-button
         color="primary"
         [mat-dialog-close]="data.task"
-        [disabled]="!data.task.name.length || !data.task.endDate"
-        cdkFocusInitial>
+        [disabled]="!data.task.name.length || !data.task.endDate">
         {{ confirmButtonLabel | translate }}
     </button>
 </div>

@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { DialogMode, ICategoryDialogData } from '../../models';
+import { Categories } from 'src/app/shared/constants';
 
 @Component({
     selector: 'wp-category-dialog',
@@ -11,6 +12,7 @@ import { DialogMode, ICategoryDialogData } from '../../models';
 export class CategoryDialogComponent implements OnInit {
     title = '';
     confirmButtonLabel = '';
+    options = Categories;
 
     constructor(
         public dialogRef: MatDialogRef<CategoryDialogComponent>,

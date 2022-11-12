@@ -1,8 +1,18 @@
 <h1 mat-dialog-title>{{ title | translate }}</h1>
+
 <div mat-dialog-content>
     <mat-form-field appearance="fill" style="width: 100%">
         <mat-label>{{ 'toDoList.categoryName' | translate }}</mat-label>
-        <input matInput [(ngModel)]="data.categoryName" required />
+        <input
+            matInput
+            [(ngModel)]="data.categoryName"
+            [matAutocomplete]="auto"
+            required />
+        <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of options" [value]="option">
+                {{ option }}
+            </mat-option>
+        </mat-autocomplete>
     </mat-form-field>
 </div>
 
@@ -14,8 +24,7 @@
         mat-raised-button
         color="primary"
         [mat-dialog-close]="data.categoryName"
-        [disabled]="!data.categoryName.length"
-        cdkFocusInitial>
+        [disabled]="!data.categoryName.length">
         {{ confirmButtonLabel | translate }}
     </button>
 </div>
