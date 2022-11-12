@@ -1,0 +1,30 @@
+
+@import 'variables.scss';
+
+.logo {
+    border: 3px solid;
+    margin: 10px 10px 40px 10px;
+
+    h2 {
+        margin: 0;
+        padding: 5px 10px;
+        text-align: center;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    &--light {
+        border-color: $accent-light;
+
+        h2 {
+            color: $accent-light;
+        }
+    }
+
+    &--dark {
+        border-color: $accent;
+
+        h2 {
+            color: $accent;
+        }
+    }
+}

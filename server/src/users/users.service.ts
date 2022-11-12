@@ -7,10 +7,15 @@ import * as bcrypt from 'bcrypt';
 
 import { UserValidator } from 'src/shared/validators/user.validator';
 import { User } from './users.model';
+import { Tenant } from 'src/tenant/tenant.model';
 
 @Injectable()
 export class UsersService {
-    constructor(@InjectModel('User') private readonly userModel: Model<User>, private userValidator: UserValidator) {}
+    constructor(
+        @InjectModel('User') private readonly userModel: Model<User>,
+        @InjectModel('Tenant') private readonly tenantmodel: Model<Tenant>,
+        private userValidator: UserValidator,
+    ) {}
 
     async addNewUser(name: string, email: string, password: string) {
         this._validateEmail(email);
@@ -23,6 +28,11 @@ export class UsersService {
             uuid: randomUUID(),
         });
 
+        const newTenant = new this.tenantmodel({
+            tenantId: newUser.uuid,
+        });
+
+        await newTenant.save();
         await newUser.save();
     }
 

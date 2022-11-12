@@ -6,7 +6,7 @@ export * from './header/header.component';
 export * from './select-language/select-language.component';
 export * from './side-navigation/side-navigation.component';
 
-export const Components = [
+export const HomeComponents = [
     HeaderComponent,
     SelectLanguageComponent,
     SideNavigationComponent,

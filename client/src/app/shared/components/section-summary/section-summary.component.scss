@@ -1,5 +1,15 @@
-.content {
+$img-size: 150px;
+
+.card {
     padding: 30px;
+    display: grid;
+    grid-template-columns: auto $img-size;
+
+    img {
+        width: $img-size;
+        height: $img-size;
+    }
+    
 }
 
 mat-card {

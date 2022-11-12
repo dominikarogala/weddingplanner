@@ -1,25 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
-import { Pages } from './pages';
 import { SharedModule } from '../shared/shared.module';
-import { DoubleScreenComponent } from './components/double-screen/double-screen.component';
 import { AccountService } from './services';
 import { AuthService } from './services/auth.service';
+import { taskReducer } from './store/task/task.reducer';
+import { TaskEffects } from './store/task/task.effect';
+import { TaskService } from './store/task/task.service';
 
 @NgModule({
-    declarations: [...Pages, DoubleScreenComponent],
     imports: [
         CommonModule,
-        HttpClientModule,
-        FormsModule,
-        ReactiveFormsModule,
         SharedModule,
-        RouterModule,
+        StoreModule.forRoot({ tasks: taskReducer }),
+        EffectsModule.forRoot([TaskEffects]),
     ],
-    providers: [AccountService, AuthService],
+    providers: [AccountService, AuthService, TaskService],
 })
 export class CoreModule {}

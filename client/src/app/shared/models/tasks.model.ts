@@ -2,6 +2,7 @@ export interface ITask {
     name: string;
     endDate: string;
     isFinished: boolean;
+    isOpened: boolean;
     notes: string;
     id?: string;
 }
@@ -9,6 +10,7 @@ export interface ITask {
 export class Task implements ITask {
     name: string;
     endDate: string;
+    isOpened: boolean;
     isFinished: boolean;
     notes: string;
     id?: string;
@@ -17,6 +19,7 @@ export class Task implements ITask {
         this.name = '';
         this.endDate = '';
         this.isFinished = false;
+        this.isOpened = false;
         this.notes = '';
     }
 }
@@ -24,4 +27,11 @@ export class Task implements ITask {
 export interface ICategory {
     name: string;
     tasks: ITask[];
+    isOpened: boolean;
+    id?: string;
+}
+
+export interface ITaskDTO {
+    categoryId: string;
+    task: ITask;
 }

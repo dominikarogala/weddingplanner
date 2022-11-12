@@ -1,22 +1,43 @@
 <mat-expansion-panel
     class="category"
-    [ngClass]="{ 'category--open': panelOpenState }"
-    (opened)="panelOpenState = true"
-    (closed)="panelOpenState = false">
+    [ngClass]="{ 'category--open': category.isOpened }"
+    (opened)="onCategoryPanelClick(true)"
+    (closed)="onCategoryPanelClick(false)">
     <mat-expansion-panel-header>
         <mat-panel-title>
             {{ category.name }}
         </mat-panel-title>
-        <div class="category--progress">
-            <span>{{ 'toDoList.progress' | translate }} {{ progress }}%</span>
-            <mat-progress-bar
-                class="category--progress-bar"
-                color="primary"
-                mode="determinate"
-                [value]="progress">
-            </mat-progress-bar>
-        </div>
+        <ng-container *ngIf="!category.isOpened">
+            <div class="category--progress">
+                <mat-progress-bar
+                    class="category--progress-bar"
+                    color="primary"
+                    mode="determinate"
+                    [value]="
+                        (finishedTasksAmount / category.tasks.length) * 100
+                    ">
+                </mat-progress-bar>
+            </div>
+        </ng-container>
+        <wp-edition
+            (deleteElement)="deleteCategory()"
+            (editElement)="editCategory()"></wp-edition>
     </mat-expansion-panel-header>
+
+    <div class="category--progress-extended">
+        <span>
+            {{ 'toDoList.finished' | translate }}:
+            {{ finishedTasksAmount }}
+            {{ 'toDoList.from' | translate }}
+            {{ category.tasks.length }}
+        </span>
+        <mat-progress-bar
+            class="category--progress-bar"
+            color="primary"
+            mode="determinate"
+            [value]="(finishedTasksAmount / category.tasks.length) * 100">
+        </mat-progress-bar>
+    </div>
 
     <button mat-raised-button color="primary" (click)="openDialog()">
         <mat-icon>add</mat-icon>
@@ -28,5 +49,5 @@
     <wp-table-element
         *ngFor="let task of category.tasks"
         [task]="task"
-        (deleteTask)="onDeleteTask($event)"></wp-table-element>
+        [categoryId]="category.id"></wp-table-element>
 </mat-expansion-panel>

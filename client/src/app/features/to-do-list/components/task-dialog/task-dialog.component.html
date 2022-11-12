@@ -10,7 +10,7 @@
         <input matInput [(ngModel)]="data.task.name" required />
     </mat-form-field>
     <mat-form-field appearance="fill">
-        <mat-label>{{ 'toDoList.taskDate' | translate }}</mat-label>
+        <mat-label>{{ 'toDoList.taskEndDate' | translate }}</mat-label>
         <input
             matInput
             [matDatepicker]="picker"
@@ -34,8 +34,7 @@
         mat-raised-button
         color="primary"
         [mat-dialog-close]="data.task"
-        [disabled]="!data.task.name.length || !data.task.endDate"
-        cdkFocusInitial>
+        [disabled]="!data.task.name.length || !data.task.endDate">
         {{ confirmButtonLabel | translate }}
     </button>
 </div>

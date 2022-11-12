@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from './core/guards';
 
-import { LandingpageComponent } from './core/pages/landingpage/landingpage.component';
-import { LoginComponent } from './core/pages/login/login.component';
-import { RegisterComponent } from './core/pages/register/register.component';
+import { AuthGuard } from './core/guards';
+import {
+    LandingpageComponent,
+    LoginComponent,
+    RegisterComponent,
+} from './landingpage';
 
 const routes: Routes = [
     {
@@ -23,7 +25,6 @@ const routes: Routes = [
         path: 'app',
         loadChildren: () =>
             import('./features/features.module').then((m) => m.FeaturesModule),
-
         canActivate: [AuthGuard],
     },
     {

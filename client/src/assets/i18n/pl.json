@@ -2,28 +2,11 @@
     "header": { 
         "title":"Moje wesele"
     },
-    "budget": {
-        "title": "Budżet"
-    },
-    "toDoList": {
-        "title": "Zadania",
-        "description": "Zorganizuj i zaplanuj swój czas. Dzięki liście zadań do zrobienia nie zapomnisz o niczym!",
-        "addCategory": "dodaj kategorię",
-        "addTask": "dodaj zadanie",
-        "editTask": "edytuj zadanie",
-        "deleteTask": "usuń zadanie",
-        "downloadToDoList": "pobierz listę zadań",
-        "expandAll": "rozwiń wszystkie",
-        "collapseAll": "zwiń wszystkie",
-        "addNotes": "Dodaj notatki...",
-        "progress": "Postęp przygotowań",
-        "deleteTaskQuestion": "Czy na pewno chcesz usunać zadanie?",
-        "newTaskTitle": "Dodaj nowe zadanie",
-        "taskEditionTitle": "Edytuj zadanie",
-        "taskName": "Nazwa zadania",
-        "taskDate": "Data zadania",
-        "notes": "Notatki",
-        "markAsDone": "Oznacz zadanie jako wykonane"
+    "landingpage": {
+        "login": "Logowanie",
+        "loginDescription": "Zaloguj się do swojego konta",
+        "register": "Rejestracja",
+        "registerDescription": " Załóż konto w serwisie WeddingPlanner, aby w pełni korzystać ze wszystkich funkcjonalności."
     },
     "app": {
         "yes": "tak",
@@ -38,5 +21,41 @@
         "email": "email",
         "name": "imię",
         "confirmPassword": "potwierdź hasło"
-    }
+    },
+    "toaster": {
+        "accountCreated": "Konto utworzone!",
+        "accountCreatedDescription": "Udało się utworzyć konto. Zaloguj się i baw się dobrze, podczas korzystania z Wedding Planner!",
+        "accountExists": "Konto o podanym adresie e-mail już istnieje"
+    },
+    "dashboard": {
+        "description": "Zorganizuj Twoje wesele marzeń! Zobacz najnowsze informacje odnośnie zaproszonych gości, zaplanowanych zadań oraz akutualnego budżetu."
+    },
+    "budget": {
+        "title": "Budżet",
+        "description": "Zarządzaj swoimi finansami - wszystkie wydatki pod Twoją kontrolą!"
+    },
+    "toDoList": {
+        "title": "Zadania",
+        "description": "Zorganizuj i zaplanuj swój czas. Dzięki liście zadań do zrobienia nie zapomnisz o niczym!",
+        "addCategory": "dodaj kategorię",
+        "addTask": "dodaj zadanie",
+        "editTask": "edytuj zadanie",
+        "deleteTask": "usuń zadanie",
+        "downloadToDoList": "pobierz listę zadań",
+        "expandAll": "rozwiń wszystkie",
+        "collapseAll": "zwiń wszystkie",
+        "addNotes": "Dodaj nowe notatki",
+        "deleteTaskQuestion": "Czy na pewno chcesz usunać zadanie?",
+        "newTaskTitle": "Dodaj nowe zadanie",
+        "taskEditionTitle": "Edytuj zadanie",
+        "taskName": "Nazwa zadania",
+        "taskEndDate": "Data zakończenia zadania",
+        "notes": "Notatki",
+        "markAsDone": "Oznacz zadanie jako wykonane",
+        "categoryName": "Nazwa kategorii",
+        "newCategoryTitle": "Dodaj nową kategorię",
+        "categoryEditionTitle": "Edytuj nazwę kategorii",
+        "finished": "Ukończono",
+        "from": "z"
+    }  
 }

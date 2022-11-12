@@ -1,7 +1,9 @@
-<wp-section-summary [title]="'toDoList.title' | translate">
+<wp-section-summary
+    [title]="'toDoList.title' | translate"
+    [image]="'assets/images/tasks.svg'">
     <div>
         <p class="mat-body">{{ 'toDoList.description' | translate }}</p>
     </div>
 </wp-section-summary>
 
-<wp-table [categories]="categories"></wp-table>
+<wp-table [categories]="categories$ | async"></wp-table>

@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
-import { ITaskDialogData, TaskDialogMode } from '../../models/dialog.model';
+import { ITaskDialogData, DialogMode } from '../../models/dialog.model';
 
 @Component({
     selector: 'wp-task-dialog',
@@ -19,12 +19,12 @@ export class TaskDialogComponent implements OnInit {
 
     ngOnInit(): void {
         this.title =
-            this.data.mode === TaskDialogMode.Creation
+            this.data.mode === DialogMode.Creation
                 ? 'toDoList.newTaskTitle'
                 : 'toDoList.taskEditionTitle';
 
         this.confirmButtonLabel =
-            this.data.mode === TaskDialogMode.Creation ? 'app.add' : 'app.save';
+            this.data.mode === DialogMode.Creation ? 'app.add' : 'app.save';
     }
 
     onCancelClick(): void {

@@ -4,11 +4,17 @@ html,
 body {
     height: 100%;
 }
+
 body {
     margin: 0;
     font-family: Roboto, 'Helvetica Neue', sans-serif;
     background-color: $background;
 }
+
 h1 {
     color: $accent;
+}
+
+.clickable {
+    cursor: pointer;
 }

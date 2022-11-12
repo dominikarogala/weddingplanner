@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
+import { MatNativeDateModule } from '@angular/material/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { RouterModule } from '@angular/router';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -15,12 +19,11 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
-import { Components } from './components';
-
-import { MatNativeDateModule } from '@angular/material/core';
-import { FormsModule } from '@angular/forms';
+import { SharedComponents } from './components';
+import { LogoComponent } from './components/logo/logo.component';
 
 const materialModules = [
     MatButtonModule,
@@ -37,18 +40,22 @@ const materialModules = [
     MatProgressBarModule,
     MatSidenavModule,
     MatSlideToggleModule,
+    MatProgressSpinnerModule,
     MatTooltipModule,
 ];
 
 @NgModule({
-    declarations: [...Components],
-    imports: [...materialModules, FormsModule],
+    declarations: [...SharedComponents, LogoComponent],
+    imports: [CommonModule, FormsModule, ...materialModules],
     exports: [
         ...materialModules,
-        ...Components,
+        ...SharedComponents,
         CommonModule,
         FormsModule,
+        ReactiveFormsModule,
+
         TranslateModule,
+        RouterModule,
     ],
 })
 export class SharedModule {}

@@ -18,6 +18,10 @@
             cursor: pointer;
             background-color: $accent-light;
         }
+
+        &-selected {
+            background-color: $background-lighter;
+        }
     }
 
     &--description {
@@ -26,32 +30,13 @@
 
         &-text {
             width: 100%;
+            color: $text-grey;
+
+        }
+
+        &-button {
+            text-align: center;
         }
     }
 
-    &--icons {
-        display: flex;
-        justify-content: space-between;
-        z-index: 10;
-
-        &-edit:hover {
-            cursor: pointer;
-            color: mat-color($accent);
-        }
-
-        &-delete:hover {
-            cursor: pointer;
-            color: mat-color($warn);
-        }
-    }
-}
-
-.popup {
-    padding: 5px 15px;
-
-    &--buttons {
-        display: flex;
-        justify-content: flex-end;
-        column-gap: 10px;
-    }
 }

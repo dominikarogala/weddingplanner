@@ -1,7 +1,15 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ITask } from 'src/app/features/to-do-list/models/tasks.model';
-import { ITaskDialogData, TaskDialogMode } from '../../models/dialog.model';
+import { Store } from '@ngrx/store';
+
+import { AppState } from 'src/app/core/store/state/app.state';
+import {
+    changeTaskExpansionState,
+    deleteTask,
+    editTask,
+} from 'src/app/core/store/task';
+import { ITask } from 'src/app/shared/models/tasks.model';
+import { ITaskDialogData, DialogMode } from '../../models/dialog.model';
 import { TaskDialogComponent } from '../task-dialog/task-dialog.component';
 
 @Component({
@@ -11,12 +19,9 @@ import { TaskDialogComponent } from '../task-dialog/task-dialog.component';
 })
 export class TableElementComponent implements OnInit {
     @Input() task!: ITask;
+    @Input() categoryId = '';
 
-    @Output() deleteTask: EventEmitter<string> = new EventEmitter();
-
-    isDescriptionVisible = false;
-
-    constructor(private _dialog: MatDialog) {}
+    constructor(private _dialog: MatDialog, private _store: Store<AppState>) {}
 
     ngOnInit(): void {}
 
@@ -26,7 +31,7 @@ export class TableElementComponent implements OnInit {
 
     openDialog(): void {
         const dialogData: ITaskDialogData = {
-            mode: TaskDialogMode.Edition,
+            mode: DialogMode.Edition,
             task: { ...this.task },
         };
 
@@ -37,8 +42,43 @@ export class TableElementComponent implements OnInit {
 
         dialogRef.afterClosed().subscribe((result: ITask) => {
             if (!!result) {
-                this.task = { ...result };
+                this._dispatchEditTaskAction(result);
             }
         });
+    }
+
+    onTaskPanelClick(isTaskOpened: boolean): void {
+        this._store.dispatch(
+            changeTaskExpansionState({
+                payload: {
+                    categoryId: this.categoryId,
+                    taskId: this.task.id,
+                    isTaskOpened,
+                },
+            })
+        );
+    }
+
+    deleteTask(): void {
+        this._store.dispatch(
+            deleteTask({
+                payload: { categoryId: this.categoryId, taskId: this.task.id },
+            })
+        );
+    }
+
+    changeFinishStatus() {
+        this._dispatchEditTaskAction(this.task);
+    }
+
+    private _dispatchEditTaskAction(task: ITask) {
+        this._store.dispatch(
+            editTask({
+                payload: {
+                    categoryId: this.categoryId,
+                    task: { ...task },
+                },
+            })
+        );
     }
 }

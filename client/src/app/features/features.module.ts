@@ -3,12 +3,20 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 import { FeaturesRoutingModule } from './features-routing.module';
-import { Components } from './home/components';
+import { HomeComponents } from './home/components';
 import { HomeComponent } from './home/home.component';
 import { SharedModule } from '../shared/shared.module';
+import { LandingpageModule } from '../landingpage/landingpage.module';
+import { DashboardComponent } from './home/components/dashboard/dashboard.component';
 
 @NgModule({
-    declarations: [...Components, HomeComponent],
-    imports: [CommonModule, FeaturesRoutingModule, RouterModule, SharedModule],
+    declarations: [...HomeComponents, HomeComponent, DashboardComponent],
+    imports: [
+        CommonModule,
+        FeaturesRoutingModule,
+        RouterModule,
+        SharedModule,
+        LandingpageModule,
+    ],
 })
 export class FeaturesModule {}
