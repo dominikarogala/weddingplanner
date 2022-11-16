@@ -8,9 +8,10 @@ import { HomeComponent } from './home/home.component';
 import { SharedModule } from '../shared/shared.module';
 import { LandingpageModule } from '../landingpage/landingpage.module';
 import { DashboardComponent } from './home/components/dashboard/dashboard.component';
+import { UserInfogDialogComponent } from './home/components/user-infog-dialog/user-infog-dialog.component';
 
 @NgModule({
-    declarations: [...HomeComponents, HomeComponent, DashboardComponent],
+    declarations: [...HomeComponents, HomeComponent, DashboardComponent, UserInfogDialogComponent],
     imports: [
         CommonModule,
         FeaturesRoutingModule,

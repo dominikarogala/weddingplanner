@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { act, Actions, createEffect, ofType } from '@ngrx/effects';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, EMPTY, exhaustMap, map, switchMap } from 'rxjs';
 
 import { addNewTask, addNewTaskSuccess, loadTasks, loadTasksSuccess } from '.';

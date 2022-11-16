@@ -5,4 +5,5 @@ export const enum ApiUrls {
     task = 'task',
     category = 'task/category',
     taskPDF = 'task/pdf',
+    userconfig = 'userconfig',
 }
