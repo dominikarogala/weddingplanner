@@ -7,11 +7,9 @@ import { HomeComponents } from './home/components';
 import { HomeComponent } from './home/home.component';
 import { SharedModule } from '../shared/shared.module';
 import { LandingpageModule } from '../landingpage/landingpage.module';
-import { DashboardComponent } from './home/components/dashboard/dashboard.component';
-import { UserInfogDialogComponent } from './home/components/user-infog-dialog/user-infog-dialog.component';
 
 @NgModule({
-    declarations: [...HomeComponents, HomeComponent, DashboardComponent, UserInfogDialogComponent],
+    declarations: [...HomeComponents, HomeComponent],
     imports: [
         CommonModule,
         FeaturesRoutingModule,

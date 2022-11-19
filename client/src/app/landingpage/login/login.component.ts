@@ -1,11 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { switchMap } from 'rxjs';
 
 import { ILoginData } from 'src/app/core/models';
 import { AuthService } from 'src/app/core/services';
-import { AppState } from 'src/app/core/store/state/app.state';
+import { AppState } from 'src/app/core/store/state';
 import { loadUserConfig } from 'src/app/core/store/user-config';
 
 @Component({
@@ -13,7 +12,7 @@ import { loadUserConfig } from 'src/app/core/store/user-config';
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.scss', '../styles.scss'],
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
     loginData: ILoginData = { email: '', password: '' };
 
     constructor(
@@ -22,13 +21,10 @@ export class LoginComponent implements OnInit {
         private _store: Store<AppState>
     ) {}
 
-    ngOnInit(): void {}
-
     login(): void {
         this._authService
             .login(this.loginData.email, this.loginData.password)
-            .subscribe((result) => {
-                debugger;
+            .subscribe(() => {
                 this._store.dispatch(loadUserConfig());
                 this._router.navigate(['app']);
             });

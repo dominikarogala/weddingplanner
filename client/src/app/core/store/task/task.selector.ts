@@ -1,3 +1,3 @@
-import { AppState } from '../state/app.state';
+import { AppState } from '../state';
 
 export const selectTasks = (state: AppState) => state.tasks.categories;

@@ -5,5 +5,5 @@ export interface ITaskState {
 }
 
 export const initialTaskState: ITaskState = {
-    categories: [],
+    categories: [] as ICategory[],
 };

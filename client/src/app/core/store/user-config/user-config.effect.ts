@@ -1,8 +1,13 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { catchError, EMPTY, map, switchMap } from 'rxjs';
+import { catchError, map, of, switchMap } from 'rxjs';
 
-import { loadUserConfig, loadUserConfigSuccess } from './user-config.action';
+import {
+    loadUserConfig,
+    loadUserConfigNotFound,
+    loadUserConfigSuccess,
+} from './user-config.action';
 import { UserConfigService } from './user-config.service';
 
 @Injectable()
@@ -18,7 +23,18 @@ export class UserConfigEffects {
             switchMap(() => {
                 return this.service.getUserConfig().pipe(
                     map((config) => loadUserConfigSuccess({ payload: config })),
-                    catchError(() => EMPTY)
+                    catchError((error: HttpErrorResponse) => {
+                        return of(
+                            loadUserConfigNotFound({
+                                payload: {
+                                    isInitialConfigDone: false,
+                                    brideName: '',
+                                    groomName: '',
+                                    weddingDate: '',
+                                },
+                            })
+                        );
+                    })
                 );
             })
         );

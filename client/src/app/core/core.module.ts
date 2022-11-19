@@ -4,13 +4,13 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
 import { SharedModule } from '../shared/shared.module';
-import { AccountService } from './services';
-import { AuthService } from './services/auth.service';
-import { taskReducer } from './store/task/task.reducer';
-import { TaskEffects } from './store/task/task.effect';
-import { TaskService } from './store/task/task.service';
-import { UserConfigEffects } from './store/user-config/user-config.effect';
-import { userConfigReducer, UserConfigService } from './store/user-config';
+import { AccountService, AuthService } from './services';
+import {
+    UserConfigEffects,
+    userConfigReducer,
+    UserConfigService,
+} from './store/user-config';
+import { TaskEffects, taskReducer, TaskService } from './store/task';
 
 @NgModule({
     imports: [

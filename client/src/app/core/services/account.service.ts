@@ -20,8 +20,4 @@ export class AccountService {
             password: accountData.password,
         });
     }
-
-    // getUserConfig {
-
-    // }
 }

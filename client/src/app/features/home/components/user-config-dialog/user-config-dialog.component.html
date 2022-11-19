@@ -1,0 +1,35 @@
+<h1 mat-dialog-title>{{ 'app.fillData' | translate }}</h1>
+<p>{{ 'dashboard.newConfigTitle' | translate }}</p>
+
+<div mat-dialog-content>
+    <mat-form-field appearance="fill" style="width: 100%">
+        <mat-label>{{ 'dashboard.weddingDate' | translate }}</mat-label>
+        <input
+            matInput
+            [matDatepicker]="picker"
+            [(ngModel)]="data.weddingDate"
+            required />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" style="width: 100%">
+        <mat-label>{{ 'dashboard.brideName' | translate }}</mat-label>
+        <input matInput [(ngModel)]="data.brideName" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" style="width: 100%">
+        <mat-label>{{ 'dashboard.groomName' | translate }}</mat-label>
+        <input matInput [(ngModel)]="data.groomName" required />
+    </mat-form-field>
+</div>
+
+<div mat-dialog-actions align="end">
+    <button
+        mat-raised-button
+        color="primary"
+        [mat-dialog-close]="data"
+        [disabled]="!data.weddingDate && !data.brideName && !data.groomName">
+        {{ 'app.save' | translate }}
+    </button>
+</div>

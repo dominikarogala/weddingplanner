@@ -11,7 +11,6 @@ export class UserConfigService {
     constructor(private _http: HttpClient) {}
 
     getUserConfig(): Observable<IUserConfig> {
-        debugger;
         const url = environment.baseUrl + ApiUrls.userconfig;
         return this._http.get<IUserConfig>(url);
     }

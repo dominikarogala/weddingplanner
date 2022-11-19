@@ -20,7 +20,8 @@
         "password": "hasło",
         "email": "email",
         "name": "imię",
-        "confirmPassword": "potwierdź hasło"
+        "confirmPassword": "potwierdź hasło",
+        "fillData": "Uzupełnij dane"
     },
     "toaster": {
         "accountCreated": "Konto utworzone!",
@@ -28,7 +29,11 @@
         "accountExists": "Konto o podanym adresie e-mail już istnieje"
     },
     "dashboard": {
-        "description": "Zorganizuj Twoje wesele marzeń! Zobacz najnowsze informacje odnośnie zaproszonych gości, zaplanowanych zadań oraz akutualnego budżetu."
+        "description": "Zorganizuj Twoje wesele marzeń! Zobacz najnowsze informacje odnośnie zaproszonych gości, zaplanowanych zadań oraz akutualnego budżetu.",
+        "newConfigTitle": "Podaj najważniejsze informacje o Twojej uroczystości",
+        "brideName": "imię panny młodej",
+        "groomName": "imię pana młodego",
+        "weddingDate": "data ślubu"
     },
     "budget": {
         "title": "Budżet",

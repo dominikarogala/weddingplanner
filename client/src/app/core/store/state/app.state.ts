@@ -1,4 +1,4 @@
-import { ITaskState } from '../task';
+import { ITaskState } from '../task/task.state';
 import { IUserConfig } from '../user-config';
 
 export interface AppState {

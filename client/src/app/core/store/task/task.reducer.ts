@@ -1,6 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
 
-import { loadTasksSuccess, initialTaskState } from '.';
+import { loadTasksSuccess } from '.';
+import { initialTaskState } from './task.state';
 import {
     addNewCategorySuccess,
     addNewTaskSuccess,

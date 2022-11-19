@@ -7,3 +7,16 @@ export const loadUserConfigSuccess = createAction(
     '[UserConfig] Load User Config Success',
     props<{ payload: IUserConfig }>()
 );
+export const loadUserConfigNotFound = createAction(
+    '[UserConfig] Load User Config Not Found',
+    props<{ payload: IUserConfig }>()
+);
+
+export const addNewUserConfig = createAction(
+    '[UserConfig] Add New User Config',
+    props<{ payload: IUserConfig }>()
+);
+export const addNewUserConfigSuccess = createAction(
+    '[UserConfig] Add New User Config Success',
+    props<{ payload: IUserConfig }>()
+);
