@@ -1,0 +1,22 @@
+.newlyweds {
+    display: flex;
+    align-items: baseline;
+    column-gap: 2em;
+    margin-top: 2.5em;
+
+    &--name {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 0.4em;
+
+        .name {
+            font-size: 1.5em;
+        }
+
+        .label {
+            color: grey;
+            font-size: 0.9em;
+        }
+    }
+}

@@ -1,6 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
 
 import {
+    addNewUserConfigSuccess,
     loadUserConfigNotFound,
     loadUserConfigSuccess,
 } from './user-config.action';
@@ -13,6 +14,10 @@ export const userConfigReducer = createReducer(
         ...action.payload,
     })),
     on(loadUserConfigNotFound, (state, action) => ({
+        ...state,
+        ...action.payload,
+    })),
+    on(addNewUserConfigSuccess, (state, action) => ({
         ...state,
         ...action.payload,
     }))

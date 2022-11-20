@@ -33,7 +33,8 @@
         "newConfigTitle": "Podaj najważniejsze informacje o Twojej uroczystości",
         "brideName": "imię panny młodej",
         "groomName": "imię pana młodego",
-        "weddingDate": "data ślubu"
+        "weddingDate": "data ślubu",
+        "newlyweds": "Para Młoda"
     },
     "budget": {
         "title": "Budżet",

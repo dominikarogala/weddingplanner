@@ -1,17 +1,12 @@
-import {
-    ChangeDetectionStrategy,
-    Component,
-    Input,
-    OnInit,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
-    selector: 'wp-section-summary',
-    styleUrls: ['./section-summary.component.scss'],
+    selector: 'wp-section',
+    styleUrls: ['./section.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     template: `
         <mat-card class="card">
-            <div>
+            <div [ngClass]="{ 'no-image': !image.length }">
                 <mat-card-title>
                     <h1>
                         {{ title }}
@@ -25,11 +20,7 @@ import {
         </mat-card>
     `,
 })
-export class SectionSummaryComponent implements OnInit {
+export class SectionComponent {
     @Input() title = 'Section summary';
     @Input() image = '';
-
-    constructor() {}
-
-    ngOnInit(): void {}
 }

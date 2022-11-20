@@ -4,11 +4,11 @@ export * from './double-screen/double-screen.component';
 import { LogoComponent } from './logo/logo.component';
 export * from './logo/logo.component';
 
-import { SectionSummaryComponent } from './section-summary/section-summary.component';
-export * from './section-summary/section-summary.component';
+import { SectionComponent } from './section/section.component';
+export * from './section/section.component';
 
 export const SharedComponents = [
     DoubleScreenComponent,
     LogoComponent,
-    SectionSummaryComponent,
+    SectionComponent,
 ];

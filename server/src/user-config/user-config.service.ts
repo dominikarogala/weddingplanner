@@ -8,6 +8,7 @@ export class UserInfoService {
     constructor(@Inject('USER_CONFIG_MODEL') private readonly userConfigModel: Model<UserConfig>) {}
 
     async createUserConfig(config: UserConfig) {
+        debugger;
         const newInfo = new this.userConfigModel({
             brideName: config.brideName,
             groomName: config.groomName,

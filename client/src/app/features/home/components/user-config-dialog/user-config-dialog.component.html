@@ -29,7 +29,7 @@
         mat-raised-button
         color="primary"
         [mat-dialog-close]="data"
-        [disabled]="!data.weddingDate && !data.brideName && !data.groomName">
+        [disabled]="!data.weddingDate || !data.brideName || !data.groomName">
         {{ 'app.save' | translate }}
     </button>
 </div>

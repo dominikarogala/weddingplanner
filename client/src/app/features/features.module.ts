@@ -7,9 +7,10 @@ import { HomeComponents } from './home/components';
 import { HomeComponent } from './home/home.component';
 import { SharedModule } from '../shared/shared.module';
 import { LandingpageModule } from '../landingpage/landingpage.module';
+import { NewlywedsComponent } from './home/components/newlyweds/newlyweds.component';
 
 @NgModule({
-    declarations: [...HomeComponents, HomeComponent],
+    declarations: [...HomeComponents, HomeComponent, NewlywedsComponent],
     imports: [
         CommonModule,
         FeaturesRoutingModule,

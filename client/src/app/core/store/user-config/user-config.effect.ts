@@ -1,9 +1,11 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { catchError, map, of, switchMap } from 'rxjs';
+import { catchError, EMPTY, map, of, switchMap } from 'rxjs';
 
 import {
+    addNewUserConfig,
+    addNewUserConfigSuccess,
     loadUserConfig,
     loadUserConfigNotFound,
     loadUserConfigSuccess,
@@ -24,17 +26,37 @@ export class UserConfigEffects {
                 return this.service.getUserConfig().pipe(
                     map((config) => loadUserConfigSuccess({ payload: config })),
                     catchError((error: HttpErrorResponse) => {
-                        return of(
-                            loadUserConfigNotFound({
-                                payload: {
-                                    isInitialConfigDone: false,
-                                    brideName: '',
-                                    groomName: '',
-                                    weddingDate: '',
-                                },
-                            })
-                        );
+                        if (error.status === 404) {
+                            return of(
+                                loadUserConfigNotFound({
+                                    payload: {
+                                        isInitialConfigDone: false,
+                                        brideName: '',
+                                        groomName: '',
+                                        weddingDate: '',
+                                    },
+                                })
+                            );
+                        } else {
+                            return EMPTY;
+                        }
                     })
+                );
+            })
+        );
+    });
+
+    addUserConfig = createEffect(() => {
+        return this._actions$.pipe(
+            ofType(addNewUserConfig),
+            switchMap((action) => {
+                return this.service.addNewUserConfig(action.payload).pipe(
+                    map(() =>
+                        addNewUserConfigSuccess({
+                            payload: { ...action.payload },
+                        })
+                    ),
+                    catchError((error) => EMPTY)
                 );
             })
         );

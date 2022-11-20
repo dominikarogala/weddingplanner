@@ -1,7 +1,20 @@
-<wp-section-summary
-    [title]="'WeddingPlanner'"
-    [image]="'assets/images/wedding.svg'">
-    <div>
-        <p>{{ 'dashboard.description' | translate }}</p>
-    </div>
-</wp-section-summary>
+<div class="dashboard">
+    <wp-section
+        style="flex-basis: 1"
+        [title]="'WeddingPlanner'"
+        [image]="'assets/images/wedding.svg'">
+        <div>
+            <p>{{ 'dashboard.description' | translate }}</p>
+        </div>
+    </wp-section>
+
+    <ng-container *ngIf="userConfig$ | async as config">
+        <ng-container
+            *ngIf="!!config.brideName?.length && !!config.groomName?.length">
+            <wp-newlyweds
+                [brideName]="config.brideName"
+                [groomName]="config.groomName">
+            </wp-newlyweds>
+        </ng-container>
+    </ng-container>
+</div>

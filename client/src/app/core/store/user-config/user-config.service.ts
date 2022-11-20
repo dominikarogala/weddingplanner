@@ -14,4 +14,9 @@ export class UserConfigService {
         const url = environment.baseUrl + ApiUrls.userconfig;
         return this._http.get<IUserConfig>(url);
     }
+
+    addNewUserConfig(userconfig: IUserConfig): Observable<string> {
+        const url = environment.baseUrl + ApiUrls.userconfig;
+        return this._http.post<string>(url, { userconfig });
+    }
 }
