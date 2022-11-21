@@ -25,7 +25,7 @@ export type MoneyType = 'all' | 'left' | 'spent';
                         'money-left': moneyType === 'left',
                         'money-spent': moneyType === 'spent'
                     }">
-                    {{ amountOfMoney | currency }}
+                    {{ amountOfMoney | currency: 'PLN' }}
                 </p>
             </mat-card-content>
         </mat-card>

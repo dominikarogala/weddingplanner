@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -15,10 +15,14 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { FeaturesModule } from './features/features.module';
 import { TokenInterceptor } from './core/interceptors/token/token.interceptor';
+import { registerLocaleData } from '@angular/common';
+import localePl from '@angular/common/locales/pl';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);
 }
+
+registerLocaleData(localePl);
 
 @NgModule({
     declarations: [AppComponent],
@@ -48,6 +52,7 @@ export function HttpLoaderFactory(http: HttpClient) {
             useClass: TokenInterceptor,
             multi: true,
         },
+        { provide: LOCALE_ID, useValue: 'pl-PL' },
     ],
     bootstrap: [AppComponent],
 })

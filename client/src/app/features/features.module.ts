@@ -8,9 +8,10 @@ import { HomeComponent } from './home/home.component';
 import { SharedModule } from '../shared/shared.module';
 import { LandingpageModule } from '../landingpage/landingpage.module';
 import { NewlywedsComponent } from './home/components/newlyweds/newlyweds.component';
+import { WeddingDateComponent } from './home/components/wedding-date/wedding-date.component';
 
 @NgModule({
-    declarations: [...HomeComponents, HomeComponent, NewlywedsComponent],
+    declarations: [...HomeComponents, HomeComponent, NewlywedsComponent, WeddingDateComponent],
     imports: [
         CommonModule,
         FeaturesRoutingModule,
