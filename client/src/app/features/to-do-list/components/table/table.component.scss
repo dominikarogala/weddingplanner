@@ -9,4 +9,10 @@
             margin-right: 10px;
         }
     }
+
+    &--empty {
+        margin-top: 6em;
+        display: flex;
+        justify-content: center;
+    }
 }

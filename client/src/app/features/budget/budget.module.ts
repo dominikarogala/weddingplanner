@@ -9,7 +9,12 @@ import { BudgetOverviewItemComponent } from './components/budget-overview-item/b
 import { BudgetDetermineDialogComponent } from './components/budget-determine-dialog/budget-determine-dialog.component';
 
 @NgModule({
-    declarations: [BudgetComponent, BudgetOverviewComponent, BudgetOverviewItemComponent, BudgetDetermineDialogComponent],
+    declarations: [
+        BudgetComponent,
+        BudgetOverviewComponent,
+        BudgetOverviewItemComponent,
+        BudgetDetermineDialogComponent,
+    ],
     imports: [CommonModule, BudgetRoutingModule, SharedModule],
 })
 export class BudgetModule {}

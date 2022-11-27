@@ -66,6 +66,7 @@
         "newCategoryTitle": "Dodaj nową kategorię",
         "categoryEditionTitle": "Edytuj nazwę kategorii",
         "finished": "Ukończono",
-        "from": "z"
+        "from": "z",
+        "newCategoryTooltip": "Utwórz nową kategorię zadań"
     }  
 }

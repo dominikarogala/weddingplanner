@@ -8,7 +8,6 @@ export class UserInfoService {
     constructor(@Inject('USER_CONFIG_MODEL') private readonly userConfigModel: Model<UserConfig>) {}
 
     async createUserConfig(config: UserConfig) {
-        debugger;
         const newInfo = new this.userConfigModel({
             brideName: config.brideName,
             groomName: config.groomName,
@@ -20,6 +19,23 @@ export class UserInfoService {
     }
 
     async getUserConfig(): Promise<IUserConfig> {
+        let config = await this._getUserConfigFromDb();
+
+        return {
+            weddingDate: config.weddingDate,
+            brideName: config.brideName,
+            groomName: config.groomName,
+            budget: config.budget,
+        };
+    }
+
+    async updateUserConfig(config: UserConfig) {
+        const filter = this._getUserConfigFromDb();
+
+        return await this.userConfigModel.findOneAndUpdate(filter, config);
+    }
+
+    private async _getUserConfigFromDb() {
         let config;
 
         try {
@@ -32,11 +48,6 @@ export class UserInfoService {
             throw new NotFoundException('Could not find a config.');
         }
 
-        return {
-            weddingDate: config.weddingDate,
-            brideName: config.brideName,
-            groomName: config.groomName,
-            budget: config.budget,
-        };
+        return config;
     }
 }

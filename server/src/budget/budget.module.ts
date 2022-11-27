@@ -1,5 +1,5 @@
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
-import { Connection } from 'mongoose';
+
 import { AuthModule } from 'src/auth/auth.module';
 import { TenantAwareMiddleware } from 'src/tenant/tenant-aware.middleware';
 import { TenantModule } from 'src/tenant/tenant.module';

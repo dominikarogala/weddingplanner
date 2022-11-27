@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
@@ -6,13 +6,11 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
     templateUrl: './budget-determine-dialog.component.html',
     styleUrls: ['./budget-determine-dialog.component.scss'],
 })
-export class BudgetDetermineDialogComponent implements OnInit {
+export class BudgetDetermineDialogComponent {
     constructor(
         public dialogRef: MatDialogRef<BudgetDetermineDialogComponent>,
         @Inject(MAT_DIALOG_DATA) public amount: number
     ) {}
-
-    ngOnInit(): void {}
 
     onCancelClick(): void {
         this.dialogRef.close();
