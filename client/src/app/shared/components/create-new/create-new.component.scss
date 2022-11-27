@@ -1,0 +1,13 @@
+.create-new {
+    display: inline-block;
+    text-align: center;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    img {
+        width: 10em;
+        height: 10em;
+    }
+}
