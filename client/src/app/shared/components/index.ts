@@ -10,9 +10,13 @@ export * from './logo/logo.component';
 import { SectionComponent } from './section/section.component';
 export * from './section/section.component';
 
+import { TableComponent } from './table/table.component';
+export * from './table/table.component';
+
 export const SharedComponents = [
     CreateNewComponent,
     DoubleScreenComponent,
     LogoComponent,
     SectionComponent,
+    TableComponent,
 ];

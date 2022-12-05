@@ -6,4 +6,40 @@
     </div>
 </wp-section>
 
-<wp-table [categories]="categories$ | async"></wp-table>
+<ng-container *ngIf="categories$ | async as categories">
+    <wp-table [categories]="categories">
+        <div buttons>
+            <button
+                mat-raised-button
+                color="primary"
+                (click)="openNewCategoryDialog()">
+                <mat-icon>add</mat-icon>
+                <span>
+                    {{ 'toDoList.addCategory' | translate }}
+                </span>
+            </button>
+            <button
+                mat-raised-button
+                color="accent"
+                (click)="downloadTasksList()">
+                <mat-icon>save_alt</mat-icon>
+                <span>
+                    {{ 'toDoList.downloadToDoList' | translate }}
+                </span>
+            </button>
+        </div>
+
+        <wp-table-category
+            cateogry
+            *ngFor="let category of categories; trackBy: identifierFn"
+            [category]="category">
+        </wp-table-category>
+
+        <div class="table--empty" empty>
+            <wp-create-new
+                [text]="'toDoList.newCategoryTooltip' | translate"
+                (itemClicked)="openNewCategoryDialog()">
+            </wp-create-new>
+        </div>
+    </wp-table>
+</ng-container>

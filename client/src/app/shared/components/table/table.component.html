@@ -1,26 +1,7 @@
 <div class="table">
     <ng-container *ngIf="!!categories?.length; else emptyCategories">
         <div class="table--buttons">
-            <div>
-                <button
-                    mat-raised-button
-                    color="primary"
-                    (click)="openNewCategoryDialog()">
-                    <mat-icon>add</mat-icon>
-                    <span>
-                        {{ 'toDoList.addCategory' | translate }}
-                    </span>
-                </button>
-                <button
-                    mat-raised-button
-                    color="accent"
-                    (click)="downloadTasksList()">
-                    <mat-icon>save_alt</mat-icon>
-                    <span>
-                        {{ 'toDoList.downloadToDoList' | translate }}
-                    </span>
-                </button>
-            </div>
+            <ng-content select="[buttons]"></ng-content>
             <div>
                 <button
                     mat-button
@@ -44,19 +25,11 @@
         </div>
 
         <mat-accordion #accordion="matAccordion" [multi]="true">
-            <wp-table-category
-                *ngFor="let category of categories; trackBy: identifierFn"
-                [category]="category">
-            </wp-table-category>
+            <ng-content select="[category]"></ng-content>
         </mat-accordion>
     </ng-container>
 
     <ng-template #emptyCategories>
-        <div class="table--empty">
-            <wp-create-new
-                [text]="'toDoList.newCategoryTooltip' | translate"
-                (itemClicked)="openNewCategoryDialog()">
-            </wp-create-new>
-        </div>
+        <ng-content select="[empty]"></ng-content>
     </ng-template>
 </div>

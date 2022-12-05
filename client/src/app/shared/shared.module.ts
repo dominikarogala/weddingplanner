@@ -25,6 +25,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { SharedComponents } from './components';
 import { CapitalizePipe } from './pipes/capitalize.pipe';
+import { TableComponent } from './components/table/table.component';
 
 const materialModules = [
     MatAutocompleteModule,
@@ -47,8 +48,8 @@ const materialModules = [
 ];
 
 @NgModule({
-    declarations: [...SharedComponents, CapitalizePipe],
-    imports: [CommonModule, FormsModule, ...materialModules],
+    declarations: [...SharedComponents, CapitalizePipe, TableComponent],
+    imports: [CommonModule, FormsModule, ...materialModules, TranslateModule],
     exports: [
         ...materialModules,
         ...SharedComponents,
