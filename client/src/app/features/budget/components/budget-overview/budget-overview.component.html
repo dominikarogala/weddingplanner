@@ -1,16 +1,18 @@
 <div class="overview">
     <wp-budget-overview-item
-        [amountOfMoney]="amountOfMoney"
+        [amountOfMoney]="budget$ | async"
         [title]="'budget.title' | translate">
         <button mat-icon-button (click)="editBudget()" icon>
             <mat-icon>edit</mat-icon>
         </button>
     </wp-budget-overview-item>
+
     <wp-budget-overview-item
         [amountOfMoney]="15000"
         [title]="'budget.moneyLeft' | translate"
         [moneyType]="'left'">
     </wp-budget-overview-item>
+
     <wp-budget-overview-item
         [amountOfMoney]="10000"
         [title]="'budget.plannedMoney' | translate"

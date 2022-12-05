@@ -4,6 +4,7 @@ import {
     addNewUserConfigSuccess,
     loadUserConfigNotFound,
     loadUserConfigSuccess,
+    updateUserConfigSuccess,
 } from './user-config.action';
 import { initialUserConfigState } from './user-config.state';
 
@@ -18,6 +19,10 @@ export const userConfigReducer = createReducer(
         ...action.payload,
     })),
     on(addNewUserConfigSuccess, (state, action) => ({
+        ...state,
+        ...action.payload,
+    })),
+    on(updateUserConfigSuccess, (state, action) => ({
         ...state,
         ...action.payload,
     }))

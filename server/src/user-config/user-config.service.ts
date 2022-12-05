@@ -29,10 +29,18 @@ export class UserInfoService {
         };
     }
 
-    async updateUserConfig(config: UserConfig) {
-        const filter = this._getUserConfigFromDb();
+    async updateUserConfig(config: Partial<UserConfig>) {
+        const filter = await this._getUserConfigFromDb();
+        const update = { ...filter._doc, ...config };
 
-        return await this.userConfigModel.findOneAndUpdate(filter, config);
+        const newConfig = await this.userConfigModel.findOneAndUpdate(filter, update, { new: true });
+
+        return {
+            weddingDate: newConfig.weddingDate,
+            brideName: newConfig.brideName,
+            groomName: newConfig.groomName,
+            budget: newConfig.budget,
+        };
     }
 
     private async _getUserConfigFromDb() {

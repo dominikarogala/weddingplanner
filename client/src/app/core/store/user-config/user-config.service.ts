@@ -19,4 +19,11 @@ export class UserConfigService {
         const url = environment.baseUrl + ApiUrls.userconfig;
         return this._http.post<string>(url, { userconfig });
     }
+
+    updateUserConfig(
+        userconfig: Partial<IUserConfig>
+    ): Observable<IUserConfig> {
+        const url = environment.baseUrl + ApiUrls.userconfig;
+        return this._http.put<IUserConfig>(url, { userconfig });
+    }
 }

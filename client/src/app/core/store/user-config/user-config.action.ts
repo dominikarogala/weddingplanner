@@ -20,3 +20,12 @@ export const addNewUserConfigSuccess = createAction(
     '[UserConfig] Add New User Config Success',
     props<{ payload: IUserConfig }>()
 );
+
+export const updateUserConfig = createAction(
+    '[UserConfig] Update User Config',
+    props<{ payload: Partial<IUserConfig> }>()
+);
+export const updateUserConfigSuccess = createAction(
+    '[UserConfig] Update User Config Success',
+    props<{ payload: IUserConfig }>()
+);

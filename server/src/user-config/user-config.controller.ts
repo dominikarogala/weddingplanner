@@ -18,7 +18,7 @@ export class UserConfigController {
     }
 
     @Put()
-    async updateUserConfig(@Body('userconfig') config: UserConfig) {
+    async updateUserConfig(@Body('userconfig') config: Partial<UserConfig>) {
         return await this._userInfo.updateUserConfig(config);
     }
 }

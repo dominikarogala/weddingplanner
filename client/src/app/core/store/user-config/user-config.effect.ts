@@ -9,6 +9,8 @@ import {
     loadUserConfig,
     loadUserConfigNotFound,
     loadUserConfigSuccess,
+    updateUserConfig,
+    updateUserConfigSuccess,
 } from './user-config.action';
 import { UserConfigService } from './user-config.service';
 
@@ -54,6 +56,22 @@ export class UserConfigEffects {
                     map(() =>
                         addNewUserConfigSuccess({
                             payload: { ...action.payload },
+                        })
+                    ),
+                    catchError((error) => EMPTY)
+                );
+            })
+        );
+    });
+
+    updateUserConfig = createEffect(() => {
+        return this._actions$.pipe(
+            ofType(updateUserConfig),
+            switchMap((action) => {
+                return this.service.updateUserConfig(action.payload).pipe(
+                    map((config) =>
+                        updateUserConfigSuccess({
+                            payload: { ...config },
                         })
                     ),
                     catchError((error) => EMPTY)

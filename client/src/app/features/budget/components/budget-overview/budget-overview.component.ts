@@ -1,6 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Store } from '@ngrx/store';
+import { Observable, tap } from 'rxjs';
 
+import { AppState } from 'src/app/core/store/state';
+import { selectBudget, updateUserConfig } from 'src/app/core/store/user-config';
 import { BudgetDetermineDialogComponent } from '../budget-determine-dialog/budget-determine-dialog.component';
 
 @Component({
@@ -9,11 +13,18 @@ import { BudgetDetermineDialogComponent } from '../budget-determine-dialog/budge
     styleUrls: ['./budget-overview.component.scss'],
 })
 export class BudgetOverviewComponent implements OnInit {
-    @Input() amountOfMoney = 0;
+    amountOfMoney = 0;
+    budget$: Observable<number>;
 
-    constructor(private _dialog: MatDialog) {}
+    constructor(private _dialog: MatDialog, private _store: Store<AppState>) {}
 
-    ngOnInit(): void {}
+    ngOnInit(): void {
+        this.budget$ = this._store.select(selectBudget).pipe(
+            tap((budget) => {
+                this.amountOfMoney = budget;
+            })
+        );
+    }
 
     editBudget(): void {
         const dialogRef = this._dialog.open(BudgetDetermineDialogComponent, {
@@ -21,12 +32,10 @@ export class BudgetOverviewComponent implements OnInit {
             data: this.amountOfMoney,
         });
 
-        dialogRef.afterClosed().subscribe((amount: string) => {
-            // if (!!categoryName) {
-            //     this._store.dispatch(
-            //         addNewCategory({ payload: { categoryName } })
-            //     );
-            // }
+        dialogRef.afterClosed().subscribe((amount: number) => {
+            this._store.dispatch(
+                updateUserConfig({ payload: { budget: amount } })
+            );
         });
     }
 }
