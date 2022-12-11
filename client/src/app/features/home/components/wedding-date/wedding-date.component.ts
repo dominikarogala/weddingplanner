@@ -4,7 +4,7 @@ import { Component, Input, OnInit } from '@angular/core';
     selector: 'wp-wedding-date',
     template: `
         <wp-section [title]="'dashboard.weddingDate' | translate | capitalize">
-            <p>{{ date | date: 'fullDate' }}</p>
+            <p>{{ date | date : 'fullDate' }}</p>
         </wp-section>
     `,
     styleUrls: ['./wedding-date.component.scss'],

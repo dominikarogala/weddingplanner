@@ -23,10 +23,6 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
-import { SharedComponents } from './components';
-import { CapitalizePipe } from './pipes/capitalize.pipe';
-import { TableComponent } from './components/table/table.component';
-
 const materialModules = [
     MatAutocompleteModule,
     MatButtonModule,
@@ -48,12 +44,9 @@ const materialModules = [
 ];
 
 @NgModule({
-    declarations: [...SharedComponents, CapitalizePipe, TableComponent],
     imports: [CommonModule, FormsModule, ...materialModules, TranslateModule],
     exports: [
         ...materialModules,
-        ...SharedComponents,
-        CapitalizePipe,
         CommonModule,
         FormsModule,
         ReactiveFormsModule,

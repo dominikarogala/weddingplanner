@@ -10,14 +10,28 @@ import { LandingpageModule } from '../landingpage/landingpage.module';
 import { NewlywedsComponent } from './home/components/newlyweds/newlyweds.component';
 import { WeddingDateComponent } from './home/components/wedding-date/wedding-date.component';
 
+import { CapitalizePipe } from '../shared/pipes';
+import { LogoComponent, SectionComponent } from '../shared/components';
+
+// TODO: clean declarations -> components/index.ts
+
 @NgModule({
-    declarations: [...HomeComponents, HomeComponent, NewlywedsComponent, WeddingDateComponent],
+    declarations: [
+        ...HomeComponents,
+        HomeComponent,
+        NewlywedsComponent,
+        WeddingDateComponent,
+    ],
     imports: [
         CommonModule,
         FeaturesRoutingModule,
         RouterModule,
         SharedModule,
         LandingpageModule,
+
+        CapitalizePipe,
+        SectionComponent,
+        LogoComponent,
     ],
 })
 export class FeaturesModule {}

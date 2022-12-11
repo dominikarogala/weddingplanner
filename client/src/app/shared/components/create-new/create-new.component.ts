@@ -10,12 +10,15 @@ import {
     selector: 'wp-create-new',
     template: `
         <div class="create-new" (click)="itemClicked.emit()">
-            <img src="assets/images/add_files.svg" />
-            <h2>{{ text }}</h2>
+            <div class="create-new--content">
+                <img src="assets/images/add_files.svg" />
+                <h2>{{ text }}</h2>
+            </div>
         </div>
     `,
     styleUrls: ['./create-new.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
 })
 export class CreateNewComponent {
     @Input() text = '';

@@ -7,9 +7,23 @@ import { ToDoListComponent } from './to-do-list.component';
 import { EditionComponent } from './components/edition/edition.component';
 import { PdfService } from 'src/app/shared/services/pdf.service';
 
+import {
+    CreateNewComponent,
+    SectionComponent,
+    TableComponent,
+} from 'src/app/shared/components';
+
+// TODO: clean declarations -> components/index.ts
+
 @NgModule({
     declarations: [...ToDoListComponents, ToDoListComponent, EditionComponent],
-    imports: [ToDoListRoutingModule, SharedModule],
+    imports: [
+        ToDoListRoutingModule,
+        SharedModule,
+        CreateNewComponent,
+        SectionComponent,
+        TableComponent,
+    ],
     providers: [PdfService],
 })
 export class ToDoListModule {}

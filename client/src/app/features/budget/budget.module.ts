@@ -8,6 +8,8 @@ import { BudgetOverviewComponent } from './components/budget-overview/budget-ove
 import { BudgetOverviewItemComponent } from './components/budget-overview-item/budget-overview-item.component';
 import { BudgetDetermineDialogComponent } from './components/budget-determine-dialog/budget-determine-dialog.component';
 
+import { SectionComponent } from 'src/app/shared/components';
+
 @NgModule({
     declarations: [
         BudgetComponent,
@@ -15,6 +17,11 @@ import { BudgetDetermineDialogComponent } from './components/budget-determine-di
         BudgetOverviewItemComponent,
         BudgetDetermineDialogComponent,
     ],
-    imports: [CommonModule, BudgetRoutingModule, SharedModule],
+    imports: [
+        CommonModule,
+        BudgetRoutingModule,
+        SharedModule,
+        SectionComponent,
+    ],
 })
 export class BudgetModule {}

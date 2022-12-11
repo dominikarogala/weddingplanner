@@ -12,7 +12,7 @@ export type MoneyType = 'all' | 'left' | 'spent';
     styleUrls: ['./budget-overview-item.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     template: `
-        <mat-card class="item">
+        <mat-card appearance="outlined" class="item">
             <mat-card-title>
                 <h2>{{ title }}</h2>
                 <div class="item--icon">
