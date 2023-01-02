@@ -1,0 +1,16 @@
+<wp-table-category [category]="category">
+    <div table-category-elements>
+        <button mat-raised-button color="primary">
+            <mat-icon>add</mat-icon>
+            <span>
+                {{ 'budget.addSpending' | translate }}
+            </span>
+        </button>
+
+        <!-- <wp-table-element
+            *ngFor="let task of category.tasks"
+            [task]="task"
+            [categoryId]="category.id">
+        </wp-table-element> -->
+    </div>
+</wp-table-category>

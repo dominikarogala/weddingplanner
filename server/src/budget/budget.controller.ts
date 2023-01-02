@@ -1,4 +1,4 @@
-import { Body, Controller, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
 
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 import { BudgetService } from './budget.service';
@@ -8,8 +8,13 @@ import { BudgetService } from './budget.service';
 export class BudgetController {
     constructor(private _budget: BudgetService) {}
 
-    @Post()
-    async addNewBudget(@Body('amount') amount: number) {
-        return await this._budget.addNewBudget(amount);
+    @Get()
+    async getBudgetInfo() {
+        return await this._budget.getBudgetInfo();
+    }
+
+    @Post('category')
+    async addNewCategory(@Body('categoryName') categoryName: string) {
+        return await this._budget.addNewCategory(categoryName);
     }
 }

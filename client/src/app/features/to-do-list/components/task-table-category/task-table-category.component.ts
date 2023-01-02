@@ -6,33 +6,29 @@ import {
     addNewTask,
     changeCategoryExpansionState,
     deleteCategory,
-    deleteTask,
     editCategory,
 } from 'src/app/core/store/task';
 
-import { ICategory, ITask, Task } from 'src/app/shared/models/tasks.model';
-import {
-    ITaskDialogData,
-    DialogMode,
-    ICategoryDialogData,
-} from '../../models/dialog.model';
-import { CategoryDialogComponent } from '../category-dialog/category-dialog.component';
+import { ITaskCategory, ITask, Task } from 'src/app/shared/models/tasks.model';
+import { ITaskDialogData } from '../../models/dialog.model';
+import { CategoryDialogComponent } from '../../../../shared/dialogs/category-dialog/category-dialog.component';
 import { TaskDialogComponent } from '../task-dialog/task-dialog.component';
+import { DialogMode, ICategoryDialogData } from 'src/app/shared/dialogs';
 
 @Component({
-    selector: 'wp-table-category',
-    templateUrl: './table-category.component.html',
-    styleUrls: ['./table-category.component.scss'],
+    selector: 'wp-task-table-category',
+    templateUrl: './task-table-category.component.html',
+    styleUrls: ['./task-table-category.component.scss'],
 })
-export class TableCategoryComponent implements OnInit {
-    @Input() set category(value: ICategory) {
+export class TaskTableCategoryComponent implements OnInit {
+    @Input() set category(value: ITaskCategory) {
         this._category = value;
         this.finishedTasksAmount = this._calculatefinishedTasksAmount();
     }
-    get category(): ICategory {
+    get category(): ITaskCategory {
         return this._category;
     }
-    private _category: ICategory;
+    private _category: ITaskCategory;
 
     finishedTasksAmount = 0;
 

@@ -42,13 +42,15 @@
         "plannedMoney": "Zaplanowane wydatki",
         "moneyLeft": "Pozostało do wydania",
         "determineBudget": "Określ budżet",
-        "amount": "Kwota"
+        "amount": "Kwota",
+        "newCategoryTooltip": "dodaj nową kategorię wydatków",
+        "addSpending": "dodaj nowy wydatek"
     },
     "toDoList": {
         "title": "Zadania",
         "description": "Zorganizuj i zaplanuj swój czas. Dzięki liście zadań do zrobienia nie zapomnisz o niczym!",
-        "addCategory": "dodaj kategorię",
-        "addTask": "dodaj zadanie",
+        "addCategory": "dodaj nową kategorię zadań",
+        "addTask": "dodaj nowe zadanie",
         "editTask": "edytuj zadanie",
         "deleteTask": "usuń zadanie",
         "downloadToDoList": "pobierz listę zadań",
@@ -66,7 +68,6 @@
         "newCategoryTitle": "Dodaj nową kategorię",
         "categoryEditionTitle": "Edytuj nazwę kategorii",
         "finished": "Ukończono",
-        "from": "z",
-        "newCategoryTooltip": "Utwórz nową kategorię zadań"
+        "from": "z"
     }  
 }

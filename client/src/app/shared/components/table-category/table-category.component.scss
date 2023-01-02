@@ -1,0 +1,9 @@
+@import 'variables.scss';
+
+.category {
+    margin: 10px 0;
+
+    &--open {
+        background-color: $background2;
+    }
+}

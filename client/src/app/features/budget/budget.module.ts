@@ -8,7 +8,13 @@ import { BudgetOverviewComponent } from './components/budget-overview/budget-ove
 import { BudgetOverviewItemComponent } from './components/budget-overview-item/budget-overview-item.component';
 import { BudgetDetermineDialogComponent } from './components/budget-determine-dialog/budget-determine-dialog.component';
 
-import { SectionComponent } from 'src/app/shared/components';
+import {
+    CreateNewComponent,
+    SectionComponent,
+    TableCategoryComponent,
+    TableComponent,
+} from 'src/app/shared/components';
+import { BudgetTableCategoryComponent } from './components/budget-table-category/budget-table-category.component';
 
 @NgModule({
     declarations: [
@@ -16,12 +22,17 @@ import { SectionComponent } from 'src/app/shared/components';
         BudgetOverviewComponent,
         BudgetOverviewItemComponent,
         BudgetDetermineDialogComponent,
+        BudgetTableCategoryComponent,
     ],
     imports: [
         CommonModule,
         BudgetRoutingModule,
         SharedModule,
+
+        CreateNewComponent,
         SectionComponent,
+        TableComponent,
+        TableCategoryComponent,
     ],
 })
 export class BudgetModule {}

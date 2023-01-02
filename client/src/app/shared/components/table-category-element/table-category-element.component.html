@@ -1,0 +1,25 @@
+<div class="element">
+    <div
+        (click)="elementHeaderClicked.emit(!element.isOpened)"
+        [ngClass]="{ 'element--header-selected': element.isOpened }">
+        <ng-content select="[header]"></ng-content>
+    </div>
+    <div class="element--description" *ngIf="element.isOpened">
+        <ng-container *ngIf="!!element.notes.length; else emptyNotesTmpl">
+            <div class="element--description-text">
+                <span>{{ element.notes }}</span>
+            </div>
+        </ng-container>
+        <ng-template #emptyNotesTmpl>
+            <div class="element--description-button">
+                <button
+                    mat-button
+                    color="primary"
+                    (click)="editElementClicked.emit()">
+                    <mat-icon>add</mat-icon>
+                    <span> {{ 'toDoList.addNotes' | translate }}</span>
+                </button>
+            </div>
+        </ng-template>
+    </div>
+</div>

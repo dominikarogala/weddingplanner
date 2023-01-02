@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 
@@ -8,16 +8,17 @@ import {
     deleteTask,
     editTask,
 } from 'src/app/core/store/task';
+import { DialogMode } from 'src/app/shared/dialogs';
 import { ITask } from 'src/app/shared/models/tasks.model';
-import { ITaskDialogData, DialogMode } from '../../models/dialog.model';
+import { ITaskDialogData } from '../../models';
 import { TaskDialogComponent } from '../task-dialog/task-dialog.component';
 
 @Component({
-    selector: 'wp-table-element',
-    templateUrl: './table-element.component.html',
-    styleUrls: ['./table-element.component.scss'],
+    selector: 'wp-task-table-element',
+    templateUrl: './task-table-element.component.html',
+    styleUrls: ['./task-table-element.component.scss'],
 })
-export class TableElementComponent implements OnInit {
+export class TaskTableElementComponent implements OnInit {
     @Input() task!: ITask;
     @Input() categoryId = '';
 

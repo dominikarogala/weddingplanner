@@ -7,3 +7,32 @@
 </wp-section>
 
 <wp-budget-overview></wp-budget-overview>
+
+<ng-container *ngIf="budgetCategories$ | async as budgetCategories">
+    <wp-table [categories]="budgetCategories">
+        <div buttons>
+            <button
+                mat-raised-button
+                color="primary"
+                (click)="openNewCategoryDialog()">
+                <mat-icon>add</mat-icon>
+                <span>
+                    {{ 'budget.newCategoryTooltip' | translate }}
+                </span>
+            </button>
+        </div>
+
+        <wp-budget-table-category
+            cateogry
+            *ngFor="let category of budgetCategories; trackBy: identifierFn"
+            [category]="category">
+        </wp-budget-table-category>
+
+        <div class="table--empty" empty>
+            <wp-create-new
+                [text]="'budget.newCategoryTooltip' | translate"
+                (itemClicked)="openNewCategoryDialog()">
+            </wp-create-new>
+        </div>
+    </wp-table>
+</ng-container>

@@ -1,6 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
-import { ICategory } from '../../models';
 import { SharedModule } from '../../shared.module';
 
 @Component({
@@ -10,11 +9,8 @@ import { SharedModule } from '../../shared.module';
     standalone: true,
     imports: [SharedModule],
 })
-export class TableComponent implements OnInit {
-    @Input() categories: ICategory[] = [];
+export class TableComponent {
+    @Input() categories: any[] = [];
 
     isExpanded = false;
-    constructor() {}
-
-    ngOnInit(): void {}
 }

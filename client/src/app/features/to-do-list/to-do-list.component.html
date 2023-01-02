@@ -29,11 +29,11 @@
             </button>
         </div>
 
-        <wp-table-category
+        <wp-task-table-category
             cateogry
             *ngFor="let category of categories; trackBy: identifierFn"
             [category]="category">
-        </wp-table-category>
+        </wp-task-table-category>
 
         <div class="table--empty" empty>
             <wp-create-new

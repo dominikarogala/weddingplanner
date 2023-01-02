@@ -1,13 +1,16 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
-import { DialogMode, ICategoryDialogData } from '../../models';
 import { Categories } from 'src/app/shared/constants';
+import { SharedModule } from '../../shared.module';
+import { DialogMode, ICategoryDialogData } from './category-dialog.model';
 
 @Component({
     selector: 'wp-category-dialog',
     templateUrl: './category-dialog.component.html',
     styleUrls: ['./category-dialog.component.scss'],
+    standalone: true,
+    imports: [SharedModule],
 })
 export class CategoryDialogComponent implements OnInit {
     title = '';

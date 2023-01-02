@@ -1,18 +1,18 @@
-import { CategoryDialogComponent } from './category-dialog/category-dialog.component';
-export * from './category-dialog/category-dialog.component';
+import { EditionComponent } from './edition/edition.component';
+export * from './edition/edition.component';
 
-import { TableCategoryComponent } from './table-category/table-category.component';
-export * from './table-category/table-category.component';
+import { TaskTableCategoryComponent } from './task-table-category/task-table-category.component';
+export * from './task-table-category/task-table-category.component';
 
-import { TableElementComponent } from './table-element/table-element.component';
-export * from './table-element/table-element.component';
+import { TaskTableElementComponent } from './task-table-element/task-table-element.component';
+export * from './task-table-element/task-table-element.component';
 
 import { TaskDialogComponent } from './task-dialog/task-dialog.component';
 export * from './task-dialog/task-dialog.component';
 
 export const ToDoListComponents = [
-    CategoryDialogComponent,
-    TableCategoryComponent,
-    TableElementComponent,
+    EditionComponent,
+    TaskTableCategoryComponent,
+    TaskTableElementComponent,
     TaskDialogComponent,
 ];

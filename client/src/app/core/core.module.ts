@@ -11,6 +11,8 @@ import {
     UserConfigService,
 } from './store/user-config';
 import { TaskEffects, taskReducer, TaskService } from './store/task';
+import { BudgetEffects, budgetReducer } from './store/budget';
+import { BudgetService } from './store/budget/budget.service';
 
 @NgModule({
     imports: [
@@ -19,9 +21,16 @@ import { TaskEffects, taskReducer, TaskService } from './store/task';
         StoreModule.forRoot({
             tasks: taskReducer,
             userConfig: userConfigReducer,
+            budget: budgetReducer,
         }),
-        EffectsModule.forRoot([TaskEffects, UserConfigEffects]),
+        EffectsModule.forRoot([TaskEffects, UserConfigEffects, BudgetEffects]),
     ],
-    providers: [AccountService, AuthService, TaskService, UserConfigService],
+    providers: [
+        AccountService,
+        AuthService,
+        TaskService,
+        UserConfigService,
+        BudgetService,
+    ],
 })
 export class CoreModule {}

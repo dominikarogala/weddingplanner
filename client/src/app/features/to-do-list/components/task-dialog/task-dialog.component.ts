@@ -1,7 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
-import { ITaskDialogData, DialogMode } from '../../models/dialog.model';
+import { DialogMode } from 'src/app/shared/dialogs';
+import { ITaskDialogData } from '../../models';
 
 @Component({
     selector: 'wp-task-dialog',

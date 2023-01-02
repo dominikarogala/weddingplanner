@@ -4,24 +4,15 @@ import { RouterModule } from '@angular/router';
 
 import { FeaturesRoutingModule } from './features-routing.module';
 import { HomeComponents } from './home/components';
-import { HomeComponent } from './home/home.component';
 import { SharedModule } from '../shared/shared.module';
 import { LandingpageModule } from '../landingpage/landingpage.module';
-import { NewlywedsComponent } from './home/components/newlyweds/newlyweds.component';
-import { WeddingDateComponent } from './home/components/wedding-date/wedding-date.component';
 
 import { CapitalizePipe } from '../shared/pipes';
 import { LogoComponent, SectionComponent } from '../shared/components';
-
-// TODO: clean declarations -> components/index.ts
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
-    declarations: [
-        ...HomeComponents,
-        HomeComponent,
-        NewlywedsComponent,
-        WeddingDateComponent,
-    ],
+    declarations: [HomeComponent, ...HomeComponents],
     imports: [
         CommonModule,
         FeaturesRoutingModule,

@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 import { Observable, tap } from 'rxjs';
+import { selectBudgetCalculation } from 'src/app/core/store/budget';
 
 import { AppState } from 'src/app/core/store/state';
 import { selectBudget, updateUserConfig } from 'src/app/core/store/user-config';
@@ -14,7 +15,9 @@ import { BudgetDetermineDialogComponent } from '../budget-determine-dialog/budge
 })
 export class BudgetOverviewComponent implements OnInit {
     amountOfMoney = 0;
+
     budget$: Observable<number>;
+    budgetInfo$ = this._store.select(selectBudgetCalculation);
 
     constructor(private _dialog: MatDialog, private _store: Store<AppState>) {}
 

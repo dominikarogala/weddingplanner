@@ -13,10 +13,18 @@ export * from './section/section.component';
 import { TableComponent } from './table/table.component';
 export * from './table/table.component';
 
+import { TableCategoryComponent } from './table-category/table-category.component';
+export * from './table-category/table-category.component';
+
+import { TableCategoryElementComponent } from './table-category-element/table-category-element.component';
+export * from './table-category-element/table-category-element.component';
+
 export const SharedComponents = [
     CreateNewComponent,
     DoubleScreenComponent,
     LogoComponent,
     SectionComponent,
     TableComponent,
+    TableCategoryComponent,
+    TableCategoryElementComponent,
 ];

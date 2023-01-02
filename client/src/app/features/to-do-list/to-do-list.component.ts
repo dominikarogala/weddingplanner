@@ -8,9 +8,12 @@ import {
     loadTasks,
     selectTasks,
 } from 'src/app/core/store/task';
+import {
+    CategoryDialogComponent,
+    DialogMode,
+    ICategoryDialogData,
+} from 'src/app/shared/dialogs';
 import { PdfService } from 'src/app/shared/services/pdf.service';
-import { CategoryDialogComponent } from './components';
-import { DialogMode, ICategoryDialogData } from './models';
 
 @Component({
     selector: 'wp-to-do-list',
