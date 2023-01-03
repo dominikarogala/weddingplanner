@@ -1,0 +1,41 @@
+<h1 mat-dialog-title>{{ 'budget.addSpending' | translate | capitalize }}</h1>
+<div mat-dialog-content class="dialog">
+    <mat-form-field appearance="fill" class="dialog--element">
+        <mat-label>{{ 'app.name' | translate }}</mat-label>
+        <input matInput [(ngModel)]="spending.name" required />
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="dialog--element">
+        <mat-label>{{ 'budget.price' | translate }}</mat-label>
+        <input
+            matInput
+            type="number"
+            min="0"
+            [(ngModel)]="spending.price"
+            required />
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="dialog--element">
+        <mat-label>{{ 'budget.advance' | translate }}</mat-label>
+        <input
+            matInput
+            type="number"
+            min="0"
+            [(ngModel)]="spending.moneyAlreadyPayed" />
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="dialog--element">
+        <mat-label>{{ 'app.notes' | translate }}</mat-label>
+        <textarea matInput [(ngModel)]="spending.notes"></textarea>
+    </mat-form-field>
+</div>
+
+<div mat-dialog-actions align="end">
+    <button mat-stroked-button (click)="onCancelClick()">
+        {{ 'app.cancel' | translate }}
+    </button>
+    <button
+        mat-raised-button
+        color="primary"
+        [mat-dialog-close]="spending"
+        [disabled]="!spending.name && !spending.price">
+        {{ 'app.save' | translate }}
+    </button>
+</div>

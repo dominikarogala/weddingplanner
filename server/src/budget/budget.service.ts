@@ -1,18 +1,18 @@
-import { Inject, Injectable } from '@nestjs/common';
+import { Inject, Injectable, NotFoundException } from '@nestjs/common';
 import { Model } from 'mongoose';
 
-import { BudgetCategory, IBudgetInfo } from './budget.model';
+import { BudgetCategory, IBudgetCategory, IBudgetInfo, ISpending } from './budget.model';
 
 @Injectable()
 export class BudgetService {
     constructor(@Inject('BUDGET_MODEL') private readonly budgetCategoryModel: Model<BudgetCategory>) {}
 
     async getBudgetInfo(): Promise<IBudgetInfo> {
+        // TODO: doda obliczanie spent i left
         const budgetCategories = await this.budgetCategoryModel.find().exec();
-        console.log(budgetCategories);
         const budgetInfo: IBudgetInfo = {
-            budgetLeft: 0,
             budgetSpent: 0,
+            budgetLeft: 0,
             categories: budgetCategories.map(category => ({
                 name: category.name,
                 id: category._id,
@@ -37,5 +37,25 @@ export class BudgetService {
 
         const result = await newBudgetCategory.save();
         return result._id;
+    }
+
+    async addNewSpending(categoryId: string, spending: ISpending) {
+        const category = await this._findCategory(categoryId);
+        const index: number = category.spendings.push(spending);
+        const result = await category.save();
+
+        return result.spendings[index - 1]._id;
+    }
+
+    private async _findCategory(categoryId: string): Promise<any> {
+        let category;
+
+        try {
+            category = await this.budgetCategoryModel.findById(categoryId);
+        } catch (error) {
+            throw new NotFoundException('Could not find a budget category.');
+        }
+
+        return category;
     }
 }

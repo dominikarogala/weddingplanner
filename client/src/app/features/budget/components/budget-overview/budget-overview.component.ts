@@ -6,7 +6,7 @@ import { selectBudgetCalculation } from 'src/app/core/store/budget';
 
 import { AppState } from 'src/app/core/store/state';
 import { selectBudget, updateUserConfig } from 'src/app/core/store/user-config';
-import { BudgetDetermineDialogComponent } from '../budget-determine-dialog/budget-determine-dialog.component';
+import { BudgetDetermineDialogComponent } from '../../dialogs/budget-determine-dialog/budget-determine-dialog.component';
 
 @Component({
     selector: 'wp-budget-overview',

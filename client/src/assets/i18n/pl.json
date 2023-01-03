@@ -19,9 +19,11 @@
         "login": "login",
         "password": "hasło",
         "email": "email",
-        "name": "imię",
+        "firstName": "imię",
         "confirmPassword": "potwierdź hasło",
-        "fillData": "Uzupełnij dane"
+        "fillData": "Uzupełnij dane",
+        "name": "nazwa",
+        "notes": "Notatki"
     },
     "toaster": {
         "accountCreated": "Konto utworzone!",
@@ -44,7 +46,9 @@
         "determineBudget": "Określ budżet",
         "amount": "Kwota",
         "newCategoryTooltip": "dodaj nową kategorię wydatków",
-        "addSpending": "dodaj nowy wydatek"
+        "addSpending": "dodaj nowy wydatek",
+        "price": "cena",
+        "advance": "zaliczka"
     },
     "toDoList": {
         "title": "Zadania",
@@ -62,7 +66,6 @@
         "taskEditionTitle": "Edytuj zadanie",
         "taskName": "Nazwa zadania",
         "taskEndDate": "Data zakończenia zadania",
-        "notes": "Notatki",
         "markAsDone": "Oznacz zadanie jako wykonane",
         "categoryName": "Nazwa kategorii",
         "newCategoryTitle": "Dodaj nową kategorię",

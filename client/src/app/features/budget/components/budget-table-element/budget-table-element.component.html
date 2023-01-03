@@ -1,0 +1,11 @@
+<wp-table-category-element
+    [element]="spending"
+    (editElementClicked)="editSpending()"
+    (elementHeaderClicked)="onSpendingPanelClick()">
+    <div class="spending--header" header>
+        <span>{{ spending.name }}</span>
+        <span>{{ spending.price }}</span>
+        <span>{{ spending.moneyAlreadyPayed }}</span>
+        <span>{{ spending.price - spending.moneyAlreadyPayed }}</span>
+    </div>
+</wp-table-category-element>

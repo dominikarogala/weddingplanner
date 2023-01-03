@@ -1,16 +1,26 @@
 <wp-table-category [category]="category">
     <div table-category-elements>
-        <button mat-raised-button color="primary">
+        <button
+            mat-raised-button
+            color="primary"
+            (click)="openAddSpendingDialog()">
             <mat-icon>add</mat-icon>
             <span>
                 {{ 'budget.addSpending' | translate }}
             </span>
         </button>
 
-        <!-- <wp-table-element
-            *ngFor="let task of category.tasks"
-            [task]="task"
+        <div class="table--header">
+            <span></span>
+            <span>Cena</span>
+            <span>Zaliczka</span>
+            <span>Pozostało</span>
+        </div>
+
+        <wp-budget-table-element
+            *ngFor="let spending of category.spendings"
+            [spending]="spending"
             [categoryId]="category.id">
-        </wp-table-element> -->
+        </wp-budget-table-element>
     </div>
 </wp-table-category>

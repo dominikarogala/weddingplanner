@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
 import { ApiUrls } from 'src/app/shared/constants';
+import { ISpendingDTO } from 'src/app/shared/models';
 import { environment } from 'src/environments/environment';
 import { IBudgetState } from './budget.state';
 
@@ -18,5 +19,10 @@ export class BudgetService {
     addNewCategory(categoryName: string): Observable<string> {
         const url = environment.baseUrl + ApiUrls.budgetCategory;
         return this._http.post<string>(url, { categoryName });
+    }
+
+    addNewSpending(spending: ISpendingDTO): Observable<string> {
+        const url = environment.baseUrl + ApiUrls.budgetSpending;
+        return this._http.post<string>(url, { ...spending });
     }
 }

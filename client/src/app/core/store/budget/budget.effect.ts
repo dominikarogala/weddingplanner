@@ -5,10 +5,14 @@ import { catchError, EMPTY, map, switchMap, tap } from 'rxjs';
 import {
     addNewBudgetCategory,
     addNewBudgetCategorySuccess,
+    addNewBudgetSpending,
+    addNewBudgetSpendingSuccess,
     loadBudget,
     loadBudgetSuccess,
 } from './budget.action';
 import { BudgetService } from './budget.service';
+
+// TODO: dodać toaster
 
 @Injectable()
 export class BudgetEffects {
@@ -21,7 +25,13 @@ export class BudgetEffects {
                 return this.service.loadBudget().pipe(
                     map((result) =>
                         loadBudgetSuccess({
-                            payload: { ...result },
+                            payload: {
+                                ...result,
+                                categories: result.categories.map((cat) => ({
+                                    ...cat,
+                                    isOpened: false,
+                                })),
+                            },
                         })
                     ),
                     catchError((error) => EMPTY)
@@ -30,7 +40,7 @@ export class BudgetEffects {
         );
     });
 
-    createNewCategory = createEffect(() => {
+    addNewCategory = createEffect(() => {
         return this._actions$.pipe(
             ofType(addNewBudgetCategory),
             switchMap((action) => {
@@ -47,6 +57,25 @@ export class BudgetEffects {
                         ),
                         catchError((error) => EMPTY)
                     );
+            })
+        );
+    });
+
+    addNewSpending = createEffect(() => {
+        return this._actions$.pipe(
+            ofType(addNewBudgetSpending),
+            switchMap((action) => {
+                return this.service.addNewSpending(action.payload).pipe(
+                    map((result) =>
+                        addNewBudgetSpendingSuccess({
+                            payload: {
+                                ...action.payload.spending,
+                                id: result,
+                            },
+                        })
+                    ),
+                    catchError((error) => EMPTY)
+                );
             })
         );
     });

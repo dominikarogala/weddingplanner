@@ -8,3 +8,8 @@ export interface ISpending extends ICategoryElement {
     price: number;
     moneyAlreadyPayed: number;
 }
+
+export interface ISpendingDTO {
+    categoryId: string;
+    spending: ISpending;
+}

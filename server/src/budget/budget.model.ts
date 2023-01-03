@@ -14,8 +14,8 @@ export interface Spending extends mongoose.Document {
 
 export const SpendingSchema = new mongoose.Schema({
     name: { type: String, required: true },
-    price: { type: Number, required: true },
-    moneyAlreadyPayed: { type: Number, required: false },
+    price: { type: Number, required: true, default: 0 },
+    moneyAlreadyPayed: { type: Number, required: true, default: 0 },
     notes: { type: String, required: false },
 });
 
@@ -24,8 +24,8 @@ export const BudgetCategorySchema = new mongoose.Schema({
     spendings: [
         {
             name: { type: String, required: true },
-            price: { type: Number, required: true },
-            moneyAlreadyPayed: { type: Number, required: false },
+            price: { type: Number, required: true, default: 0 },
+            moneyAlreadyPayed: { type: Number, required: true, default: 0 },
             notes: { type: String, required: false },
         },
     ],

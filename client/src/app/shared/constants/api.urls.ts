@@ -8,4 +8,5 @@ export const enum ApiUrls {
     userconfig = 'userconfig',
     budget = 'budget',
     budgetCategory = 'budget/category',
+    budgetSpending = 'budget/spending',
 }
