@@ -7,7 +7,7 @@
         </div>
     </div>
     <div class="element--description" *ngIf="element.isOpened">
-        <ng-container *ngIf="!!element.notes.length; else emptyNotesTmpl">
+        <ng-container *ngIf="!!element.notes?.length; else emptyNotesTmpl">
             <div class="element--description-text">
                 <span>{{ element.notes }}</span>
             </div>

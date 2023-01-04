@@ -4,6 +4,9 @@ export * from './create-new/create-new.component';
 import { DoubleScreenComponent } from './double-screen/double-screen.component';
 export * from './double-screen/double-screen.component';
 
+import { EditionComponent } from './edition/edition.component';
+export * from './edition/edition.component';
+
 import { LogoComponent } from './logo/logo.component';
 export * from './logo/logo.component';
 
@@ -22,6 +25,7 @@ export * from './table-category-element/table-category-element.component';
 export const SharedComponents = [
     CreateNewComponent,
     DoubleScreenComponent,
+    EditionComponent,
     LogoComponent,
     SectionComponent,
     TableComponent,

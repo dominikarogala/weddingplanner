@@ -1,7 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
-import { addNewBudgetSpending, IBudgetState } from 'src/app/core/store/budget';
+import {
+    addNewBudgetSpending,
+    changeBudgetCategoryExpansionState,
+    changeBudgetSpendingExpansionState,
+    IBudgetState,
+} from 'src/app/core/store/budget';
 
 import { IBudgetCategory, ISpending } from 'src/app/shared/models';
 import { NewSpendingDialogComponent } from '../../dialogs';
@@ -13,6 +18,12 @@ import { NewSpendingDialogComponent } from '../../dialogs';
     styleUrls: ['./budget-table-category.component.scss'],
 })
 export class BudgetTableCategoryComponent {
+    editCategory() {
+        throw new Error('Method not implemented.');
+    }
+    deleteCategory() {
+        throw new Error('Method not implemented.');
+    }
     @Input() category: IBudgetCategory;
 
     constructor(
@@ -36,5 +47,28 @@ export class BudgetTableCategoryComponent {
                 })
             );
         });
+    }
+
+    onCategoryPanelClick(isCategoryOpened: boolean): void {
+        this._store.dispatch(
+            changeBudgetCategoryExpansionState({
+                payload: {
+                    categoryId: this.category.id,
+                    state: isCategoryOpened,
+                },
+            })
+        );
+    }
+
+    onSpendingClicked(isPanelOpened: boolean, spendingId: string): void {
+        this._store.dispatch(
+            changeBudgetSpendingExpansionState({
+                payload: {
+                    categoryId: this.category.id,
+                    spendingId,
+                    state: isPanelOpened,
+                },
+            })
+        );
     }
 }

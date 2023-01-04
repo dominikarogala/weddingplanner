@@ -25,3 +25,15 @@ export const addNewBudgetSpendingSuccess = createAction(
     '[Budget] Add New Spending Success',
     props<{ payload: ISpending }>()
 );
+
+export const changeBudgetCategoryExpansionState = createAction(
+    '[Budget] Change Category Expansion Status',
+    props<{ payload: { categoryId: string; state: boolean } }>()
+);
+
+export const changeBudgetSpendingExpansionState = createAction(
+    '[Budget] Change Spending Expansion Status',
+    props<{
+        payload: { categoryId: string; spendingId: string; state: boolean };
+    }>()
+);

@@ -1,7 +1,8 @@
 <wp-table-category-element
     [element]="task"
     (editElementClicked)="editTask()"
-    (elementHeaderClicked)="onTaskPanelClick($event)">
+    (elementHeaderClicked)="onTaskPanelClick($event)"
+    class="task">
     <div class="task--header" header>
         <mat-checkbox
             [ngModel]="task.isFinished"

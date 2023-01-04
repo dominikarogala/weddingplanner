@@ -10,6 +10,7 @@ import { BudgetDetermineDialogComponent } from './dialogs/budget-determine-dialo
 
 import {
     CreateNewComponent,
+    EditionComponent,
     SectionComponent,
     TableCategoryComponent,
     TableCategoryElementComponent,
@@ -40,6 +41,7 @@ import { BudgetTableElementComponent } from './components/budget-table-element/b
         TableComponent,
         TableCategoryComponent,
         TableCategoryElementComponent,
+        EditionComponent,
 
         CapitalizePipe,
     ],

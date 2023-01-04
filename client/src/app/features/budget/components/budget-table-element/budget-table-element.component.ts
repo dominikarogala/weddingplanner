@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+
 import { ISpending } from 'src/app/shared/models';
 
 @Component({
@@ -10,7 +11,15 @@ export class BudgetTableElementComponent {
     @Input() spending: ISpending;
     @Input() categoryId: string;
 
-    onSpendingPanelClick() {}
+    @Output() panelClicked: EventEmitter<boolean> = new EventEmitter();
 
     editSpending() {}
+
+    deleteTask() {
+        throw new Error('Method not implemented.');
+    }
+
+    editTask() {
+        throw new Error('Method not implemented.');
+    }
 }
