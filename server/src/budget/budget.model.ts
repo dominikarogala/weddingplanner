@@ -43,6 +43,7 @@ export interface IBudgetCategory {
 }
 
 export interface ISpending {
+    id: string;
     name: string;
     price: number;
     moneyAlreadyPayed: number;

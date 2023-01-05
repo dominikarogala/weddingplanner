@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Post, Put, UseGuards } from '@nestjs/common';
 
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 import { ISpending } from './budget.model';
@@ -22,5 +22,11 @@ export class BudgetController {
     @Post('spending')
     async addNewSpending(@Body('categoryId') categoryId: string, @Body('spending') spending: ISpending) {
         return await this._budget.addNewSpending(categoryId, spending);
+    }
+
+    @Put('spending')
+    async editSpending(@Body('spending') spending: ISpending) {
+        await this._budget.editSpending(spending);
+        return;
     }
 }

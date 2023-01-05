@@ -47,6 +47,23 @@ export class BudgetService {
         return result.spendings[index - 1]._id;
     }
 
+    async editSpending(spending: ISpending) {
+        try {
+            return await this.budgetCategoryModel.findOneAndUpdate(
+                { 'spendings._id': spending.id },
+                {
+                    'spendings.$.name': spending.name,
+                    'spendings.$.price': spending.price,
+                    'spendings.$.moneyAlreadyPayed': spending.moneyAlreadyPayed,
+                    'spendings.$.notes': spending.notes,
+                },
+            );
+        } catch (error) {
+            console.log(error);
+            throw new NotFoundException('Could not update a spending.');
+        }
+    }
+
     private async _findCategory(categoryId: string): Promise<any> {
         let category;
 
