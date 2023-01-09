@@ -1,7 +1,7 @@
 import { Inject, Injectable, NotFoundException } from '@nestjs/common';
 import { Model } from 'mongoose';
 
-import { BudgetCategory, IBudgetCategory, IBudgetInfo, ISpending } from './budget.model';
+import { BudgetCategory, IBudgetInfo, ISpending } from './budget.model';
 
 @Injectable()
 export class BudgetService {
@@ -77,6 +77,19 @@ export class BudgetService {
             }
         } catch (error) {
             throw new NotFoundException('Could not find a category.');
+        }
+    }
+
+    async deleteSpending(categoryId: string, spendingId: string) {
+        try {
+            const result = await this.budgetCategoryModel.updateOne({ _id: categoryId }, { $pull: { spendings: { _id: spendingId } } }).exec();
+            if (result.modifiedCount > 0) {
+                return result;
+            } else {
+                throw new NotFoundException('Could not find a spending or category.');
+            }
+        } catch (error) {
+            throw new NotFoundException('Could not find a spending or category.');
         }
     }
 
