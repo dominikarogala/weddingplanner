@@ -37,3 +37,21 @@ export const changeBudgetSpendingExpansionState = createAction(
         payload: { categoryId: string; spendingId: string; state: boolean };
     }>()
 );
+
+export const editSpending = createAction(
+    '[Budget] Edit Spending',
+    props<{ payload: ISpendingDTO }>()
+);
+export const editSpendingSuccess = createAction(
+    '[Budget] Edit Task Success',
+    props<{ payload: ISpendingDTO }>()
+);
+
+export const editCategory = createAction(
+    '[Budget] Edit Category',
+    props<{ payload: { categoryId: string; categoryName: string } }>()
+);
+export const editCategorySuccess = createAction(
+    '[Budget] Edit Category Success',
+    props<{ payload: { categoryId: string; categoryName: string } }>()
+);

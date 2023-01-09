@@ -29,8 +29,7 @@
         <wp-budget-table-element
             *ngFor="let spending of category.spendings"
             [spending]="spending"
-            [categoryId]="category.id"
-            (panelClicked)="onSpendingClicked($event, spending.id)">
+            [categoryId]="category.id">
         </wp-budget-table-element>
     </div>
 </wp-table-category>

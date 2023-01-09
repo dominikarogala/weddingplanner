@@ -1,5 +1,4 @@
 @import 'variables.scss';
-@import 'theme.scss';
 
 .element {
     margin: 10px 0;
@@ -12,7 +11,7 @@
 
         &:hover {
             cursor: pointer;
-            background-color: $accent-light;
+            background-color: $primary-light;
         }
 
         &-selected {

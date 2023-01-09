@@ -4,12 +4,13 @@ import { Store } from '@ngrx/store';
 import {
     addNewBudgetSpending,
     changeBudgetCategoryExpansionState,
-    changeBudgetSpendingExpansionState,
+    editCategory,
     IBudgetState,
 } from 'src/app/core/store/budget';
+import { CategoryDialogComponent, DialogMode } from 'src/app/shared/dialogs';
 
 import { IBudgetCategory, ISpending } from 'src/app/shared/models';
-import { NewSpendingDialogComponent } from '../../dialogs';
+import { SpendingDialogComponent } from '../../dialogs';
 
 // TODO: czym sie różni Store,forRoot od forFeature
 @Component({
@@ -18,12 +19,6 @@ import { NewSpendingDialogComponent } from '../../dialogs';
     styleUrls: ['./budget-table-category.component.scss'],
 })
 export class BudgetTableCategoryComponent {
-    editCategory() {
-        throw new Error('Method not implemented.');
-    }
-    deleteCategory() {
-        throw new Error('Method not implemented.');
-    }
     @Input() category: IBudgetCategory;
 
     constructor(
@@ -31,13 +26,41 @@ export class BudgetTableCategoryComponent {
         private _store: Store<IBudgetState>
     ) {}
 
-    openAddSpendingDialog() {
-        const dialogRef = this._dialog.open(NewSpendingDialogComponent, {
+    editCategory() {
+        const dialogRef = this._dialog.open(CategoryDialogComponent, {
             width: '30rem',
-            data: {},
+            data: {
+                categoryName: this.category.name,
+                mode: DialogMode.Edition,
+            },
+        });
+
+        dialogRef.afterClosed().subscribe((categoryName: string) => {
+            if (!!categoryName) {
+                this._store.dispatch(
+                    editCategory({
+                        payload: { categoryId: this.category.id, categoryName },
+                    })
+                );
+            }
+        });
+    }
+
+    deleteCategory() {
+        throw new Error('Method not implemented.');
+    }
+
+    openAddSpendingDialog() {
+        const dialogRef = this._dialog.open(SpendingDialogComponent, {
+            width: '30rem',
+            data: { mode: DialogMode.Creation },
         });
 
         dialogRef.afterClosed().subscribe((newSpending: ISpending) => {
+            if (!newSpending) {
+                return;
+            }
+
             this._store.dispatch(
                 addNewBudgetSpending({
                     payload: {
@@ -55,18 +78,6 @@ export class BudgetTableCategoryComponent {
                 payload: {
                     categoryId: this.category.id,
                     state: isCategoryOpened,
-                },
-            })
-        );
-    }
-
-    onSpendingClicked(isPanelOpened: boolean, spendingId: string): void {
-        this._store.dispatch(
-            changeBudgetSpendingExpansionState({
-                payload: {
-                    categoryId: this.category.id,
-                    spendingId,
-                    state: isPanelOpened,
                 },
             })
         );

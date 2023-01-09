@@ -5,6 +5,8 @@ import {
     addNewBudgetCategorySuccess,
     changeBudgetCategoryExpansionState,
     changeBudgetSpendingExpansionState,
+    editCategorySuccess,
+    editSpendingSuccess,
     loadBudgetSuccess,
 } from './budget.action';
 
@@ -57,6 +59,35 @@ export const budgetReducer = createReducer(
                         }
                     }),
                 };
+            } else {
+                return category;
+            }
+        }),
+    })),
+    on(editSpendingSuccess, (state, action) => ({
+        ...state,
+        categories: state.categories.map((category) => {
+            if (category.id === action.payload.categoryId) {
+                return {
+                    ...category,
+                    spendings: category.spendings.map((spending) => {
+                        if (spending.id === action.payload.spending.id) {
+                            return action.payload.spending;
+                        } else {
+                            return spending;
+                        }
+                    }),
+                };
+            } else {
+                return category;
+            }
+        }),
+    })),
+    on(editCategorySuccess, (state, action) => ({
+        ...state,
+        categories: state.categories.map((category) => {
+            if (category.id === action.payload.categoryId) {
+                return { ...category, name: action.payload.categoryName };
             } else {
                 return category;
             }

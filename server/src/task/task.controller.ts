@@ -43,11 +43,13 @@ export class TaskController {
     }
 
     @Put()
+    @HttpCode(204)
     async updateTask(@Body('categoryId') categoryId: string, @Body('task') task: Task) {
         return await this._taskService.editTask(categoryId, task);
     }
 
     @Put('category')
+    @HttpCode(204)
     async updateCategory(@Body('categoryId') categoryId: string, @Body('categoryName') categoryName: string) {
         return await this._taskService.editCategory(categoryId, categoryName);
     }

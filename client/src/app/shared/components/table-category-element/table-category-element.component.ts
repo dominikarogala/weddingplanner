@@ -14,5 +14,5 @@ import { ICategoryElement } from '../../models';
 export class TableCategoryElementComponent {
     @Input() element: ICategoryElement;
     @Output() elementHeaderClicked: EventEmitter<boolean> = new EventEmitter();
-    @Output() editElementClicked: EventEmitter<boolean> = new EventEmitter();
+    @Output() addNotes: EventEmitter<boolean> = new EventEmitter();
 }

@@ -8,7 +8,6 @@ export class BudgetService {
     constructor(@Inject('BUDGET_MODEL') private readonly budgetCategoryModel: Model<BudgetCategory>) {}
 
     async getBudgetInfo(): Promise<IBudgetInfo> {
-        // TODO: doda obliczanie spent i left
         const budgetCategories = await this.budgetCategoryModel.find().exec();
         const budgetInfo: IBudgetInfo = {
             budgetSpent: 0,
@@ -61,6 +60,23 @@ export class BudgetService {
         } catch (error) {
             console.log(error);
             throw new NotFoundException('Could not update a spending.');
+        }
+    }
+
+    async editCategory(categoryId: string, newCategoryName: string) {
+        return await this.budgetCategoryModel.findOneAndUpdate({ _id: categoryId }, { name: newCategoryName });
+    }
+
+    async deleteCategory(categoryId: string) {
+        try {
+            const result = await this.budgetCategoryModel.deleteOne({ _id: categoryId });
+            if (result.deletedCount > 0) {
+                return result;
+            } else {
+                throw new NotFoundException('Could not find a category.');
+            }
+        } catch (error) {
+            throw new NotFoundException('Could not find a category.');
         }
     }
 

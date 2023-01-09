@@ -14,10 +14,7 @@
         </ng-container>
         <ng-template #emptyNotesTmpl>
             <div class="element--description-button">
-                <button
-                    mat-button
-                    color="primary"
-                    (click)="editElementClicked.emit()">
+                <button mat-button color="primary" (click)="addNotes.emit()">
                     <mat-icon>add</mat-icon>
                     <span> {{ 'toDoList.addNotes' | translate }}</span>
                 </button>

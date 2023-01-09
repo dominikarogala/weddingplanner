@@ -7,13 +7,14 @@ import {
     addNewBudgetCategorySuccess,
     addNewBudgetSpending,
     addNewBudgetSpendingSuccess,
+    editCategory,
+    editCategorySuccess,
+    editSpending,
+    editSpendingSuccess,
     loadBudget,
     loadBudgetSuccess,
 } from './budget.action';
 import { BudgetService } from './budget.service';
-
-// TODO: dodać toaster
-
 @Injectable()
 export class BudgetEffects {
     constructor(private _actions$: Actions, private service: BudgetService) {}
@@ -76,6 +77,39 @@ export class BudgetEffects {
                     ),
                     catchError((error) => EMPTY)
                 );
+            })
+        );
+    });
+
+    editSpending = createEffect(() => {
+        return this._actions$.pipe(
+            ofType(editSpending),
+            switchMap((action) => {
+                return this.service.editSpending(action.payload).pipe(
+                    map((result) =>
+                        editSpendingSuccess({ payload: action.payload })
+                    ),
+                    catchError((error) => EMPTY)
+                );
+            })
+        );
+    });
+
+    editCategory = createEffect(() => {
+        return this._actions$.pipe(
+            ofType(editCategory),
+            switchMap((action) => {
+                return this.service
+                    .editCategory(
+                        action.payload.categoryId,
+                        action.payload.categoryName
+                    )
+                    .pipe(
+                        map((result) =>
+                            editCategorySuccess({ payload: action.payload })
+                        ),
+                        catchError((error) => EMPTY)
+                    );
             })
         );
     });

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
 import { Observable } from 'rxjs';
+
 import { ApiUrls } from 'src/app/shared/constants';
 import { ISpendingDTO } from 'src/app/shared/models';
 import { environment } from 'src/environments/environment';
@@ -24,5 +24,15 @@ export class BudgetService {
     addNewSpending(spending: ISpendingDTO): Observable<string> {
         const url = environment.baseUrl + ApiUrls.budgetSpending;
         return this._http.post<string>(url, { ...spending });
+    }
+
+    editSpending(spending: ISpendingDTO): Observable<any> {
+        const url = environment.baseUrl + ApiUrls.budgetSpending;
+        return this._http.put(url, { spending: spending.spending });
+    }
+
+    editCategory(categoryId: string, newCategoryName: string): Observable<any> {
+        const url = environment.baseUrl + ApiUrls.budgetCategory;
+        return this._http.put(url, { categoryId, newCategoryName });
     }
 }

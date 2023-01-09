@@ -17,7 +17,7 @@ import {
     TableComponent,
 } from 'src/app/shared/components';
 import { BudgetTableCategoryComponent } from './components/budget-table-category/budget-table-category.component';
-import { NewSpendingDialogComponent } from './dialogs/new-spending-dialog/new-spending-dialog.component';
+import { SpendingDialogComponent } from './dialogs/spending-dialog/spending-dialog.component';
 import { CapitalizePipe } from 'src/app/shared/pipes';
 import { BudgetTableElementComponent } from './components/budget-table-element/budget-table-element.component';
 
@@ -28,7 +28,7 @@ import { BudgetTableElementComponent } from './components/budget-table-element/b
         BudgetOverviewItemComponent,
         BudgetDetermineDialogComponent,
         BudgetTableCategoryComponent,
-        NewSpendingDialogComponent,
+        SpendingDialogComponent,
         BudgetTableElementComponent,
     ],
     imports: [

@@ -38,6 +38,7 @@ export class TaskService {
         return this._http.delete(url, { params: { categoryId } });
     }
 
+    //TODO: TASK DTO model?
     editTask(categoryId: string, task: ITask): Observable<any> {
         const url = environment.baseUrl + ApiUrls.task;
         return this._http.put(url, { categoryId, task });

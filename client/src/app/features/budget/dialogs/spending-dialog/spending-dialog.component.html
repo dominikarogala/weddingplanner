@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>{{ 'budget.addSpending' | translate | capitalize }}</h1>
+<h1 mat-dialog-title>{{ title | translate | capitalize }}</h1>
 <div mat-dialog-content class="dialog">
     <mat-form-field appearance="fill" class="dialog--element">
         <mat-label>{{ 'app.name' | translate }}</mat-label>
@@ -36,6 +36,6 @@
         color="primary"
         [mat-dialog-close]="spending"
         [disabled]="!spending.name && !spending.price">
-        {{ 'app.save' | translate }}
+        {{ confirmButtonLabel | translate }}
     </button>
 </div>

@@ -10,7 +10,7 @@
     <div class="icons">
         <button
             mat-icon-button
-            [matTooltip]="'toDoList.editTask' | translate"
+            [matTooltip]="'app.edit' | translate"
             (click)="editElement.emit(); $event.stopPropagation()"
             class="icons--edit">
             <mat-icon>edit</mat-icon>
@@ -18,8 +18,8 @@
         <button
             mat-icon-button
             [matMenuTriggerFor]="deleteMenu"
-            [matTooltip]="'toDoList.deleteTask' | translate"
-            (click)="deleteElement.emit(); $event.stopPropagation()"
+            [matTooltip]="'app.delete' | translate"
+            (click)="$event.stopPropagation()"
             class="icons--delete">
             <mat-icon>delete</mat-icon>
         </button>
@@ -30,7 +30,7 @@
         </button>
         <mat-menu #deleteMenu="matMenu">
             <div class="popup">
-                <h4>{{ 'toDoList.deleteTaskQuestion' | translate }}</h4>
+                <h4>{{ 'app.deleteQuestion' | translate }}</h4>
                 <div class="popup--buttons">
                     <button mat-stroked-button>
                         {{ 'app.no' | translate }}

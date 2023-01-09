@@ -1,7 +1,7 @@
 <wp-table-category-element
     [element]="spending"
-    (editElementClicked)="editSpending()"
-    (elementHeaderClicked)="panelClicked.emit($event)">
+    (addNotes)="openEditSpendingDialog()"
+    (elementHeaderClicked)="onSpendingClicked($event)">
     <div class="spending--header" header>
         <span>{{ spending.name }}</span>
         <span>{{ spending.price }}</span>
@@ -9,7 +9,7 @@
         <span>{{ spending.price - spending.moneyAlreadyPayed }}</span>
         <wp-edition
             style="place-self: end"
-            (editElement)="editTask()"
-            (deleteElement)="deleteTask()"></wp-edition>
+            (editElement)="openEditSpendingDialog()"
+            (deleteElement)="deleteSpending()"></wp-edition>
     </div>
 </wp-table-category-element>
