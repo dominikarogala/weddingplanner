@@ -3,16 +3,16 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { ApiUrls } from 'src/app/shared/constants';
-import { ICategory, ITask, ITaskDTO } from 'src/app/shared/models';
+import { ITaskCategory, ITask, ITaskDTO } from 'src/app/shared/models';
 import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class TaskService {
     constructor(private _http: HttpClient) {}
 
-    getTasks(): Observable<ICategory[]> {
+    getTasks(): Observable<ITaskCategory[]> {
         const url = environment.baseUrl + ApiUrls.task;
-        return this._http.get<ICategory[]>(url);
+        return this._http.get<ITaskCategory[]>(url);
     }
 
     addNewTask(taskDTO: ITaskDTO): Observable<string> {
@@ -24,7 +24,7 @@ export class TaskService {
     }
 
     addNewCategory(categoryName: string): Observable<string> {
-        const url = environment.baseUrl + ApiUrls.category;
+        const url = environment.baseUrl + ApiUrls.taskCategory;
         return this._http.post<string>(url, { categoryName });
     }
 
@@ -34,17 +34,18 @@ export class TaskService {
     }
 
     deleteCategory(categoryId: string): Observable<any> {
-        const url = environment.baseUrl + ApiUrls.category;
+        const url = environment.baseUrl + ApiUrls.taskCategory;
         return this._http.delete(url, { params: { categoryId } });
     }
 
+    //TODO: TASK DTO model?
     editTask(categoryId: string, task: ITask): Observable<any> {
         const url = environment.baseUrl + ApiUrls.task;
         return this._http.put(url, { categoryId, task });
     }
 
     editCategory(categoryId: string, categoryName: string): Observable<any> {
-        const url = environment.baseUrl + ApiUrls.category;
+        const url = environment.baseUrl + ApiUrls.taskCategory;
         return this._http.put(url, { categoryId, categoryName });
     }
 }

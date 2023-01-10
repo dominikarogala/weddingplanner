@@ -4,12 +4,32 @@ import { ToDoListRoutingModule } from './to-do-list-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ToDoListComponents } from './components';
 import { ToDoListComponent } from './to-do-list.component';
-import { EditionComponent } from './components/edition/edition.component';
 import { PdfService } from 'src/app/shared/services/pdf.service';
 
+import {
+    CreateNewComponent,
+    EditionComponent,
+    SectionComponent,
+    TableCategoryComponent,
+    TableCategoryElementComponent,
+    TableComponent,
+} from 'src/app/shared/components';
+import { CategoryDialogComponent } from 'src/app/shared/dialogs';
+
 @NgModule({
-    declarations: [...ToDoListComponents, ToDoListComponent, EditionComponent],
-    imports: [ToDoListRoutingModule, SharedModule],
+    declarations: [ToDoListComponent, ...ToDoListComponents],
+    imports: [
+        ToDoListRoutingModule,
+        SharedModule,
+
+        CreateNewComponent,
+        SectionComponent,
+        TableComponent,
+        TableCategoryComponent,
+        TableCategoryElementComponent,
+        CategoryDialogComponent,
+        EditionComponent,
+    ],
     providers: [PdfService],
 })
 export class ToDoListModule {}

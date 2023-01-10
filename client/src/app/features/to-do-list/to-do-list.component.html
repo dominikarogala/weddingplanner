@@ -1,9 +1,45 @@
-<wp-section-summary
+<wp-section
     [title]="'toDoList.title' | translate"
     [image]="'assets/images/tasks.svg'">
     <div>
         <p class="mat-body">{{ 'toDoList.description' | translate }}</p>
     </div>
-</wp-section-summary>
+</wp-section>
 
-<wp-table [categories]="categories$ | async"></wp-table>
+<ng-container *ngIf="categories$ | async as categories">
+    <wp-table [categories]="categories">
+        <div buttons>
+            <button
+                mat-raised-button
+                color="primary"
+                (click)="openNewCategoryDialog()">
+                <mat-icon>add</mat-icon>
+                <span>
+                    {{ 'toDoList.addCategory' | translate }}
+                </span>
+            </button>
+            <button
+                mat-raised-button
+                color="accent"
+                (click)="downloadTasksList()">
+                <mat-icon>save_alt</mat-icon>
+                <span>
+                    {{ 'toDoList.downloadToDoList' | translate }}
+                </span>
+            </button>
+        </div>
+
+        <wp-task-table-category
+            cateogry
+            *ngFor="let category of categories; trackBy: identifierFn"
+            [category]="category">
+        </wp-task-table-category>
+
+        <div class="table--empty" empty>
+            <wp-create-new
+                [text]="'toDoList.newCategoryTooltip' | translate"
+                (itemClicked)="openNewCategoryDialog()">
+            </wp-create-new>
+        </div>
+    </wp-table>
+</ng-container>

@@ -1,9 +1,9 @@
-import { ICategory } from 'src/app/shared/models';
+import { ITaskCategory } from 'src/app/shared/models';
 
 export interface ITaskState {
-    categories: ICategory[];
+    categories: ITaskCategory[];
 }
 
 export const initialTaskState: ITaskState = {
-    categories: [],
+    categories: [] as ITaskCategory[],
 };

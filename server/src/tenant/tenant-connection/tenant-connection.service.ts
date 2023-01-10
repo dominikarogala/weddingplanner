@@ -35,6 +35,6 @@ export class TenantConnectionService {
     }
 
     private async _createConnection(tenant: ITenant): Promise<Connection> {
-        return await mongoose.createConnection(`mongodb://localhost:27017/tenantDB_${tenant.tenantId}`);
+        return await mongoose.createConnection(`mongodb://127.0.0.1:27017/tenantDB_${tenant.tenantId}`);
     }
 }

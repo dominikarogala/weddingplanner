@@ -27,6 +27,10 @@ const routes: Routes = [
                         (m) => m.BudgetModule
                     ),
             },
+            {
+                path: '**',
+                redirectTo: 'dashboard',
+            },
         ],
     },
 ];

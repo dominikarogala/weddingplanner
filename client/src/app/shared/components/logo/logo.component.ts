@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { SharedModule } from '../../shared.module';
 
 export type LogoType = 'light' | 'dark';
 
@@ -14,7 +16,9 @@ export type LogoType = 'light' | 'dark';
             <h2>WeddingPlanner</h2>
         </div>
     `,
+    imports: [SharedModule],
     styleUrls: ['./logo.component.scss'],
+    standalone: true,
 })
 export class LogoComponent implements OnInit {
     @Input() type: LogoType = 'dark';

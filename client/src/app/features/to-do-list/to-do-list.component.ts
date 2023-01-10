@@ -1,8 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 
 import { AppState } from 'src/app/core/store/state/app.state';
-import { loadTasks, selectTasks } from 'src/app/core/store/task';
+import {
+    addNewCategory,
+    loadTasks,
+    selectTasks,
+} from 'src/app/core/store/task';
+import {
+    CategoryDialogComponent,
+    DialogMode,
+    ICategoryDialogData,
+} from 'src/app/shared/dialogs';
+import { PdfService } from 'src/app/shared/services/pdf.service';
 
 @Component({
     selector: 'wp-to-do-list',
@@ -10,67 +21,46 @@ import { loadTasks, selectTasks } from 'src/app/core/store/task';
     styleUrls: ['./to-do-list.component.scss'],
 })
 export class ToDoListComponent implements OnInit {
-    // categories: ICategory[] = [
-    //     {
-    //         name: 'Planowanie',
-    //         tasks: [
-    //             {
-    //                 id: '1',
-    //                 name: 'Wybierz datę ślubu',
-    //                 endDate: '01-01-2022',
-    //                 isFinished: false,
-    //                 notes: 'gfdgfd gdf gdf g df g d',
-    //             },
-    //             {
-    //                 id: '2',
-    //                 name: 'Wybierz rodzaj ślubu',
-    //                 endDate: '01-01-2022',
-    //                 isFinished: true,
-    //                 notes: 'gdfgdf g df gdf g df gd fg df gdfhgfhbdgfch n dtyxh bf',
-    //             },
-    //             {
-    //                 id: '3',
-    //                 name: 'Wybierz miejsce ślubu',
-    //                 endDate: '01-01-2022',
-    //                 isFinished: true,
-    //                 notes: '',
-    //             },
-    //             {
-    //                 id: '4',
-    //                 name: 'Wybierz miejsce wesela',
-    //                 endDate: '01-01-2022',
-    //                 isFinished: false,
-    //                 notes: '',
-    //             },
-    //         ],
-    //     },
-    //     {
-    //         name: 'Formalności',
-    //         tasks: [
-    //             {
-    //                 id: 'dfw3',
-    //                 name: 'Poinformuj o urlopie w pracy',
-    //                 endDate: '01-01-2022',
-    //                 isFinished: false,
-    //                 notes: '',
-    //             },
-    //         ],
-    //     },
-    //     { name: 'Ceremonia', tasks: [] },
-    //     { name: 'Wesele', tasks: [] },
-    //     { name: 'Zaproszenia', tasks: [] },
-    //     { name: 'Kwiaty i dekoracje', tasks: [] },
-    //     { name: 'Fotografia i wideo', tasks: [] },
-    //     { name: 'Transport', tasks: [] },
-    //     { name: 'Strój Panny Młodej', tasks: [] },
-    //     { name: 'Miesiąc Miodowy', tasks: [] },
-    // ];
-
     categories$ = this._store.select(selectTasks);
 
-    constructor(private _store: Store<AppState>) {}
+    constructor(
+        private _store: Store<AppState>,
+        private _dialog: MatDialog,
+        private _pdfService: PdfService
+    ) {}
 
     ngOnInit(): void {
         this._store.dispatch(loadTasks());
+    }
+
+    openNewCategoryDialog(): void {
+        const dialogData: ICategoryDialogData = {
+            mode: DialogMode.Creation,
+            categoryName: '',
+        };
+
+        const dialogRef = this._dialog.open(CategoryDialogComponent, {
+            width: '30rem',
+            data: dialogData,
+        });
+
+        dialogRef.afterClosed().subscribe((categoryName: string) => {
+            if (!!categoryName) {
+                this._store.dispatch(
+                    addNewCategory({ payload: { categoryName } })
+                );
+            }
+        });
+    }
+
+    downloadTasksList(): void {
+        this._pdfService.downloadTasksList().subscribe((data) => {
+            const fileURL = URL.createObjectURL(data);
+            window.open(fileURL, '_blank');
+        });
+    }
+
+    identifierFn(index: number, item: any): string {
+        return item.id;
     }
 }

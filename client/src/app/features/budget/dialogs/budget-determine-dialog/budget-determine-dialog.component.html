@@ -1,0 +1,20 @@
+<h1 mat-dialog-title>{{ 'budget.determineBudget' | translate }}</h1>
+<div mat-dialog-content>
+    <mat-form-field appearance="fill" style="width: 100%">
+        <mat-label>{{ 'budget.amount' | translate }}</mat-label>
+        <input matInput [(ngModel)]="amount" required />
+    </mat-form-field>
+</div>
+
+<div mat-dialog-actions align="end">
+    <button mat-stroked-button (click)="onCancelClick()">
+        {{ 'app.cancel' | translate }}
+    </button>
+    <button
+        mat-raised-button
+        color="primary"
+        [mat-dialog-close]="amount"
+        [disabled]="!amount && amount !== 0">
+        {{ 'app.save' | translate }}
+    </button>
+</div>

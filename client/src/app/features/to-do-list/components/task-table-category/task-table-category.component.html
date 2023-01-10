@@ -1,0 +1,50 @@
+<wp-table-category
+    [category]="category"
+    (categoryPanelClicked)="onCategoryPanelClick($event)">
+    <div header-additional-elements class="category">
+        <ng-container *ngIf="!category.isOpened">
+            <mat-progress-bar
+                class="category--progress-bar"
+                color="primary"
+                mode="determinate"
+                [value]="
+                    (finishedTasksAmount / category.tasks.length) * 100
+                "></mat-progress-bar>
+        </ng-container>
+
+        <wp-edition
+            (deleteElement)="deleteCategory()"
+            (editElement)="editCategory()">
+        </wp-edition>
+    </div>
+
+    <div table-category-elements>
+        <div class="category--expanded">
+            <span>
+                {{ 'toDoList.finished' | translate }}:
+                {{ finishedTasksAmount }}
+                {{ 'toDoList.from' | translate }}
+                {{ category.tasks.length }}
+            </span>
+            <mat-progress-bar
+                class="category--progress-bar"
+                color="primary"
+                mode="determinate"
+                [value]="(finishedTasksAmount / category.tasks.length) * 100">
+            </mat-progress-bar>
+        </div>
+
+        <button mat-raised-button color="primary" (click)="openDialog()">
+            <mat-icon>add</mat-icon>
+            <span>
+                {{ 'toDoList.addTask' | translate }}
+            </span>
+        </button>
+
+        <wp-task-table-element
+            *ngFor="let task of category.tasks"
+            [task]="task"
+            [categoryId]="category.id">
+        </wp-task-table-element>
+    </div>
+</wp-table-category>

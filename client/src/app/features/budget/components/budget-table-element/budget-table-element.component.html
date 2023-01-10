@@ -1,0 +1,15 @@
+<wp-table-category-element
+    [element]="spending"
+    (addNotes)="openEditSpendingDialog()"
+    (elementHeaderClicked)="onSpendingClicked($event)">
+    <div class="spending--header" header>
+        <span>{{ spending.name }}</span>
+        <span>{{ spending.price }}</span>
+        <span>{{ spending.moneyAlreadyPayed }}</span>
+        <span>{{ spending.price - spending.moneyAlreadyPayed }}</span>
+        <wp-edition
+            style="place-self: end"
+            (editElement)="openEditSpendingDialog()"
+            (deleteElement)="deleteSpending()"></wp-edition>
+    </div>
+</wp-table-category-element>

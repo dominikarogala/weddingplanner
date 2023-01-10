@@ -19,8 +19,14 @@
         "login": "login",
         "password": "hasło",
         "email": "email",
-        "name": "imię",
-        "confirmPassword": "potwierdź hasło"
+        "firstName": "imię",
+        "confirmPassword": "potwierdź hasło",
+        "fillData": "Uzupełnij dane",
+        "name": "nazwa",
+        "notes": "Notatki",
+        "edit": "edytuj",
+        "delete": "usuń",
+        "deleteQuestion": "Czy na pewno chcesz usunać?"
     },
     "toaster": {
         "accountCreated": "Konto utworzone!",
@@ -28,29 +34,39 @@
         "accountExists": "Konto o podanym adresie e-mail już istnieje"
     },
     "dashboard": {
-        "description": "Zorganizuj Twoje wesele marzeń! Zobacz najnowsze informacje odnośnie zaproszonych gości, zaplanowanych zadań oraz akutualnego budżetu."
+        "description": "Zorganizuj Twoje wesele marzeń! Zobacz najnowsze informacje odnośnie zaproszonych gości, zaplanowanych zadań oraz akutualnego budżetu.",
+        "newConfigTitle": "Podaj najważniejsze informacje o Twojej uroczystości",
+        "brideName": "imię panny młodej",
+        "groomName": "imię pana młodego",
+        "weddingDate": "data ślubu",
+        "newlyweds": "Para Młoda"
     },
     "budget": {
         "title": "Budżet",
-        "description": "Zarządzaj swoimi finansami - wszystkie wydatki pod Twoją kontrolą!"
+        "description": "Zarządzaj swoimi finansami - wszystkie wydatki pod Twoją kontrolą!",
+        "plannedMoney": "Zaplanowane wydatki",
+        "moneyLeft": "Pozostało do wydania",
+        "determineBudget": "Określ budżet",
+        "amount": "Kwota",
+        "newCategoryTooltip": "dodaj nową kategorię wydatków",
+        "addSpending": "dodaj nowy wydatek",
+        "price": "cena",
+        "advance": "zaliczka",
+        "editSpending": "Edytuj wydatek"
     },
     "toDoList": {
         "title": "Zadania",
         "description": "Zorganizuj i zaplanuj swój czas. Dzięki liście zadań do zrobienia nie zapomnisz o niczym!",
-        "addCategory": "dodaj kategorię",
-        "addTask": "dodaj zadanie",
-        "editTask": "edytuj zadanie",
-        "deleteTask": "usuń zadanie",
+        "addCategory": "dodaj nową kategorię zadań",
+        "addTask": "dodaj nowe zadanie",
         "downloadToDoList": "pobierz listę zadań",
         "expandAll": "rozwiń wszystkie",
         "collapseAll": "zwiń wszystkie",
         "addNotes": "Dodaj nowe notatki",
-        "deleteTaskQuestion": "Czy na pewno chcesz usunać zadanie?",
         "newTaskTitle": "Dodaj nowe zadanie",
         "taskEditionTitle": "Edytuj zadanie",
         "taskName": "Nazwa zadania",
         "taskEndDate": "Data zakończenia zadania",
-        "notes": "Notatki",
         "markAsDone": "Oznacz zadanie jako wykonane",
         "categoryName": "Nazwa kategorii",
         "newCategoryTitle": "Dodaj nową kategorię",

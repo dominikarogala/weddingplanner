@@ -1,0 +1,7 @@
+.task {
+    &--header {
+        display: grid;
+        grid-template-columns: 4% 73% 16% 7%;
+        align-items: center;
+    }
+}

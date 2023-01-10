@@ -1,0 +1,15 @@
+<mat-expansion-panel
+    class="category"
+    [ngClass]="{ 'category--open': category.isOpened }"
+    (opened)="categoryPanelClicked.emit(true)"
+    (closed)="categoryPanelClicked.emit(false)">
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            {{ category.name }}
+        </mat-panel-title>
+
+        <ng-content select="[header-additional-elements]"></ng-content>
+    </mat-expansion-panel-header>
+
+    <ng-content select="[table-category-elements]"></ng-content>
+</mat-expansion-panel>

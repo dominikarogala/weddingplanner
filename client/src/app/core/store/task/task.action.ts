@@ -1,11 +1,11 @@
 import { createAction, props } from '@ngrx/store';
 
-import { ICategory, ITask, ITaskDTO } from 'src/app/shared/models';
+import { ITaskCategory, ITask, ITaskDTO } from 'src/app/shared/models';
 
 export const loadTasks = createAction('[Task] Load Tasks');
 export const loadTasksSuccess = createAction(
     '[Task] Load Tasks Success',
-    props<{ payload: ICategory[] }>()
+    props<{ payload: ITaskCategory[] }>()
 );
 
 export const addNewTask = createAction(

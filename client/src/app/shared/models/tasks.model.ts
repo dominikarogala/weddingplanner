@@ -1,10 +1,8 @@
-export interface ITask {
-    name: string;
+import { ICategory, ICategoryElement } from './category.model';
+
+export interface ITask extends ICategoryElement {
     endDate: string;
     isFinished: boolean;
-    isOpened: boolean;
-    notes: string;
-    id?: string;
 }
 
 export class Task implements ITask {
@@ -24,11 +22,8 @@ export class Task implements ITask {
     }
 }
 
-export interface ICategory {
-    name: string;
+export interface ITaskCategory extends ICategory {
     tasks: ITask[];
-    isOpened: boolean;
-    id?: string;
 }
 
 export interface ITaskDTO {

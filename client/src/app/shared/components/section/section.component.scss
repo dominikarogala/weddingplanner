@@ -1,0 +1,22 @@
+$img-size: 150px;
+
+.card {
+    padding: 30px;
+    display: grid;
+    grid-template-columns: auto $img-size;
+    gap: 2em;
+
+    img {
+        width: $img-size;
+        height: $img-size;
+    }
+
+    .no-image {
+        grid-column: span 2;
+    }
+}
+
+// /* TODO(mdc-migration): The following rule targets internal classes of card that may no longer apply for the MDC version. */
+// mat-card {
+//     width: auto;
+// }

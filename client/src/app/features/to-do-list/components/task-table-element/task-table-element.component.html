@@ -1,0 +1,18 @@
+<wp-table-category-element
+    [element]="task"
+    (editElementClicked)="editTask()"
+    (elementHeaderClicked)="onTaskPanelClick($event)"
+    class="task">
+    <div class="task--header" header>
+        <mat-checkbox
+            [ngModel]="task.isFinished"
+            (click)="
+                changeFinishStatus(); $event.stopPropagation()
+            "></mat-checkbox>
+        <span>{{ task.name }}</span>
+        <span>{{ task.endDate | date : 'dd-MM-yyyy' }}</span>
+        <wp-edition
+            (editElement)="editTask()"
+            (deleteElement)="deleteTask()"></wp-edition>
+    </div>
+</wp-table-category-element>

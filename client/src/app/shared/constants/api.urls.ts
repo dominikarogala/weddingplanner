@@ -3,6 +3,10 @@ export const enum ApiUrls {
     auth = 'auth',
     login = 'auth/login',
     task = 'task',
-    category = 'task/category',
+    taskCategory = 'task/category',
     taskPDF = 'task/pdf',
+    userconfig = 'userconfig',
+    budget = 'budget',
+    budgetCategory = 'budget/category',
+    budgetSpending = 'budget/spending',
 }

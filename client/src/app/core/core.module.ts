@@ -4,19 +4,33 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
 import { SharedModule } from '../shared/shared.module';
-import { AccountService } from './services';
-import { AuthService } from './services/auth.service';
-import { taskReducer } from './store/task/task.reducer';
-import { TaskEffects } from './store/task/task.effect';
-import { TaskService } from './store/task/task.service';
+import { AccountService, AuthService } from './services';
+import {
+    UserConfigEffects,
+    userConfigReducer,
+    UserConfigService,
+} from './store/user-config';
+import { TaskEffects, taskReducer, TaskService } from './store/task';
+import { BudgetEffects, budgetReducer } from './store/budget';
+import { BudgetService } from './store/budget/budget.service';
 
 @NgModule({
     imports: [
         CommonModule,
         SharedModule,
-        StoreModule.forRoot({ tasks: taskReducer }),
-        EffectsModule.forRoot([TaskEffects]),
+        StoreModule.forRoot({
+            tasks: taskReducer,
+            userConfig: userConfigReducer,
+            budget: budgetReducer,
+        }),
+        EffectsModule.forRoot([TaskEffects, UserConfigEffects, BudgetEffects]),
     ],
-    providers: [AccountService, AuthService, TaskService],
+    providers: [
+        AccountService,
+        AuthService,
+        TaskService,
+        UserConfigService,
+        BudgetService,
+    ],
 })
 export class CoreModule {}

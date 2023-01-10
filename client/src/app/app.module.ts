@@ -1,4 +1,5 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -7,6 +8,7 @@ import {
     HttpClientModule,
     HTTP_INTERCEPTORS,
 } from '@angular/common/http';
+import localePl from '@angular/common/locales/pl';
 import { ToastrModule } from 'ngx-toastr';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
@@ -19,6 +21,8 @@ import { TokenInterceptor } from './core/interceptors/token/token.interceptor';
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);
 }
+
+registerLocaleData(localePl);
 
 @NgModule({
     declarations: [AppComponent],
@@ -48,6 +52,7 @@ export function HttpLoaderFactory(http: HttpClient) {
             useClass: TokenInterceptor,
             multi: true,
         },
+        { provide: LOCALE_ID, useValue: 'pl-PL' },
     ],
     bootstrap: [AppComponent],
 })

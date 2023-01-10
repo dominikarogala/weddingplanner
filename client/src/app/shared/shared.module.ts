@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { RouterModule } from '@angular/router';
 
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -22,10 +23,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
-import { SharedComponents } from './components';
-import { LogoComponent } from './components/logo/logo.component';
-
 const materialModules = [
+    MatAutocompleteModule,
     MatButtonModule,
     MatCardModule,
     MatCheckboxModule,
@@ -45,11 +44,9 @@ const materialModules = [
 ];
 
 @NgModule({
-    declarations: [...SharedComponents, LogoComponent],
-    imports: [CommonModule, FormsModule, ...materialModules],
+    imports: [CommonModule, FormsModule, ...materialModules, TranslateModule],
     exports: [
         ...materialModules,
-        ...SharedComponents,
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
