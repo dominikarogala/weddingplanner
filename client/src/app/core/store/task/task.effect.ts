@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { TranslateService } from '@ngx-translate/core';
+import { ToastrService } from 'ngx-toastr';
 import { catchError, EMPTY, exhaustMap, map, switchMap } from 'rxjs';
 
 import { addNewTask, addNewTaskSuccess, loadTasks, loadTasksSuccess } from '.';
@@ -19,13 +21,18 @@ import { TaskService } from './task.service';
 
 @Injectable()
 export class TaskEffects {
-    constructor(private _actions$: Actions, private service: TaskService) {}
+    constructor(
+        private _actions$: Actions,
+        private _service: TaskService,
+        private _toastr: ToastrService,
+        private _translate: TranslateService
+    ) {}
 
     loadTasks = createEffect(() => {
         return this._actions$.pipe(
             ofType(loadTasks),
             switchMap(() => {
-                return this.service.getTasks().pipe(
+                return this._service.getTasks().pipe(
                     map((tasks) =>
                         loadTasksSuccess({
                             payload: tasks.map((categories) => ({
@@ -38,7 +45,12 @@ export class TaskEffects {
                             })),
                         })
                     ),
-                    catchError((error) => EMPTY)
+                    catchError((error) => {
+                        this._toastr.error(
+                            this._translate.instant('toaster.loadTasksError')
+                        );
+                        return EMPTY;
+                    })
                 );
             })
         );
@@ -48,14 +60,19 @@ export class TaskEffects {
         return this._actions$.pipe(
             ofType(addNewTask),
             switchMap((action) => {
-                return this.service.addNewTask(action.payload).pipe(
+                return this._service.addNewTask(action.payload).pipe(
                     map((result) =>
                         addNewTaskSuccess({
                             payload: { ...action.payload.task, id: result },
                             categoryId: action.payload.categoryId,
                         })
                     ),
-                    catchError((error) => EMPTY)
+                    catchError((error) => {
+                        this._toastr.error(
+                            this._translate.instant('toaster.createTaskError')
+                        );
+                        return EMPTY;
+                    })
                 );
             })
         );
@@ -65,7 +82,7 @@ export class TaskEffects {
         return this._actions$.pipe(
             ofType(addNewCategory),
             switchMap((action) => {
-                return this.service
+                return this._service
                     .addNewCategory(action.payload.categoryName)
                     .pipe(
                         map((result) =>
@@ -76,7 +93,14 @@ export class TaskEffects {
                                 },
                             })
                         ),
-                        catchError((error) => EMPTY)
+                        catchError((error) => {
+                            this._toastr.error(
+                                this._translate.instant(
+                                    'toaster.createCategoryError'
+                                )
+                            );
+                            return EMPTY;
+                        })
                     );
             })
         );
@@ -86,7 +110,7 @@ export class TaskEffects {
         return this._actions$.pipe(
             ofType(deleteTask),
             exhaustMap((action) => {
-                return this.service
+                return this._service
                     .deleteTask(
                         action.payload.categoryId,
                         action.payload.taskId
@@ -100,7 +124,14 @@ export class TaskEffects {
                                 },
                             })
                         ),
-                        catchError((error) => EMPTY)
+                        catchError((error) => {
+                            this._toastr.error(
+                                this._translate.instant(
+                                    'toaster.deleteTaskError'
+                                )
+                            );
+                            return EMPTY;
+                        })
                     );
             })
         );
@@ -110,7 +141,7 @@ export class TaskEffects {
         return this._actions$.pipe(
             ofType(deleteCategory),
             exhaustMap((action) => {
-                return this.service
+                return this._service
                     .deleteCategory(action.payload.categoryId)
                     .pipe(
                         map((result) =>
@@ -120,7 +151,14 @@ export class TaskEffects {
                                 },
                             })
                         ),
-                        catchError((error) => EMPTY)
+                        catchError((error) => {
+                            this._toastr.error(
+                                this._translate.instant(
+                                    'toaster.deleteCategoryError'
+                                )
+                            );
+                            return EMPTY;
+                        })
                     );
             })
         );
@@ -130,7 +168,7 @@ export class TaskEffects {
         return this._actions$.pipe(
             ofType(editTask),
             exhaustMap((action) => {
-                return this.service
+                return this._service
                     .editTask(action.payload.categoryId, action.payload.task)
                     .pipe(
                         map((result) =>
@@ -141,7 +179,12 @@ export class TaskEffects {
                                 },
                             })
                         ),
-                        catchError((error) => EMPTY)
+                        catchError((error) => {
+                            this._toastr.error(
+                                this._translate.instant('toaster.editTaskError')
+                            );
+                            return EMPTY;
+                        })
                     );
             })
         );
@@ -151,7 +194,7 @@ export class TaskEffects {
         return this._actions$.pipe(
             ofType(editCategory),
             switchMap((action) => {
-                return this.service
+                return this._service
                     .editCategory(
                         action.payload.categoryId,
                         action.payload.categoryName
@@ -165,7 +208,14 @@ export class TaskEffects {
                                 },
                             })
                         ),
-                        catchError((error) => EMPTY)
+                        catchError((error) => {
+                            this._toastr.error(
+                                this._translate.instant(
+                                    'toaster.editCategoryError'
+                                )
+                            );
+                            return EMPTY;
+                        })
                     );
             })
         );
