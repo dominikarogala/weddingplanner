@@ -1,4 +1,5 @@
 import { createAction, props } from '@ngrx/store';
+
 import { ISpending, ISpendingDTO } from 'src/app/shared/models';
 import { IBudgetState } from './budget.state';
 
@@ -54,4 +55,22 @@ export const editCategory = createAction(
 export const editCategorySuccess = createAction(
     '[Budget] Edit Category Success',
     props<{ payload: { categoryId: string; categoryName: string } }>()
+);
+
+export const deleteCategory = createAction(
+    '[Budget] Delete Category',
+    props<{ payload: { categoryId: string } }>()
+);
+export const deleteCategorySuccess = createAction(
+    '[Budget] Delete Category Success',
+    props<{ payload: { categoryId: string } }>()
+);
+
+export const deleteSpending = createAction(
+    '[Budget] Delete Spending',
+    props<{ payload: { categoryId: string; spendingId: string } }>()
+);
+export const deleteSpendingSuccess = createAction(
+    '[Budget] Delete Spending Success',
+    props<{ payload: { categoryId: string; spendingId: string } }>()
 );

@@ -35,4 +35,14 @@ export class BudgetService {
         const url = environment.baseUrl + ApiUrls.budgetCategory;
         return this._http.put(url, { categoryId, newCategoryName });
     }
+
+    deleteCategory(categoryId: string): Observable<any> {
+        const url = environment.baseUrl + ApiUrls.budgetCategory;
+        return this._http.delete(url, { params: { categoryId } });
+    }
+
+    deleteSpending(categoryId: string, spendingId: string): Observable<any> {
+        const url = environment.baseUrl + ApiUrls.budgetSpending;
+        return this._http.delete(url, { params: { categoryId, spendingId } });
+    }
 }

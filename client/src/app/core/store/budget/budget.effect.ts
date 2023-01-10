@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { catchError, EMPTY, map, switchMap, tap } from 'rxjs';
+import { catchError, EMPTY, map, switchMap } from 'rxjs';
 
 import {
     addNewBudgetCategory,
     addNewBudgetCategorySuccess,
     addNewBudgetSpending,
     addNewBudgetSpendingSuccess,
+    deleteCategory,
+    deleteCategorySuccess,
+    deleteSpending,
+    deleteSpendingSuccess,
     editCategory,
     editCategorySuccess,
     editSpending,
@@ -86,9 +90,7 @@ export class BudgetEffects {
             ofType(editSpending),
             switchMap((action) => {
                 return this.service.editSpending(action.payload).pipe(
-                    map((result) =>
-                        editSpendingSuccess({ payload: action.payload })
-                    ),
+                    map(() => editSpendingSuccess({ payload: action.payload })),
                     catchError((error) => EMPTY)
                 );
             })
@@ -105,8 +107,52 @@ export class BudgetEffects {
                         action.payload.categoryName
                     )
                     .pipe(
-                        map((result) =>
+                        map(() =>
                             editCategorySuccess({ payload: action.payload })
+                        ),
+                        catchError((error) => EMPTY)
+                    );
+            })
+        );
+    });
+
+    deleteCategory = createEffect(() => {
+        return this._actions$.pipe(
+            ofType(deleteCategory),
+            switchMap((action) => {
+                return this.service
+                    .deleteCategory(action.payload.categoryId)
+                    .pipe(
+                        map(() =>
+                            deleteCategorySuccess({
+                                payload: {
+                                    categoryId: action.payload.categoryId,
+                                },
+                            })
+                        ),
+                        catchError((error) => EMPTY)
+                    );
+            })
+        );
+    });
+
+    deleteSpending = createEffect(() => {
+        return this._actions$.pipe(
+            ofType(deleteSpending),
+            switchMap((action) => {
+                return this.service
+                    .deleteSpending(
+                        action.payload.categoryId,
+                        action.payload.spendingId
+                    )
+                    .pipe(
+                        map(() =>
+                            deleteSpendingSuccess({
+                                payload: {
+                                    categoryId: action.payload.categoryId,
+                                    spendingId: action.payload.spendingId,
+                                },
+                            })
                         ),
                         catchError((error) => EMPTY)
                     );

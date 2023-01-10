@@ -10,7 +10,7 @@ export const selectIsInitialConfigDone = createSelector(
     (state: IUserConfig) => state.isInitialConfigDone
 );
 
-export const selectBudget = createSelector(
+export const selectBudgetValue = createSelector(
     selectUserConfig,
     (state: IUserConfig) => state.budget
 );

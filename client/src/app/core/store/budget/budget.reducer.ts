@@ -1,10 +1,11 @@
 import { createReducer, on } from '@ngrx/store';
-import { createStateObservable } from '@ngrx/store-devtools/src/instrument';
 
 import {
     addNewBudgetCategorySuccess,
     changeBudgetCategoryExpansionState,
     changeBudgetSpendingExpansionState,
+    deleteCategorySuccess,
+    deleteSpendingSuccess,
     editCategorySuccess,
     editSpendingSuccess,
     loadBudgetSuccess,
@@ -88,6 +89,27 @@ export const budgetReducer = createReducer(
         categories: state.categories.map((category) => {
             if (category.id === action.payload.categoryId) {
                 return { ...category, name: action.payload.categoryName };
+            } else {
+                return category;
+            }
+        }),
+    })),
+    on(deleteCategorySuccess, (state, action) => ({
+        ...state,
+        categories: state.categories.filter(
+            (category) => category.id !== action.payload.categoryId
+        ),
+    })),
+    on(deleteSpendingSuccess, (state, action) => ({
+        ...state,
+        categories: state.categories.map((category) => {
+            if (category.id === action.payload.categoryId) {
+                return {
+                    ...category,
+                    spendings: category.spendings.filter(
+                        (spending) => spending.id !== action.payload.spendingId
+                    ),
+                };
             } else {
                 return category;
             }

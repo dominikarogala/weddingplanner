@@ -1,14 +1,15 @@
 import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
+
 import {
     addNewBudgetSpending,
     changeBudgetCategoryExpansionState,
+    deleteCategory,
     editCategory,
     IBudgetState,
 } from 'src/app/core/store/budget';
 import { CategoryDialogComponent, DialogMode } from 'src/app/shared/dialogs';
-
 import { IBudgetCategory, ISpending } from 'src/app/shared/models';
 import { SpendingDialogComponent } from '../../dialogs';
 
@@ -47,7 +48,11 @@ export class BudgetTableCategoryComponent {
     }
 
     deleteCategory() {
-        throw new Error('Method not implemented.');
+        this._store.dispatch(
+            deleteCategory({
+                payload: { categoryId: this.category.id },
+            })
+        );
     }
 
     openAddSpendingDialog() {
