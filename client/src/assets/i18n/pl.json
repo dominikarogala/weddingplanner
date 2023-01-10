@@ -31,7 +31,22 @@
     "toaster": {
         "accountCreated": "Konto utworzone!",
         "accountCreatedDescription": "Udało się utworzyć konto. Zaloguj się i baw się dobrze, podczas korzystania z Wedding Planner!",
-        "accountExists": "Konto o podanym adresie e-mail już istnieje"
+        "accountExists": "Konto o podanym adresie e-mail już istnieje",
+        "loadTasksError": "Nie udało się pobrać listy zadań",
+        "createTaskError": "Nie udało się utworzyć nowego zadania",
+        "createCategoryError": "Nie udało sie utworzyć nowej kategorii",
+        "deleteTaskError": "Nie udało się usunąć zadania",
+        "deleteCategoryError": "Nie udało się usunąć kategorii",
+        "editTaskError": "Nie udało się edytować zadania",
+        "editCategoryError": "Nie udało się edytować zadania",
+        "loadBudgetError": "Nie udało się pobrać budżetu",
+        "createSpendingError": "Nie udało się utworzyć nowego wydatku",
+        "editSpendingError": "Nie udało się edytować wydatku",
+        "deleteSpendingError": "Nie udało się usunąć wydatku",
+
+
+
+
     },
     "dashboard": {
         "description": "Zorganizuj Twoje wesele marzeń! Zobacz najnowsze informacje odnośnie zaproszonych gości, zaplanowanych zadań oraz akutualnego budżetu.",
