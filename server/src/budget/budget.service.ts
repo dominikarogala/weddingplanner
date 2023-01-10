@@ -10,8 +10,7 @@ export class BudgetService {
     async getBudgetInfo(): Promise<IBudgetInfo> {
         const budgetCategories = await this.budgetCategoryModel.find().exec();
         const budgetInfo: IBudgetInfo = {
-            budgetSpent: 0,
-            budgetLeft: 0,
+            budgetSpent: this._calculateBudgetSpent(budgetCategories),
             categories: budgetCategories.map(category => ({
                 name: category.name,
                 id: category._id,
@@ -26,6 +25,16 @@ export class BudgetService {
         };
 
         return budgetInfo;
+    }
+
+    private _calculateBudgetSpent(budgetCategories: BudgetCategory[]): number {
+        let budgetSpent = 0;
+
+        budgetCategories.forEach(category => {
+            category.spendings.forEach(spending => (budgetSpent += spending.price));
+        });
+
+        return budgetSpent;
     }
 
     async addNewCategory(categoryName: string) {

@@ -33,7 +33,6 @@ export const BudgetCategorySchema = new mongoose.Schema({
 
 export interface IBudgetInfo {
     budgetSpent: number;
-    budgetLeft: number;
     categories: IBudgetCategory[];
 }
 
