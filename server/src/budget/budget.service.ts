@@ -1,16 +1,21 @@
 import { Inject, Injectable, NotFoundException } from '@nestjs/common';
 import { Model } from 'mongoose';
+import { UserInfoService } from 'src/user-config/user-config.service';
 
 import { BudgetCategory, IBudgetInfo, ISpending } from './budget.model';
 
 @Injectable()
 export class BudgetService {
-    constructor(@Inject('BUDGET_MODEL') private readonly budgetCategoryModel: Model<BudgetCategory>) {}
+    constructor(@Inject('BUDGET_MODEL') private readonly budgetCategoryModel: Model<BudgetCategory>, private _userInfo: UserInfoService) {}
 
     async getBudgetInfo(): Promise<IBudgetInfo> {
         const budgetCategories = await this.budgetCategoryModel.find().exec();
+        const moneySpent = this._calculateBudgetSpent(budgetCategories);
+        const budget = await (await this._userInfo.getUserConfig()).budget;
+
         const budgetInfo: IBudgetInfo = {
-            budgetSpent: this._calculateBudgetSpent(budgetCategories),
+            budgetSpent: moneySpent,
+            budgetLeft: budget - moneySpent,
             categories: budgetCategories.map(category => ({
                 name: category.name,
                 id: category._id,
