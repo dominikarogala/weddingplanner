@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { TranslateService } from '@ngx-translate/core';
+import { ToastrService } from 'ngx-toastr';
 import { catchError, EMPTY, map, switchMap } from 'rxjs';
 
 import {
@@ -21,13 +23,18 @@ import {
 import { BudgetService } from './budget.service';
 @Injectable()
 export class BudgetEffects {
-    constructor(private _actions$: Actions, private service: BudgetService) {}
+    constructor(
+        private _actions$: Actions,
+        private _service: BudgetService,
+        private _toastr: ToastrService,
+        private _translate: TranslateService
+    ) {}
 
     loadBudget = createEffect(() => {
         return this._actions$.pipe(
             ofType(loadBudget),
             switchMap(() => {
-                return this.service.loadBudget().pipe(
+                return this._service.loadBudget().pipe(
                     map((result) =>
                         loadBudgetSuccess({
                             payload: {
@@ -39,7 +46,12 @@ export class BudgetEffects {
                             },
                         })
                     ),
-                    catchError((error) => EMPTY)
+                    catchError((error) => {
+                        this._toastr.error(
+                            this._translate.instant('toaster.loadBudgetError')
+                        );
+                        return EMPTY;
+                    })
                 );
             })
         );
@@ -49,7 +61,7 @@ export class BudgetEffects {
         return this._actions$.pipe(
             ofType(addNewBudgetCategory),
             switchMap((action) => {
-                return this.service
+                return this._service
                     .addNewCategory(action.payload.categoryName)
                     .pipe(
                         map((result) =>
@@ -60,7 +72,14 @@ export class BudgetEffects {
                                 },
                             })
                         ),
-                        catchError((error) => EMPTY)
+                        catchError((error) => {
+                            this._toastr.error(
+                                this._translate.instant(
+                                    'toaster.createCategoryError'
+                                )
+                            );
+                            return EMPTY;
+                        })
                     );
             })
         );
@@ -70,7 +89,7 @@ export class BudgetEffects {
         return this._actions$.pipe(
             ofType(addNewBudgetSpending),
             switchMap((action) => {
-                return this.service.addNewSpending(action.payload).pipe(
+                return this._service.addNewSpending(action.payload).pipe(
                     map((result) =>
                         addNewBudgetSpendingSuccess({
                             payload: {
@@ -79,7 +98,14 @@ export class BudgetEffects {
                             },
                         })
                     ),
-                    catchError((error) => EMPTY)
+                    catchError((error) => {
+                        this._toastr.error(
+                            this._translate.instant(
+                                'toaster.createSpendingError'
+                            )
+                        );
+                        return EMPTY;
+                    })
                 );
             })
         );
@@ -89,9 +115,14 @@ export class BudgetEffects {
         return this._actions$.pipe(
             ofType(editSpending),
             switchMap((action) => {
-                return this.service.editSpending(action.payload).pipe(
+                return this._service.editSpending(action.payload).pipe(
                     map(() => editSpendingSuccess({ payload: action.payload })),
-                    catchError((error) => EMPTY)
+                    catchError((error) => {
+                        this._toastr.error(
+                            this._translate.instant('toaster.editSpendingError')
+                        );
+                        return EMPTY;
+                    })
                 );
             })
         );
@@ -101,7 +132,7 @@ export class BudgetEffects {
         return this._actions$.pipe(
             ofType(editCategory),
             switchMap((action) => {
-                return this.service
+                return this._service
                     .editCategory(
                         action.payload.categoryId,
                         action.payload.categoryName
@@ -110,7 +141,14 @@ export class BudgetEffects {
                         map(() =>
                             editCategorySuccess({ payload: action.payload })
                         ),
-                        catchError((error) => EMPTY)
+                        catchError((error) => {
+                            this._toastr.error(
+                                this._translate.instant(
+                                    'toaster.editCategoryError'
+                                )
+                            );
+                            return EMPTY;
+                        })
                     );
             })
         );
@@ -120,7 +158,7 @@ export class BudgetEffects {
         return this._actions$.pipe(
             ofType(deleteCategory),
             switchMap((action) => {
-                return this.service
+                return this._service
                     .deleteCategory(action.payload.categoryId)
                     .pipe(
                         map(() =>
@@ -130,7 +168,14 @@ export class BudgetEffects {
                                 },
                             })
                         ),
-                        catchError((error) => EMPTY)
+                        catchError((error) => {
+                            this._toastr.error(
+                                this._translate.instant(
+                                    'toaster.deleteCategoryError'
+                                )
+                            );
+                            return EMPTY;
+                        })
                     );
             })
         );
@@ -140,7 +185,7 @@ export class BudgetEffects {
         return this._actions$.pipe(
             ofType(deleteSpending),
             switchMap((action) => {
-                return this.service
+                return this._service
                     .deleteSpending(
                         action.payload.categoryId,
                         action.payload.spendingId
@@ -154,7 +199,14 @@ export class BudgetEffects {
                                 },
                             })
                         ),
-                        catchError((error) => EMPTY)
+                        catchError((error) => {
+                            this._toastr.error(
+                                this._translate.instant(
+                                    'toaster.deleteSpendingError'
+                                )
+                            );
+                            return EMPTY;
+                        })
                     );
             })
         );
