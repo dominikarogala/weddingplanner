@@ -4,12 +4,16 @@
     height: 100vh;
 
     &--bar {
-        width: 220px;
+        width: 250px;
         background-color: $primary;
-        color: $white;
+
+        nav {
+            margin-bottom: 2em;
+        }
     }
 
     &--item {
+        color: $white;
         padding: 10px 25px;
         column-gap: 5px;
         display: flex;
@@ -17,7 +21,12 @@
 
         &:hover {
             cursor: pointer;
-            background-color: $primary;
+            background-color: $primary2;
         }
+    }
+
+    a:visited,
+    a:link {
+        text-decoration: none;
     }
 }

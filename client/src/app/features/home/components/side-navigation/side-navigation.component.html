@@ -1,20 +1,26 @@
 <mat-drawer-container class="navigation">
     <mat-drawer class="navigation--bar" mode="side" opened>
-        <wp-logo [type]="'light'" routerLink="./dashboard"></wp-logo>
-
-        <div class="navigation--item" routerLink="./todos">
-            <mat-icon>playlist_add_check</mat-icon>
-            <span>
-                {{ 'toDoList.title' | translate }}
-            </span>
-        </div>
-        <mat-divider></mat-divider>
-        <div class="navigation--item" routerLink="./budget">
-            <mat-icon>attach_money</mat-icon>
-            <span>
-                {{ 'budget.title' | translate }}
-            </span>
-        </div>
+        <nav>
+            <a routerLink="./dashboard">
+                <wp-logo [type]="'light'"></wp-logo>
+            </a>
+            <mat-divider></mat-divider>
+            <a class="navigation--item" routerLink="./todos">
+                <mat-icon>playlist_add_check</mat-icon>
+                <span>
+                    {{ 'toDoList.title' | translate }}
+                </span>
+            </a>
+            <mat-divider></mat-divider>
+            <a class="navigation--item" routerLink="./budget">
+                <mat-icon>attach_money</mat-icon>
+                <span>
+                    {{ 'budget.title' | translate }}
+                </span>
+            </a>
+            <mat-divider></mat-divider>
+        </nav>
+        <wp-countdown [weddingDate]="weddingDate$ | async"></wp-countdown>
     </mat-drawer>
     <mat-drawer-content>
         <ng-content></ng-content>

@@ -1,0 +1,21 @@
+<div class="countdown" *ngIf="countdown">
+    <p>Do ślubu pozostało</p>
+    <div class="countdown--elements">
+        <div class="countdown--element">
+            <span class="countdown--element-time">{{ countdown.days }}</span>
+            <span class="countdown--element-label">dni</span>
+        </div>
+        <div class="countdown--element">
+            <span class="countdown--element-time">{{ countdown.hours }}</span>
+            <span class="countdown--element-label">godzin</span>
+        </div>
+        <div class="countdown--element">
+            <span class="countdown--element-time">{{ countdown.minutes }}</span>
+            <span class="countdown--element-label">minut</span>
+        </div>
+        <div class="countdown--element">
+            <span class="countdown--element-time">{{ countdown.seconds }}</span>
+            <span class="countdown--element-label">sekund</span>
+        </div>
+    </div>
+</div>

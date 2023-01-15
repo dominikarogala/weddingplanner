@@ -1,3 +1,6 @@
+import { CountdownComponent } from './countdown/countdown.component';
+export * from './countdown/countdown.component';
+
 import { DashboardComponent } from './dashboard/dashboard.component';
 export * from './dashboard/dashboard.component';
 
@@ -20,6 +23,7 @@ import { WeddingDateComponent } from './wedding-date/wedding-date.component';
 export * from './wedding-date/wedding-date.component';
 
 export const HomeComponents = [
+    CountdownComponent,
     DashboardComponent,
     HeaderComponent,
     NewlywedsComponent,

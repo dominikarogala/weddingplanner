@@ -42,11 +42,7 @@
         "loadBudgetError": "Nie udało się pobrać budżetu",
         "createSpendingError": "Nie udało się utworzyć nowego wydatku",
         "editSpendingError": "Nie udało się edytować wydatku",
-        "deleteSpendingError": "Nie udało się usunąć wydatku",
-
-
-
-
+        "deleteSpendingError": "Nie udało się usunąć wydatku"
     },
     "dashboard": {
         "description": "Zorganizuj Twoje wesele marzeń! Zobacz najnowsze informacje odnośnie zaproszonych gości, zaplanowanych zadań oraz akutualnego budżetu.",
