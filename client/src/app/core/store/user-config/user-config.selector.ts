@@ -14,3 +14,8 @@ export const selectBudgetValue = createSelector(
     selectUserConfig,
     (state: IUserConfig) => state.budget
 );
+
+export const selectWeddingDate = createSelector(
+    selectUserConfig,
+    (state: IUserConfig) => state.weddingDate
+);
