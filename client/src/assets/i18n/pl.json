@@ -83,6 +83,9 @@
         "newCategoryTitle": "Dodaj nową kategorię",
         "categoryEditionTitle": "Edytuj nazwę kategorii",
         "finished": "Ukończono",
-        "from": "z"
+        "from": "z",
+        "tasksProgress": "Postęp przygotowań",
+        "numberOfTasks": "Liczba zadań"
+
     }  
 }

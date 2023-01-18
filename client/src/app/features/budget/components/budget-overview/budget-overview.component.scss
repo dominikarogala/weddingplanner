@@ -1,11 +1,13 @@
 .overview {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
-    column-gap: 1em;
+    gap: 1em;
     margin: 1em 0;
     width: 100%;
 
-    & > wp-budget-overview-item {
-        flex-basis: 100%;
+    &--item {
+        flex-shrink: 1;
+        flex-grow: 1;
     }
 }

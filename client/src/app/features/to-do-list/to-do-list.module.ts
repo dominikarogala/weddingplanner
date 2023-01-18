@@ -9,6 +9,7 @@ import { PdfService } from 'src/app/shared/services/pdf.service';
 import {
     CreateNewComponent,
     EditionComponent,
+    OverviewItemComponent,
     SectionComponent,
     TableCategoryComponent,
     TableCategoryElementComponent,
@@ -23,6 +24,7 @@ import { CategoryDialogComponent } from 'src/app/shared/dialogs';
         SharedModule,
 
         CreateNewComponent,
+        OverviewItemComponent,
         SectionComponent,
         TableComponent,
         TableCategoryComponent,

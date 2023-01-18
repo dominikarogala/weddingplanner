@@ -6,6 +6,26 @@
     </div>
 </wp-section>
 
+<div class="overview">
+    <wp-overview-item
+        class="overview--item"
+        [title]="'toDoList.numberOfTasks' | translate"
+        [text]="'60'">
+    </wp-overview-item>
+
+    <wp-overview-item
+        class="overview--item"
+        [title]="'toDoList.finished' | translate"
+        [text]="'6'">
+    </wp-overview-item>
+
+    <wp-overview-item
+        class="overview--item"
+        [title]="'toDoList.tasksProgress' | translate"
+        [text]="'10%'">
+    </wp-overview-item>
+</div>
+
 <ng-container *ngIf="categories$ | async as categories">
     <wp-table [categories]="categories">
         <div buttons>

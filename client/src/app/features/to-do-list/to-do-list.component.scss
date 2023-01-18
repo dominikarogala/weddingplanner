@@ -1,3 +1,17 @@
 wp-section-summary {
     width: 100vw;
 }
+
+.overview {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1em;
+    margin: 1em 0;
+    width: 100%;
+
+    &--item {
+        flex-shrink: 1;
+        flex-grow: 1;
+    }
+}
