@@ -86,6 +86,9 @@
         "from": "z",
         "tasksProgress": "Postęp przygotowań",
         "numberOfTasks": "Liczba zadań"
-
-    }  
+    },
+    "statistics": {
+        "title": "Statystyki",
+        "description": "Zobacz podsumowanie najważniejszych informacji z Twojego przyjęcia w formie wygodnych statystyk."
+    }
 }
