@@ -6,7 +6,7 @@ export interface IBudgetCategory extends ICategory {
 
 export interface ISpending extends ICategoryElement {
     price: number;
-    moneyAlreadyPayed: number;
+    moneyAlreadyPaied: number;
 }
 
 export interface ISpendingDTO {
