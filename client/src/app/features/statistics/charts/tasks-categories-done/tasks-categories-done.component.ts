@@ -4,25 +4,24 @@ import {
     ElementRef,
     OnInit,
 } from '@angular/core';
-import Chart from 'chart.js/auto';
-
+import { Chart } from 'chart.js';
 import { AbstractChartComponent } from '../../abstract-chart.component';
 import { ChartDataService } from '../../chart-data.service';
-import { IBudgetCategoriesCostData } from '../../statistics.model';
+import { ITaskCategoriesDoneData } from '../../statistics.model';
 
 @Component({
-    selector: 'wp-budget-categories-cost',
+    selector: 'wp-tasks-categories-done',
     changeDetection: ChangeDetectionStrategy.OnPush,
     template: `
         <wp-basic-chart
-            [title]="'statistics.charts.budgetCategoriesCost' | translate"
+            [title]="'statistics.charts.taskCategoriesDone' | translate"
             [chartId]="chartId"
             [chart]="chart">
         </wp-basic-chart>
     `,
 })
-export class BudgetCategoriesCostComponent
-    extends AbstractChartComponent<IBudgetCategoriesCostData>
+export class TasksCategoriesDoneComponent
+    extends AbstractChartComponent<ITaskCategoriesDoneData>
     implements OnInit
 {
     constructor(
@@ -33,14 +32,14 @@ export class BudgetCategoriesCostComponent
     }
 
     ngOnInit(): void {
-        this.chartId = 'budgetCategoriesCost';
+        this.chartId = 'taskCategoriesDone';
 
-        this._chartData.getBudgetCategoriesCostData().subscribe((chartData) => {
-            this.createChart(chartData);
+        this._chartData.getTaskCategoriesDoneData().subscribe((result) => {
+            this.createChart(result);
         });
     }
 
-    createChart(chartData: IBudgetCategoriesCostData) {
+    createChart(chartData: ITaskCategoriesDoneData): void {
         this.chart = new Chart(
             this._elementRef.nativeElement.querySelector('#' + this.chartId),
             {
@@ -49,13 +48,13 @@ export class BudgetCategoriesCostComponent
                     labels: chartData.labels,
                     datasets: [
                         {
-                            label: 'Zapłacona zaliczka',
-                            data: chartData.moneyAlreadyPaied,
+                            label: 'Wykonane zadania',
+                            data: chartData.tasksDone,
                             backgroundColor: '#ffd740',
                         },
                         {
-                            label: 'Suma wydatków',
-                            data: chartData.prices,
+                            label: 'Zaplanowane zadania',
+                            data: chartData.allTasks,
                             backgroundColor: '#673ab7',
                         },
                     ],
