@@ -5,8 +5,8 @@
     <div class="spending--header" header>
         <span>{{ spending.name }}</span>
         <span>{{ spending.price }}</span>
-        <span>{{ spending.moneyAlreadyPayed }}</span>
-        <span>{{ spending.price - spending.moneyAlreadyPayed }}</span>
+        <span>{{ spending.moneyAlreadyPaied }}</span>
+        <span>{{ spending.price - spending.moneyAlreadyPaied }}</span>
         <wp-edition
             style="place-self: end"
             (editElement)="openEditSpendingDialog()"

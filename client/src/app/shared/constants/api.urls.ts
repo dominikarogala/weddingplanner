@@ -9,4 +9,6 @@ export const enum ApiUrls {
     budget = 'budget',
     budgetCategory = 'budget/category',
     budgetSpending = 'budget/spending',
+    budgetCategoriesCost = 'statistics/budgetCategoriesCost',
+    taskCategoriesDone = 'statistics/taskCategoriesDone',
 }

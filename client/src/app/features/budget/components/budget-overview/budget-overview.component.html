@@ -1,23 +1,27 @@
 <div class="overview">
-    <wp-budget-overview-item
+    <wp-overview-item
+        class="overview--item"
+        [type]="'money'"
         [amountOfMoney]="budget$ | async"
         [title]="'budget.title' | translate">
         <button mat-icon-button (click)="editBudget()" icon>
             <mat-icon>edit</mat-icon>
         </button>
-    </wp-budget-overview-item>
+    </wp-overview-item>
 
     <ng-container *ngIf="budgetInfo$ | async as budgetInfo">
-        <wp-budget-overview-item
+        <wp-overview-item
+            class="overview--item"
+            [type]="'money'"
             [amountOfMoney]="budgetInfo.budgetLeft"
-            [title]="'budget.moneyLeft' | translate"
-            [moneyType]="'left'">
-        </wp-budget-overview-item>
+            [title]="'budget.moneyLeft' | translate">
+        </wp-overview-item>
 
-        <wp-budget-overview-item
+        <wp-overview-item
+            class="overview--item"
+            [type]="'money'"
             [amountOfMoney]="budgetInfo.budgetSpent"
-            [title]="'budget.plannedMoney' | translate"
-            [moneyType]="'spent'">
-        </wp-budget-overview-item>
+            [title]="'budget.plannedMoney' | translate">
+        </wp-overview-item>
     </ng-container>
 </div>

@@ -1,10 +1,30 @@
 <wp-section
     [title]="'toDoList.title' | translate"
-    [image]="'assets/images/tasks.svg'">
+    [image]="'assets/images/to_do_list.svg'">
     <div>
         <p class="mat-body">{{ 'toDoList.description' | translate }}</p>
     </div>
 </wp-section>
+
+<div class="overview">
+    <wp-overview-item
+        class="overview--item"
+        [title]="'toDoList.numberOfTasks' | translate"
+        [text]="'60'">
+    </wp-overview-item>
+
+    <wp-overview-item
+        class="overview--item"
+        [title]="'toDoList.finished' | translate"
+        [text]="'6'">
+    </wp-overview-item>
+
+    <wp-overview-item
+        class="overview--item"
+        [title]="'toDoList.tasksProgress' | translate"
+        [text]="'10%'">
+    </wp-overview-item>
+</div>
 
 <ng-container *ngIf="categories$ | async as categories">
     <wp-table [categories]="categories">

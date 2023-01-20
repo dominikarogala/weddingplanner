@@ -5,12 +5,12 @@ import { BudgetRoutingModule } from './budget-routing.module';
 import { BudgetComponent } from './budget.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { BudgetOverviewComponent } from './components/budget-overview/budget-overview.component';
-import { BudgetOverviewItemComponent } from './components/budget-overview-item/budget-overview-item.component';
 import { BudgetDetermineDialogComponent } from './dialogs/budget-determine-dialog/budget-determine-dialog.component';
 
 import {
     CreateNewComponent,
     EditionComponent,
+    OverviewItemComponent,
     SectionComponent,
     TableCategoryComponent,
     TableCategoryElementComponent,
@@ -25,7 +25,6 @@ import { BudgetTableElementComponent } from './components/budget-table-element/b
     declarations: [
         BudgetComponent,
         BudgetOverviewComponent,
-        BudgetOverviewItemComponent,
         BudgetDetermineDialogComponent,
         BudgetTableCategoryComponent,
         SpendingDialogComponent,
@@ -37,11 +36,12 @@ import { BudgetTableElementComponent } from './components/budget-table-element/b
         SharedModule,
 
         CreateNewComponent,
+        EditionComponent,
+        OverviewItemComponent,
         SectionComponent,
         TableComponent,
         TableCategoryComponent,
         TableCategoryElementComponent,
-        EditionComponent,
 
         CapitalizePipe,
     ],

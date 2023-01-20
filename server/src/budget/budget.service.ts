@@ -24,7 +24,7 @@ export class BudgetService {
                     name: spending.name,
                     price: spending.price,
                     notes: spending.notes,
-                    moneyAlreadyPayed: spending.moneyAlreadyPayed,
+                    moneyAlreadyPaied: spending.moneyAlreadyPaied,
                 })),
             })),
         };
@@ -67,7 +67,7 @@ export class BudgetService {
                 {
                     'spendings.$.name': spending.name,
                     'spendings.$.price': spending.price,
-                    'spendings.$.moneyAlreadyPayed': spending.moneyAlreadyPayed,
+                    'spendings.$.moneyAlreadyPaied': spending.moneyAlreadyPaied,
                     'spendings.$.notes': spending.notes,
                 },
             );

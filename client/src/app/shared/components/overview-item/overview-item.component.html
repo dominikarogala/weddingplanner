@@ -1,0 +1,18 @@
+<mat-card appearance="outlined" class="item">
+    <mat-card-title>
+        <h2>{{ title }}</h2>
+        <div class="item--icon">
+            <ng-content select="[icon]"></ng-content>
+        </div>
+    </mat-card-title>
+    <mat-card-content>
+        <ng-container *ngIf="type === 'money'">
+            <p [ngClass]="{ overdraft: amountOfMoney < 0 }">
+                {{ amountOfMoney | currency : 'PLN' }}
+            </p>
+        </ng-container>
+        <ng-container *ngIf="type === 'customText'">
+            <p [ngStyle]="{ color: textColor }">{{ text }}</p>
+        </ng-container>
+    </mat-card-content>
+</mat-card>

@@ -42,7 +42,8 @@
         "loadBudgetError": "Nie udało się pobrać budżetu",
         "createSpendingError": "Nie udało się utworzyć nowego wydatku",
         "editSpendingError": "Nie udało się edytować wydatku",
-        "deleteSpendingError": "Nie udało się usunąć wydatku"
+        "deleteSpendingError": "Nie udało się usunąć wydatku",
+        "chartDataError": "Nie udało się pobrać danych do wykresu"
     },
     "dashboard": {
         "description": "Zorganizuj Twoje wesele marzeń! Zobacz najnowsze informacje odnośnie zaproszonych gości, zaplanowanych zadań oraz akutualnego budżetu.",
@@ -83,6 +84,16 @@
         "newCategoryTitle": "Dodaj nową kategorię",
         "categoryEditionTitle": "Edytuj nazwę kategorii",
         "finished": "Ukończono",
-        "from": "z"
-    }  
+        "from": "z",
+        "tasksProgress": "Postęp przygotowań",
+        "numberOfTasks": "Liczba zadań"
+    },
+    "statistics": {
+        "title": "Statystyki",
+        "description": "Zobacz podsumowanie najważniejszych informacji z Twojego przyjęcia w formie wygodnych statystyk.",
+        "charts": {
+            "budgetCategoriesCost": "Podsumowanie zaplanowanych wydatków z podziałem na kategorie",
+            "taskCategoriesDone": "Podsumowanie zaplanowanych zadań z podziałem na kategorie"
+        }
+    }
 }

@@ -19,6 +19,13 @@
                 </span>
             </a>
             <mat-divider></mat-divider>
+            <a class="navigation--item" routerLink="./statistics">
+                <mat-icon> bar_chart</mat-icon>
+                <span>
+                    {{ 'statistics.title' | translate }}
+                </span>
+            </a>
+            <mat-divider></mat-divider>
         </nav>
         <wp-countdown [weddingDate]="weddingDate$ | async"></wp-countdown>
     </mat-drawer>
