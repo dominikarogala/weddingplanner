@@ -13,6 +13,7 @@ import {
 import { TaskEffects, taskReducer, TaskService } from './store/task';
 import { BudgetEffects, budgetReducer } from './store/budget';
 import { BudgetService } from './store/budget/budget.service';
+import { GuestsEffects, guestsReducer, GuestsService } from './store/guests';
 
 @NgModule({
     imports: [
@@ -22,8 +23,14 @@ import { BudgetService } from './store/budget/budget.service';
             tasks: taskReducer,
             userConfig: userConfigReducer,
             budget: budgetReducer,
+            guests: guestsReducer,
         }),
-        EffectsModule.forRoot([TaskEffects, UserConfigEffects, BudgetEffects]),
+        EffectsModule.forRoot([
+            TaskEffects,
+            UserConfigEffects,
+            BudgetEffects,
+            GuestsEffects,
+        ]),
     ],
     providers: [
         AccountService,
@@ -31,6 +38,7 @@ import { BudgetService } from './store/budget/budget.service';
         TaskService,
         UserConfigService,
         BudgetService,
+        GuestsService,
     ],
 })
 export class CoreModule {}

@@ -1,0 +1,29 @@
+<wp-section
+    [title]="'guests.title' | translate"
+    [image]="'assets/images/people.svg'">
+    <div>
+        <p class="mat-body">{{ 'guests.description' | translate }}</p>
+    </div>
+</wp-section>
+
+<wp-table [elements]="guests$ | async">
+    <div buttons>
+        <button mat-raised-button color="primary">
+            <mat-icon>add</mat-icon>
+            <span>
+                {{ 'toDoList.addCategory' | translate }}
+            </span>
+        </button>
+        <button mat-raised-button color="accent">
+            <mat-icon>save_alt</mat-icon>
+            <span>
+                {{ 'toDoList.downloadToDoList' | translate }}
+            </span>
+        </button>
+    </div>
+
+    <div class="table--empty" empty>
+        <wp-create-new [text]="'guests.newGuestTooltip' | translate">
+        </wp-create-new>
+    </div>
+</wp-table>

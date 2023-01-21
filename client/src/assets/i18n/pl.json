@@ -43,7 +43,8 @@
         "createSpendingError": "Nie udało się utworzyć nowego wydatku",
         "editSpendingError": "Nie udało się edytować wydatku",
         "deleteSpendingError": "Nie udało się usunąć wydatku",
-        "chartDataError": "Nie udało się pobrać danych do wykresu"
+        "chartDataError": "Nie udało się pobrać danych do wykresu",
+        "loadGuestsError": "Nie udało się załadować listy gości"
     },
     "dashboard": {
         "description": "Zorganizuj Twoje wesele marzeń! Zobacz najnowsze informacje odnośnie zaproszonych gości, zaplanowanych zadań oraz akutualnego budżetu.",
@@ -95,5 +96,10 @@
             "budgetCategoriesCost": "Podsumowanie zaplanowanych wydatków z podziałem na kategorie",
             "taskCategoriesDone": "Podsumowanie zaplanowanych zadań z podziałem na kategorie"
         }
+    },
+    "guests": {
+        "title": "Goście",
+        "description": "Zaplanuj listę gości i łatwo zarządzaj listą. Oznaczaj osoby, które potwierdziły przybycie. Sprawdź kto z zaproszonych potrzebuje transportu lub niestandardowego menu.",
+        "newGuestTooltip" : "dodaj nowych gości"
     }
 }

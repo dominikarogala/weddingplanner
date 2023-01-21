@@ -10,7 +10,7 @@ import { SharedModule } from '../../shared.module';
     imports: [SharedModule],
 })
 export class TableComponent {
-    @Input() categories: any[] = [];
+    @Input() elements: any[] = [];
 
     isExpanded = false;
 }

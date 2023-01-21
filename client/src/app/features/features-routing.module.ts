@@ -35,6 +35,13 @@ const routes: Routes = [
                     ),
             },
             {
+                path: 'guests',
+                loadChildren: () =>
+                    import('./guests/guests.module').then(
+                        (m) => m.GuestsModule
+                    ),
+            },
+            {
                 path: '**',
                 redirectTo: 'dashboard',
             },
