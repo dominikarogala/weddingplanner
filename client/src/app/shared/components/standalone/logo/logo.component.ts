@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { SharedModule } from '../../shared.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 export type LogoType = 'light' | 'dark';
 

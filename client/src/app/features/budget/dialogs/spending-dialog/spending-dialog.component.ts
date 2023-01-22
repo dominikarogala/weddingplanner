@@ -4,7 +4,9 @@ import { DialogMode, IDialogMode } from 'src/app/shared/dialogs';
 
 import { ISpending } from 'src/app/shared/models';
 
-export interface ISpendingDialog extends ISpending, IDialogMode {}
+export interface ISpendingDialog extends IDialogMode {
+    spending: ISpending;
+}
 
 @Component({
     selector: 'wp-spending-dialog',
@@ -17,17 +19,19 @@ export class SpendingDialogComponent implements OnInit {
 
     constructor(
         public dialogRef: MatDialogRef<SpendingDialogComponent>,
-        @Inject(MAT_DIALOG_DATA) public spending: ISpendingDialog
+        @Inject(MAT_DIALOG_DATA) public spendingDialog: ISpendingDialog
     ) {}
 
     ngOnInit(): void {
         this.title =
-            this.spending.mode === DialogMode.Creation
+            this.spendingDialog.mode === DialogMode.Creation
                 ? 'budget.addSpending'
                 : 'budget.editSpending';
 
         this.confirmButtonLabel =
-            this.spending.mode === DialogMode.Creation ? 'app.add' : 'app.save';
+            this.spendingDialog.mode === DialogMode.Creation
+                ? 'app.add'
+                : 'app.save';
     }
 
     onCancelClick(): void {

@@ -1,25 +1,24 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 import { GuestsComponent } from './guests.component';
 import { GuestsRoutingModule } from './guests-routing.module';
-import {
-    CreateNewComponent,
-    SectionComponent,
-    TableComponent,
-} from 'src/app/shared/components';
+import { SectionComponent } from 'src/app/shared/components/standalone';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { TableModule } from 'src/app/shared/components/table/table.module';
+import { AddGuestDialogComponent } from './add-guest-dialog/add-guest-dialog.component';
+import { GuestsService } from './guests.service';
 
 @NgModule({
-    declarations: [GuestsComponent],
+    declarations: [GuestsComponent, AddGuestDialogComponent],
     imports: [
-        CommonModule,
+        // user
         GuestsRoutingModule,
         SharedModule,
+        TableModule,
 
+        // standalone
         SectionComponent,
-        TableComponent,
-        CreateNewComponent,
     ],
+    providers: [GuestsService],
 })
 export class GuestsModule {}

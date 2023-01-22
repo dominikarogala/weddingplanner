@@ -100,6 +100,38 @@
     "guests": {
         "title": "Goście",
         "description": "Zaplanuj listę gości i łatwo zarządzaj listą. Oznaczaj osoby, które potwierdziły przybycie. Sprawdź kto z zaproszonych potrzebuje transportu lub niestandardowego menu.",
-        "newGuestTooltip" : "dodaj nowych gości"
+        "newGuestTooltip" : "dodaj nowych gości",
+        "addNewGuest": "Dodaj nowego gościa",
+        "name": "Imię i nazwisko",
+        "sex": {
+            "male": "mężczyzna",
+            "female": "kobieta",
+            "unspecified": "nieokreślone"
+        },
+        "age" : {
+            "infant": "niemowlę",
+            "child": "dziecko",
+            "teenager": "nastolatek",
+            "youngAdult": "młody dorosły",
+            "adult": "dorosły",
+            "middleAge": "w średnim wieku",
+            "elderly": "senior"
+        },
+        "menu": {
+            "standard": "standardowe",
+            "vegetarian": "wegetariańskie",
+            "vegan": "wegańskie",
+            "kids": "dziecięce"
+        },
+        "discount": {
+            "normal": "standardowa cena",
+            "free": "za darmo",
+            "child": "zniżka dziecięca",
+            "staff": "zniżka dla obsługi"
+        },
+        "ageLabel": "Wiek",
+        "sexLabel": "Płeć",
+        "menuLabel": "Menu",
+        "discountLabel": "Zniżka"
     }
 }

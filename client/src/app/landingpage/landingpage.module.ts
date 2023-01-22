@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { Pages } from '.';
 import { SharedModule } from '../shared/shared.module';
 
-import { DoubleScreenComponent } from '../shared/components';
+import { DoubleScreenComponent } from '../shared/components/standalone';
 
 @NgModule({
     declarations: [...Pages],

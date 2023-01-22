@@ -1,0 +1,82 @@
+<h1 mat-dialog-title>{{ 'guests.addNewGuest' | translate }}</h1>
+<div mat-dialog-content>
+    <mat-form-field appearance="fill" style="width: 100%">
+        <mat-label>{{ 'guests.name' | translate }}</mat-label>
+        <input matInput [(ngModel)]="guestDialog.guest.name" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" style="width: 100%">
+        <mat-label>{{ 'guests.sexLabel' | translate }}</mat-label>
+        <input
+            matInput
+            [(ngModel)]="guestDialog.guest.sex"
+            [matAutocomplete]="sexAuto" />
+        <mat-autocomplete #sexAuto="matAutocomplete">
+            <mat-option
+                *ngFor="let option of sexOptions"
+                [value]="option.value">
+                {{ option.label }}
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" style="width: 100%">
+        <mat-label>{{ 'guests.ageLabel' | translate }}</mat-label>
+        <input
+            matInput
+            [(ngModel)]="guestDialog.guest.age"
+            [matAutocomplete]="ageAuto" />
+        <mat-autocomplete #ageAuto="matAutocomplete">
+            <mat-option
+                *ngFor="let option of ageOptions"
+                [value]="option.value">
+                {{ option.label }}
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" style="width: 100%">
+        <mat-label>{{ 'guests.discountLabel' | translate }}</mat-label>
+        <input
+            matInput
+            [(ngModel)]="guestDialog.guest.discount"
+            [matAutocomplete]="discountAuto" />
+        <mat-autocomplete #discountAuto="matAutocomplete">
+            <mat-option
+                *ngFor="let option of discountOptions"
+                [value]="option.value">
+                <img [src]="option.icon" />
+                {{ option.label }}
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" style="width: 100%">
+        <mat-label>{{ 'guests.menuLabel' | translate }}</mat-label>
+        <input
+            matInput
+            [(ngModel)]="guestDialog.guest.menu"
+            [matAutocomplete]="menuAuto" />
+        <mat-autocomplete #menuAuto="matAutocomplete">
+            <mat-option
+                *ngFor="let option of menuOptions"
+                [value]="option.value">
+                <img [src]="option.icon" />
+                {{ option.label }}
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+</div>
+
+<div mat-dialog-actions align="end">
+    <button mat-stroked-button (click)="onCancelClick()">
+        {{ 'app.cancel' | translate }}
+    </button>
+    <button
+        mat-raised-button
+        color="primary"
+        [mat-dialog-close]="guestDialog"
+        [disabled]="!guestDialog.guest.name">
+        {{ 'app.save' | translate }}
+    </button>
+</div>

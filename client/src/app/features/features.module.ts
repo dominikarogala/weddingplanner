@@ -8,7 +8,10 @@ import { SharedModule } from '../shared/shared.module';
 import { LandingpageModule } from '../landingpage/landingpage.module';
 
 import { CapitalizePipe } from '../shared/pipes';
-import { LogoComponent, SectionComponent } from '../shared/components';
+import {
+    LogoComponent,
+    SectionComponent,
+} from '../shared/components/standalone';
 import { HomeComponent } from './home/home.component';
 
 @NgModule({

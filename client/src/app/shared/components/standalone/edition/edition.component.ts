@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { SharedModule } from '../../shared.module';
+
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @Component({
     selector: 'wp-edition',

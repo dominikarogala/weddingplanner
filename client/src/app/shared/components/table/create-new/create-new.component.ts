@@ -9,8 +9,8 @@ import {
 @Component({
     selector: 'wp-create-new',
     template: `
-        <div class="create-new" (click)="itemClicked.emit()">
-            <div class="create-new--content">
+        <div class="create-new">
+            <div class="create-new--content" (click)="itemClicked.emit()">
                 <img src="assets/images/add_files.svg" />
                 <h2>{{ text }}</h2>
             </div>
@@ -18,7 +18,6 @@ import {
     `,
     styleUrls: ['./create-new.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: true,
 })
 export class CreateNewComponent {
     @Input() text = '';

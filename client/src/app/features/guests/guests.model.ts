@@ -1,3 +1,5 @@
+import { IDialogMode } from 'src/app/shared/dialogs';
+
 export enum Sex {
     male,
     female,
@@ -30,10 +32,14 @@ export enum Discount {
 
 export interface IGuest {
     name: string;
-    menu: Menu;
     isTransportNeeded: boolean;
     isAccomodationNeeded: boolean;
     discount: Discount;
+    menu: Menu;
     sex?: Sex;
     age?: Age;
+}
+
+export interface IAddGuestDialog extends IDialogMode {
+    guest: IGuest;
 }

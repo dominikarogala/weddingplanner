@@ -8,7 +8,7 @@
 
 <wp-table [elements]="guests$ | async">
     <div buttons>
-        <button mat-raised-button color="primary">
+        <button mat-raised-button color="primary" (click)="openAddGuestDiaog()">
             <mat-icon>add</mat-icon>
             <span>
                 {{ 'toDoList.addCategory' | translate }}
@@ -23,7 +23,9 @@
     </div>
 
     <div class="table--empty" empty>
-        <wp-create-new [text]="'guests.newGuestTooltip' | translate">
+        <wp-create-new
+            [text]="'guests.newGuestTooltip' | translate"
+            (itemClicked)="openAddGuestDiaog()">
         </wp-create-new>
     </div>
 </wp-table>

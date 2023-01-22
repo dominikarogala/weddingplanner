@@ -1,13 +1,9 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
-import { SharedModule } from '../../shared.module';
-import { ICategoryElement } from '../../models';
+import { ICategoryElement } from 'src/app/shared/models';
 
 @Component({
     selector: 'wp-table-category-element',
-    standalone: true,
-    imports: [CommonModule, SharedModule],
     templateUrl: './table-category-element.component.html',
     styleUrls: ['./table-category-element.component.scss'],
 })

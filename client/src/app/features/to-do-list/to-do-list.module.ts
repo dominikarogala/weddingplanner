@@ -7,28 +7,24 @@ import { ToDoListComponent } from './to-do-list.component';
 import { PdfService } from 'src/app/shared/services/pdf.service';
 
 import {
-    CreateNewComponent,
     EditionComponent,
     OverviewItemComponent,
     SectionComponent,
-    TableCategoryComponent,
-    TableCategoryElementComponent,
-    TableComponent,
-} from 'src/app/shared/components';
+} from 'src/app/shared/components/standalone';
 import { CategoryDialogComponent } from 'src/app/shared/dialogs';
+import { TableModule } from 'src/app/shared/components/table/table.module';
 
 @NgModule({
     declarations: [ToDoListComponent, ...ToDoListComponents],
     imports: [
+        // user
         ToDoListRoutingModule,
         SharedModule,
+        TableModule,
 
-        CreateNewComponent,
+        // standalone
         OverviewItemComponent,
         SectionComponent,
-        TableComponent,
-        TableCategoryComponent,
-        TableCategoryElementComponent,
         CategoryDialogComponent,
         EditionComponent,
     ],

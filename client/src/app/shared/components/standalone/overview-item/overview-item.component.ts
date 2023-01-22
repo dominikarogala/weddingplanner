@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { SharedModule } from '../../shared.module';
+
+import { SharedModule } from 'src/app/shared/shared.module';
 
 export type OverviewItemType = 'money' | 'customText';
 
