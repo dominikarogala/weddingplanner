@@ -132,6 +132,16 @@
         "ageLabel": "Wiek",
         "sexLabel": "Płeć",
         "menuLabel": "Menu",
-        "discountLabel": "Zniżka"
+        "discountLabel": "Zniżka",
+        "addGuestDialogTip": "Możesz podać dodatkowe informacje na temat gościa. Pozwolą one bardziej szczegółowo określić charakter Twojego przyjęcia.",
+        "guestNeedsTransport": "Gość potrzebuje transportu",
+        "guestNeedsAccomodation": "Gość potrzebuje noclegu",
+        "sexHint": "Płeć może przydać się do zabaw oczepinowych lub podziękowań dla gości",
+        "ageHint": "Wiek gości może być przydatny do dobrania gatunków muzyki na przyjęciu",
+        "menuHint": "Warto zadbać o dopowiednie menu dla swoich gości",
+        "discountHint": "Sale weselne często oferują zniżki dla dzieci i usługodawców",
+        "isInvited": "Gość został zaproszony",
+        "isConfirmed": "Gość potwierdził przybycie"
     }
+
 }

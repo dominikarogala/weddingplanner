@@ -1,7 +1,15 @@
 import { Component, Inject, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
-import { Age, Discount, IAddGuestDialog, Menu, Sex } from '../guests.model';
+import {
+    Age,
+    Discount,
+    IAddGuestDialog,
+    IGuest,
+    Menu,
+    Sex,
+} from '../guests.model';
 import { GuestsService, IGuestOptions } from '../guests.service';
 
 @Component({
@@ -15,10 +23,21 @@ export class AddGuestDialogComponent implements OnInit {
     menuOptions: IGuestOptions<Menu>[] = [];
     discountOptions: IGuestOptions<Discount>[] = [];
 
+    addGuestForm = this._formBuilder.group({
+        name: ['', Validators.required],
+        isTransportNeeded: false,
+        isAccomodationNeeded: false,
+        sex: null as IGuestOptions<Sex>,
+        age: null as IGuestOptions<Age>,
+        discount: null as IGuestOptions<Discount>,
+        menu: null as IGuestOptions<Menu>,
+    });
+
     constructor(
         public dialogRef: MatDialogRef<AddGuestDialogComponent>,
         @Inject(MAT_DIALOG_DATA) public guestDialog: IAddGuestDialog,
-        private _guests: GuestsService
+        private _guests: GuestsService,
+        private _formBuilder: FormBuilder
     ) {}
 
     ngOnInit(): void {
@@ -30,5 +49,40 @@ export class AddGuestDialogComponent implements OnInit {
 
     onCancelClick(): void {
         this.dialogRef.close();
+    }
+
+    onFormSubmit(): void {
+        const newGuest: IGuest = {
+            name: this.addGuestForm.controls.name.value,
+            isTransportNeeded:
+                this.addGuestForm.controls.isTransportNeeded.value,
+            isAccomodationNeeded:
+                this.addGuestForm.controls.isAccomodationNeeded.value,
+            discount: this.addGuestForm.controls.discount.value?.value,
+            age: this.addGuestForm.controls.age.value?.value,
+            sex: this.addGuestForm.controls.sex.value?.value,
+            menu: this.addGuestForm.controls.menu.value?.value,
+        };
+
+        this._setDefaultValuesIfEmpty(newGuest);
+        this.dialogRef.close(newGuest);
+    }
+
+    private _setDefaultValuesIfEmpty(newGuest: Partial<IGuest>) {
+        if (!newGuest.discount) {
+            newGuest.discount = Discount.normal;
+        }
+
+        if (!newGuest.age) {
+            newGuest.age = Age.adult;
+        }
+
+        if (!newGuest.sex) {
+            newGuest.sex = Sex.unspecified;
+        }
+
+        if (!newGuest.menu) {
+            newGuest.menu = Menu.standard;
+        }
     }
 }

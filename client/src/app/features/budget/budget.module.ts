@@ -10,10 +10,10 @@ import {
     EditionComponent,
     OverviewItemComponent,
     SectionComponent,
-} from 'src/app/shared/components/standalone';
+} from 'src/app/standalone/components';
 import { BudgetTableCategoryComponent } from './components/budget-table-category/budget-table-category.component';
 import { SpendingDialogComponent } from './dialogs/spending-dialog/spending-dialog.component';
-import { CapitalizePipe } from 'src/app/shared/pipes';
+import { CapitalizePipe } from 'src/app/standalone/pipes';
 import { BudgetTableElementComponent } from './components/budget-table-element/budget-table-element.component';
 import { TableModule } from 'src/app/shared/components/table/table.module';
 

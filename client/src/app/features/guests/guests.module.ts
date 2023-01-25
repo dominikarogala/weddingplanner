@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 
 import { GuestsComponent } from './guests.component';
 import { GuestsRoutingModule } from './guests-routing.module';
-import { SectionComponent } from 'src/app/shared/components/standalone';
+import { SectionComponent } from 'src/app/standalone/components';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { TableModule } from 'src/app/shared/components/table/table.module';
 import { AddGuestDialogComponent } from './add-guest-dialog/add-guest-dialog.component';

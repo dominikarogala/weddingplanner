@@ -18,6 +18,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -37,6 +38,7 @@ const materialModules = [
     MatMenuModule,
     MatNativeDateModule,
     MatProgressBarModule,
+    MatSelectModule,
     MatSidenavModule,
     MatSlideToggleModule,
     MatProgressSpinnerModule,

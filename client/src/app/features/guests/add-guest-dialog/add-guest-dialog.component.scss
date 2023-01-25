@@ -1,5 +1,36 @@
-img {
-    height: 1.5em;
-    width: 1.5em;
-    margin-right: 1em;
+@import 'variables.scss';
+
+.dialog {
+    &--with-hint {
+        display: flex;
+        align-items: baseline;
+        gap: 1em;
+    }
+
+    &--checkboxes {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &--img {
+        height: 1.5em;
+        width: 1.5em;
+        margin-right: 1em;
+    }
+
+    mat-slide-toggle {
+        margin-bottom: 1em;
+    }
+
+    &--divider {
+        width: 100%;
+        border-bottom: 1px solid $primary;
+        margin-bottom: 1em;
+    }
+
+    &--tip {
+        font-size: 14px;
+        line-height: 1.4em;
+        margin-bottom: 1em;
+    }
 }

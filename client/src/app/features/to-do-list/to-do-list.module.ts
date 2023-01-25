@@ -10,7 +10,7 @@ import {
     EditionComponent,
     OverviewItemComponent,
     SectionComponent,
-} from 'src/app/shared/components/standalone';
+} from 'src/app/standalone/components';
 import { CategoryDialogComponent } from 'src/app/shared/dialogs';
 import { TableModule } from 'src/app/shared/components/table/table.module';
 
