@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
     styleUrls: ['./table.component.scss'],
 })
 export class TableComponent {
-    @Input() elements: any[] = [];
+    @Input() isElementsListEmpty = true;
 
     isExpanded = false;
 }

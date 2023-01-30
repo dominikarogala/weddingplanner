@@ -25,6 +25,8 @@ export class AddGuestDialogComponent implements OnInit {
 
     addGuestForm = this._formBuilder.group({
         name: ['', Validators.required],
+        isConfirmed: false,
+        isInvited: false,
         isTransportNeeded: false,
         isAccomodationNeeded: false,
         sex: null as IGuestOptions<Sex>,
@@ -54,6 +56,8 @@ export class AddGuestDialogComponent implements OnInit {
     onFormSubmit(): void {
         const newGuest: IGuest = {
             name: this.addGuestForm.controls.name.value,
+            isInvited: this.addGuestForm.controls.isInvited.value,
+            isConfirmed: this.addGuestForm.controls.isConfirmed.value,
             isTransportNeeded:
                 this.addGuestForm.controls.isTransportNeeded.value,
             isAccomodationNeeded:

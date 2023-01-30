@@ -2,11 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 
-import { loadGuests, selectGuests } from 'src/app/core/store/guests';
+import {
+    addNewGuestsGroup,
+    loadGuests,
+    selectGuestsGroups,
+} from 'src/app/core/store/guests';
 import { AppState } from 'src/app/core/store/state';
-import { DialogMode } from 'src/app/shared/dialogs';
-import { AddGuestDialogComponent } from './add-guest-dialog/add-guest-dialog.component';
-import { IGuest } from './guests.model';
+import { GuestCategories } from 'src/app/shared/constants';
+import {
+    CategoryDialogComponent,
+    DialogMode,
+    ICategoryDialogData,
+} from 'src/app/shared/dialogs';
+import { IGuestsGroup } from './guests.model';
 
 @Component({
     selector: 'wp-guests',
@@ -14,7 +22,7 @@ import { IGuest } from './guests.model';
     styleUrls: ['./guests.component.scss'],
 })
 export class GuestsComponent implements OnInit {
-    guests$ = this._store.select(selectGuests);
+    guestsGroups$ = this._store.select(selectGuestsGroups);
 
     constructor(private _store: Store<AppState>, private _dialog: MatDialog) {}
 
@@ -22,25 +30,29 @@ export class GuestsComponent implements OnInit {
         this._store.dispatch(loadGuests());
     }
 
-    openAddGuestDiaog() {
-        const dialogRef = this._dialog.open(AddGuestDialogComponent, {
+    openAddGuestsGroupDialog(): void {
+        const dialogData: ICategoryDialogData = {
+            mode: DialogMode.Creation,
+            title: 'guests.addNewGroup',
+            categoryName: '',
+            options: GuestCategories,
+        };
+
+        const dialogRef = this._dialog.open(CategoryDialogComponent, {
             width: '30rem',
-            data: { mode: DialogMode.Creation, guest: { name: '' } },
+            data: dialogData,
         });
 
-        dialogRef.afterClosed().subscribe((newGuest: IGuest) => {
-            if (!newGuest) {
-                return;
+        dialogRef.afterClosed().subscribe((categoryName: string) => {
+            if (!!categoryName) {
+                this._store.dispatch(
+                    addNewGuestsGroup({ groupName: categoryName })
+                );
             }
-
-            // this._store.dispatch(
-            //     addNewBudgetSpending({
-            //         payload: {
-            //             spending: newSpending,
-            //             categoryId: this.category.id,
-            //         },
-            //     })
-            // );
         });
+    }
+
+    identifierFn(index: number, item: IGuestsGroup): string {
+        return item.id;
     }
 }

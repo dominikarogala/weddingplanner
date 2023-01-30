@@ -6,9 +6,19 @@ export const guestsReducer = createReducer(
     initialGuestState,
     on(loadGuestsSuccess, (state, action) => ({
         ...state,
-        guests: [...action.payload.guests],
+        groups: [...action.payload.groups],
     })),
     on(addNewGuestSuccess, (state, action) => ({
-        guests: [...state.guests, action.payload],
+        ...state,
+        groups: state.groups.map((group) => {
+            if (group.id === action.groupId) {
+                return {
+                    ...group,
+                    guests: [...group.guests, action.guest],
+                };
+            } else {
+                return group;
+            }
+        }),
     }))
 );

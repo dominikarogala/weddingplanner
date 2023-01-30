@@ -4,7 +4,14 @@ import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { map, switchMap, catchError, EMPTY } from 'rxjs';
 
-import { loadGuests, loadGuestsSuccess } from './guests.action';
+import {
+    addNewGuest,
+    addNewGuestsGroup,
+    addNewGuestsGroupSuccess,
+    addNewGuestSuccess,
+    loadGuests,
+    loadGuestsSuccess,
+} from './guests.action';
 import { GuestsService } from './guests.service';
 
 @Injectable()
@@ -16,7 +23,7 @@ export class GuestsEffects {
         private _translate: TranslateService
     ) {}
 
-    loadBudget = createEffect(() => {
+    loadGuests = createEffect(() => {
         return this._actions$.pipe(
             ofType(loadGuests),
             switchMap(() => {
@@ -24,7 +31,7 @@ export class GuestsEffects {
                     map((result) =>
                         loadGuestsSuccess({
                             payload: {
-                                guests: [...result],
+                                groups: result,
                             },
                         })
                     ),
@@ -39,31 +46,53 @@ export class GuestsEffects {
         );
     });
 
-    // addNewCategory = createEffect(() => {
-    //     return this._actions$.pipe(
-    //         ofType(addNewBudgetCategory),
-    //         switchMap((action) => {
-    //             return this._service
-    //                 .addNewCategory(action.payload.categoryName)
-    //                 .pipe(
-    //                     map((result) =>
-    //                         addNewBudgetCategorySuccess({
-    //                             payload: {
-    //                                 categoryId: result,
-    //                                 categoryName: action.payload.categoryName,
-    //                             },
-    //                         })
-    //                     ),
-    //                     catchError((error) => {
-    //                         this._toastr.error(
-    //                             this._translate.instant(
-    //                                 'toaster.createCategoryError'
-    //                             )
-    //                         );
-    //                         return EMPTY;
-    //                     })
-    //                 );
-    //         })
-    //     );
-    // });
+    addNewGuest = createEffect(() => {
+        return this._actions$.pipe(
+            ofType(addNewGuest),
+            switchMap((payload) => {
+                return this._service
+                    .addNewGuest(payload.groupId, payload.guest)
+                    .pipe(
+                        map((guestId) =>
+                            addNewGuestSuccess({
+                                groupId: payload.groupId,
+                                guest: { ...payload.guest, id: guestId },
+                            })
+                        ),
+                        catchError((error) => {
+                            this._toastr.error(
+                                this._translate.instant(
+                                    'toaster.addGuestsError'
+                                )
+                            );
+                            return EMPTY;
+                        })
+                    );
+            })
+        );
+    });
+
+    addNewGroup = createEffect(() => {
+        return this._actions$.pipe(
+            ofType(addNewGuestsGroup),
+            switchMap((payload) => {
+                return this._service.addNewGroup(payload.groupName).pipe(
+                    map((groupId) =>
+                        addNewGuestsGroupSuccess({
+                            groupId,
+                            groupName: payload.groupName,
+                        })
+                    ),
+                    catchError((error) => {
+                        this._toastr.error(
+                            this._translate.instant(
+                                'toaster.addGuestsGroupError'
+                            )
+                        );
+                        return EMPTY;
+                    })
+                );
+            })
+        );
+    });
 }

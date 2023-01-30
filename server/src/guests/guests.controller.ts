@@ -12,7 +12,12 @@ export class GuestsController {
     }
 
     @Post()
-    async addNewGuest(@Body('guest') guest: IGuest) {
-        return await this.guest.addNewGuest(guest);
+    async addNewGuest(@Body('groupId') groupId: string, @Body('guest') guest: IGuest) {
+        return await this.guest.addNewGuest(groupId, guest);
+    }
+
+    @Post('group')
+    async addNewGuestsGroup(@Body('groupName') groupName: string) {
+        return await this.guest.addNewGuestsGroup(groupName);
     }
 }

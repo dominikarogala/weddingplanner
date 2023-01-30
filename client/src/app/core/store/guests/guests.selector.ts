@@ -1,3 +1,3 @@
 import { AppState } from '../state';
 
-export const selectGuests = (state: AppState) => state?.guests?.guests;
+export const selectGuestsGroups = (state: AppState) => state?.guests?.groups;

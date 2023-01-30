@@ -33,6 +33,7 @@ export class BudgetTableCategoryComponent {
             data: {
                 categoryName: this.category.name,
                 mode: DialogMode.Edition,
+                title: 'toDoList.categoryEditionTitle',
             },
         });
 

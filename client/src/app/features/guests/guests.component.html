@@ -6,26 +6,31 @@
     </div>
 </wp-section>
 
-<wp-table [elements]="guests$ | async">
-    <div buttons>
-        <button mat-raised-button color="primary" (click)="openAddGuestDiaog()">
-            <mat-icon>add</mat-icon>
-            <span>
-                {{ 'toDoList.addCategory' | translate }}
-            </span>
-        </button>
-        <button mat-raised-button color="accent">
-            <mat-icon>save_alt</mat-icon>
-            <span>
-                {{ 'toDoList.downloadToDoList' | translate }}
-            </span>
-        </button>
-    </div>
+<ng-container *ngIf="guestsGroups$ | async as guestsGroups">
+    <wp-table [isElementsListEmpty]="!guestsGroups?.length">
+        <div buttons>
+            <button
+                mat-raised-button
+                color="primary"
+                (click)="openAddGuestsGroupDialog()">
+                <mat-icon>add</mat-icon>
+                <span>
+                    {{ 'guests.addNewGroup' | translate }}
+                </span>
+            </button>
+        </div>
 
-    <div class="table--empty" empty>
-        <wp-create-new
-            [text]="'guests.newGuestTooltip' | translate"
-            (itemClicked)="openAddGuestDiaog()">
-        </wp-create-new>
-    </div>
-</wp-table>
+        <wp-guest-table-category
+            category
+            *ngFor="let group of guestsGroups; trackBy: identifierFn"
+            [group]="group">
+        </wp-guest-table-category>
+
+        <div class="table--empty" empty>
+            <wp-create-new
+                [text]="'guests.addNewGroup' | translate"
+                (itemClicked)="openAddGuestsGroupDialog()">
+            </wp-create-new>
+        </div>
+    </wp-table>
+</ng-container>

@@ -1,6 +1,6 @@
 export interface ICategory {
     name: string;
-    isOpened: boolean;
+    isOpened?: boolean;
     id?: string;
 }
 

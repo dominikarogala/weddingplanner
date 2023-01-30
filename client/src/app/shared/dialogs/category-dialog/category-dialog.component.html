@@ -1,18 +1,25 @@
-<h1 mat-dialog-title>{{ title | translate }}</h1>
+<h1 mat-dialog-title>{{ data.title | translate | capitalize }}</h1>
 
 <div mat-dialog-content>
     <mat-form-field appearance="fill" style="width: 100%">
         <mat-label>{{ 'toDoList.categoryName' | translate }}</mat-label>
-        <input
-            matInput
-            [(ngModel)]="data.categoryName"
-            [matAutocomplete]="auto"
-            required />
-        <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let option of options" [value]="option">
-                {{ option }}
-            </mat-option>
-        </mat-autocomplete>
+        <ng-container *ngIf="!!data.options?.length; else emptyOptionsTmpl">
+            <input
+                matInput
+                [(ngModel)]="data.categoryName"
+                [matAutocomplete]="auto"
+                required />
+            <mat-autocomplete #auto="matAutocomplete">
+                <mat-option
+                    *ngFor="let option of data.options"
+                    [value]="option">
+                    {{ option }}
+                </mat-option>
+            </mat-autocomplete>
+        </ng-container>
+        <ng-template #emptyOptionsTmpl>
+            <input matInput [(ngModel)]="data.categoryName" required />
+        </ng-template>
     </mat-form-field>
 </div>
 

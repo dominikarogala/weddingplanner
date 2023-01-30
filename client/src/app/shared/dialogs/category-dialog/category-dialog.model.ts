@@ -9,4 +9,6 @@ export interface IDialogMode {
 
 export interface ICategoryDialogData extends IDialogMode {
     categoryName: string;
+    title: string;
+    options?: string[];
 }

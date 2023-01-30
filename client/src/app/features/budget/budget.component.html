@@ -9,7 +9,7 @@
 <wp-budget-overview></wp-budget-overview>
 
 <ng-container *ngIf="budgetCategories$ | async as budgetCategories">
-    <wp-table [elements]="budgetCategories">
+    <wp-table [isElementsListEmpty]="!budgetCategories?.length">
         <div buttons>
             <button
                 mat-raised-button

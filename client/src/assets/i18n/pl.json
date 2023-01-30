@@ -44,7 +44,9 @@
         "editSpendingError": "Nie udało się edytować wydatku",
         "deleteSpendingError": "Nie udało się usunąć wydatku",
         "chartDataError": "Nie udało się pobrać danych do wykresu",
-        "loadGuestsError": "Nie udało się załadować listy gości"
+        "loadGuestsError": "Nie udało się załadować listy gości,",
+        "addGuestsError": "Nie udało się dodać nowego gościa,",
+        "addGuestsGroupError": "Nie udało się utworzyć grupy gości"
     },
     "dashboard": {
         "description": "Zorganizuj Twoje wesele marzeń! Zobacz najnowsze informacje odnośnie zaproszonych gości, zaplanowanych zadań oraz akutualnego budżetu.",
@@ -100,8 +102,8 @@
     "guests": {
         "title": "Goście",
         "description": "Zaplanuj listę gości i łatwo zarządzaj listą. Oznaczaj osoby, które potwierdziły przybycie. Sprawdź kto z zaproszonych potrzebuje transportu lub niestandardowego menu.",
-        "newGuestTooltip" : "dodaj nowych gości",
-        "addNewGuest": "Dodaj nowego gościa",
+        "addNewGuest": "dodaj nowego gościa",
+        "addNewGroup": "dodaj nową grupę",
         "name": "Imię i nazwisko",
         "sex": {
             "male": "mężczyzna",
@@ -138,7 +140,7 @@
         "guestNeedsAccomodation": "Gość potrzebuje noclegu",
         "sexHint": "Płeć może przydać się do zabaw oczepinowych lub podziękowań dla gości",
         "ageHint": "Wiek gości może być przydatny do dobrania gatunków muzyki na przyjęciu",
-        "menuHint": "Warto zadbać o dopowiednie menu dla swoich gości",
+        "menuHint": "Warto zadbać o dopowiednie menu według pererencji gości",
         "discountHint": "Sale weselne często oferują zniżki dla dzieci i usługodawców",
         "isInvited": "Gość został zaproszony",
         "isConfirmed": "Gość potwierdził przybycie"

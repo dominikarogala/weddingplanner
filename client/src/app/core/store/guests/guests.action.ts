@@ -11,9 +11,18 @@ export const loadGuestsSuccess = createAction(
 
 export const addNewGuest = createAction(
     '[Guests] Add New Guest',
-    props<{ payload: IGuest }>()
+    props<{ groupId: string; guest: IGuest }>()
 );
 export const addNewGuestSuccess = createAction(
     '[Guests] Add New Guest Success',
-    props<{ payload: IGuest }>()
+    props<{ groupId: string; guest: IGuest }>()
+);
+
+export const addNewGuestsGroup = createAction(
+    '[Guests] Add New Guests Group',
+    props<{ groupName: string }>()
+);
+export const addNewGuestsGroupSuccess = createAction(
+    '[Guests] Add New Guests Group Success',
+    props<{ groupId: string; groupName: string }>()
 );

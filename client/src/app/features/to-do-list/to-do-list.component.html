@@ -27,7 +27,7 @@
 </div>
 
 <ng-container *ngIf="categories$ | async as categories">
-    <wp-table [elements]="categories">
+    <wp-table [isElementsListEmpty]="!categories?.length">
         <div buttons>
             <button
                 mat-raised-button

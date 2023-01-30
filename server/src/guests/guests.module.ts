@@ -4,7 +4,7 @@ import { AuthModule } from 'src/auth/auth.module';
 import { TenantAwareMiddleware } from 'src/tenant/tenant-aware.middleware';
 import { TenantModule } from 'src/tenant/tenant.module';
 import { GuestsController } from './guests.controller';
-import { GuestSchema } from './guests.model';
+import { GuestSchema, GuestsGroupSchema } from './guests.model';
 import { GuestsService } from './guests.service';
 
 @Module({
@@ -13,8 +13,8 @@ import { GuestsService } from './guests.service';
     providers: [
         GuestsService,
         {
-            provide: 'GUEST_MODEL',
-            useFactory: (connection: Connection) => connection.model('Guest', GuestSchema),
+            provide: 'GUESTS_GROUP_MODEL',
+            useFactory: (connection: Connection) => connection.model('GuestsGroup', GuestsGroupSchema),
             inject: ['TENANT_CONNECTION'],
         },
     ],

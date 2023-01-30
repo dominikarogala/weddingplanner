@@ -1,9 +1,9 @@
-import { IGuest } from 'src/app/features/guests/guests.model';
+import { IGuestsGroup } from 'src/app/features/guests/guests.model';
 
 export interface IGuestsState {
-    guests: IGuest[];
+    groups: IGuestsGroup[];
 }
 
 export const initialGuestState: IGuestsState = {
-    guests: [],
+    groups: [],
 };

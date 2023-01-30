@@ -1,5 +1,5 @@
 <div class="table">
-    <ng-container *ngIf="!!elements?.length; else emptyElements">
+    <ng-container *ngIf="!isElementsListEmpty; else emptyElements">
         <div class="table--buttons">
             <ng-content select="[buttons]"></ng-content>
 

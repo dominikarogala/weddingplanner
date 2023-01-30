@@ -47,6 +47,7 @@ export class TaskTableCategoryComponent implements OnInit {
     openDialog(): void {
         const dialogData: ITaskDialogData = {
             mode: DialogMode.Creation,
+
             task: new Task(),
         };
 
@@ -78,6 +79,7 @@ export class TaskTableCategoryComponent implements OnInit {
     editCategory(): void {
         const dialogData: ICategoryDialogData = {
             mode: DialogMode.Edition,
+            title: 'toDoList.categoryEditionTitle',
             categoryName: this.category.name,
         };
 
