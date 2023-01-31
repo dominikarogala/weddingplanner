@@ -1,0 +1,36 @@
+<wp-section
+    [title]="'guests.title' | translate"
+    [image]="'assets/images/people.svg'">
+    <div>
+        <p class="mat-body">{{ 'guests.description' | translate }}</p>
+    </div>
+</wp-section>
+
+<ng-container *ngIf="guestsGroups$ | async as guestsGroups">
+    <wp-table [isElementsListEmpty]="!guestsGroups?.length">
+        <div buttons>
+            <button
+                mat-raised-button
+                color="primary"
+                (click)="openAddGuestsGroupDialog()">
+                <mat-icon>add</mat-icon>
+                <span>
+                    {{ 'guests.addNewGroup' | translate }}
+                </span>
+            </button>
+        </div>
+
+        <wp-guest-table-category
+            category
+            *ngFor="let group of guestsGroups; trackBy: identifierFn"
+            [group]="group">
+        </wp-guest-table-category>
+
+        <div class="table--empty" empty>
+            <wp-create-new
+                [text]="'guests.addNewGroup' | translate"
+                (itemClicked)="openAddGuestsGroupDialog()">
+            </wp-create-new>
+        </div>
+    </wp-table>
+</ng-container>

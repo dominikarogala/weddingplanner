@@ -2,7 +2,7 @@
 <div mat-dialog-content class="dialog">
     <mat-form-field appearance="fill" class="dialog--element">
         <mat-label>{{ 'app.name' | translate }}</mat-label>
-        <input matInput [(ngModel)]="spending.name" required />
+        <input matInput [(ngModel)]="spendingDialog.spending.name" required />
     </mat-form-field>
     <mat-form-field appearance="fill" class="dialog--element">
         <mat-label>{{ 'budget.price' | translate }}</mat-label>
@@ -10,7 +10,7 @@
             matInput
             type="number"
             min="0"
-            [(ngModel)]="spending.price"
+            [(ngModel)]="spendingDialog.spending.price"
             required />
     </mat-form-field>
     <mat-form-field appearance="fill" class="dialog--element">
@@ -19,11 +19,13 @@
             matInput
             type="number"
             min="0"
-            [(ngModel)]="spending.moneyAlreadyPaied" />
+            [(ngModel)]="spendingDialog.spending.moneyAlreadyPaied" />
     </mat-form-field>
     <mat-form-field appearance="fill" class="dialog--element">
         <mat-label>{{ 'app.notes' | translate }}</mat-label>
-        <textarea matInput [(ngModel)]="spending.notes"></textarea>
+        <textarea
+            matInput
+            [(ngModel)]="spendingDialog.spending.notes"></textarea>
     </mat-form-field>
 </div>
 
@@ -34,8 +36,10 @@
     <button
         mat-raised-button
         color="primary"
-        [mat-dialog-close]="spending"
-        [disabled]="!spending.name && !spending.price">
+        [mat-dialog-close]="spendingDialog.spending"
+        [disabled]="
+            !spendingDialog.spending.name && !spendingDialog.spending.price
+        ">
         {{ confirmButtonLabel | translate }}
     </button>
 </div>

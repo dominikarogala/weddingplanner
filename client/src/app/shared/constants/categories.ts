@@ -13,3 +13,14 @@ export const Categories = [
     'Zdrowie i uroda',
     'Miesiąc miodowy',
 ];
+
+export const GuestCategories = [
+    'Para Młoda',
+    'Rodzina Panny Młodej',
+    'Rodzina Pana Młodego',
+    'Znajomi Panny Młodej',
+    'Znajomi Pana Młodego',
+    'Wspólni znajomi',
+    'Usługodawcy',
+    'Inni',
+];

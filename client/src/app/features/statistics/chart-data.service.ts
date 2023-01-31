@@ -11,9 +11,7 @@ import {
     ITaskCategoriesDoneData,
 } from './statistics.model';
 
-@Injectable({
-    providedIn: 'root',
-})
+@Injectable()
 export class ChartDataService {
     constructor(
         private _http: HttpClient,

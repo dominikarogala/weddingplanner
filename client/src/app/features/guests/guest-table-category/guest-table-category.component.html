@@ -1,0 +1,42 @@
+<wp-table-category
+    [category]="group"
+    (categoryPanelClicked)="onCategoryPanelClick($event)">
+    <div header-additional-elements class="category">
+        <wp-edition
+            (deleteElement)="deleteCategory()"
+            (editElement)="editCategory()">
+        </wp-edition>
+    </div>
+
+    <div table-category-elements>
+        <button
+            mat-raised-button
+            color="primary"
+            (click)="openAddGuestDialog()">
+            <mat-icon>add</mat-icon>
+            <span>
+                {{ 'guests.addNewGuest' | translate }}
+            </span>
+        </button>
+
+        <!-- TODO: tłumaczenia -->
+
+        <ng-container *ngIf="!!group?.guests?.length">
+            <div class="table--header">
+                <span>{{ 'guests.name' | translate }}</span>
+                <span> Zaproszono </span>
+                <span> Potwierdzenie </span>
+                <span>{{ 'guests.menuLabel' | translate }}</span>
+                <span>{{ 'guests.discountLabel' | translate }}</span>
+                <span> {{ 'guests.accomodation' | translate }} </span>
+                <span> {{ 'guests.transport' | translate }} </span>
+            </div>
+        </ng-container>
+
+        <wp-guest-table-element
+            *ngFor="let guest of group.guests"
+            [guest]="guest"
+            [groupId]="group.id">
+        </wp-guest-table-element>
+    </div>
+</wp-table-category>

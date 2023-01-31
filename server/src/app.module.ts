@@ -10,9 +10,10 @@ import { TaskModule } from './task/task.module';
 import { BudgetModule } from './budget/budget.module';
 import { UserConfigModule } from './user-config/user-config.module';
 import { StatisticsModule } from './statistics/statistics.module';
+import { GuestsModule } from './guests/guests.module';
 
 @Module({
-    imports: [MongooseModule.forRoot('mongodb://127.0.0.1:27017/myapp'), UsersModule, AuthModule, TenantModule, TaskModule, BudgetModule, UserConfigModule, StatisticsModule],
+    imports: [MongooseModule.forRoot('mongodb://127.0.0.1:27017/myapp'), UsersModule, AuthModule, TenantModule, TaskModule, BudgetModule, UserConfigModule, StatisticsModule, GuestsModule],
     controllers: [AppController],
     providers: [AppService],
 })

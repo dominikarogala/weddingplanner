@@ -1,0 +1,11 @@
+<wp-table-category-element [element]="guest">
+    <div class="guests--header" header>
+        <span>{{ guest.name }}</span>
+        <mat-slide-toggle [(ngModel)]="guest.isInvited"> </mat-slide-toggle>
+        <mat-slide-toggle [(ngModel)]="guest.isConfirmed"> </mat-slide-toggle>
+        <span>{{ menu }}</span>
+        <span>{{ discount }}</span>
+        <span>{{ guest.isAccomodationNeeded | yesNo }}</span>
+        <span>{{ guest.isTransportNeeded | yesNo }}</span>
+    </div>
+</wp-table-category-element>

@@ -33,6 +33,7 @@ export class BudgetTableCategoryComponent {
             data: {
                 categoryName: this.category.name,
                 mode: DialogMode.Edition,
+                title: 'toDoList.categoryEditionTitle',
             },
         });
 
@@ -58,7 +59,7 @@ export class BudgetTableCategoryComponent {
     openAddSpendingDialog() {
         const dialogRef = this._dialog.open(SpendingDialogComponent, {
             width: '30rem',
-            data: { mode: DialogMode.Creation },
+            data: { mode: DialogMode.Creation, spending: { name: '' } },
         });
 
         dialogRef.afterClosed().subscribe((newSpending: ISpending) => {

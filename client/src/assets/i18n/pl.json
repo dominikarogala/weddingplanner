@@ -26,7 +26,9 @@
         "notes": "Notatki",
         "edit": "edytuj",
         "delete": "usuń",
-        "deleteQuestion": "Czy na pewno chcesz usunać?"
+        "deleteQuestion": "Czy na pewno chcesz usunać?",
+        "yesBig": "TAK",
+        "noBig": "NIE"
     },
     "toaster": {
         "accountCreated": "Konto utworzone!",
@@ -43,7 +45,10 @@
         "createSpendingError": "Nie udało się utworzyć nowego wydatku",
         "editSpendingError": "Nie udało się edytować wydatku",
         "deleteSpendingError": "Nie udało się usunąć wydatku",
-        "chartDataError": "Nie udało się pobrać danych do wykresu"
+        "chartDataError": "Nie udało się pobrać danych do wykresu",
+        "loadGuestsError": "Nie udało się załadować listy gości,",
+        "addGuestsError": "Nie udało się dodać nowego gościa,",
+        "addGuestsGroupError": "Nie udało się utworzyć grupy gości"
     },
     "dashboard": {
         "description": "Zorganizuj Twoje wesele marzeń! Zobacz najnowsze informacje odnośnie zaproszonych gości, zaplanowanych zadań oraz akutualnego budżetu.",
@@ -95,5 +100,52 @@
             "budgetCategoriesCost": "Podsumowanie zaplanowanych wydatków z podziałem na kategorie",
             "taskCategoriesDone": "Podsumowanie zaplanowanych zadań z podziałem na kategorie"
         }
+    },
+    "guests": {
+        "title": "Goście",
+        "description": "Zaplanuj listę gości i łatwo zarządzaj listą. Oznaczaj osoby, które potwierdziły przybycie. Sprawdź kto z zaproszonych potrzebuje transportu lub niestandardowego menu.",
+        "addNewGuest": "dodaj nowego gościa",
+        "addNewGroup": "dodaj nową grupę",
+        "name": "Imię i nazwisko",
+        "sex": {
+            "male": "mężczyzna",
+            "female": "kobieta",
+            "unspecified": "nieokreślone"
+        },
+        "age" : {
+            "infant": "niemowlę",
+            "child": "dziecko",
+            "teenager": "nastolatek",
+            "youngAdult": "młody dorosły",
+            "adult": "dorosły",
+            "middleAge": "w średnim wieku",
+            "elderly": "senior"
+        },
+        "menu": {
+            "standard": "standardowe",
+            "vegetarian": "wegetariańskie",
+            "vegan": "wegańskie",
+            "kids": "dziecięce"
+        },
+        "discount": {
+            "normal": "standardowa cena",
+            "free": "za darmo",
+            "child": "zniżka dziecięca",
+            "staff": "zniżka dla obsługi"
+        },
+        "ageLabel": "Wiek",
+        "sexLabel": "Płeć",
+        "menuLabel": "Menu",
+        "discountLabel": "Zniżka",
+        "addGuestDialogTip": "Możesz podać dodatkowe informacje na temat gościa. Pozwolą one bardziej szczegółowo określić charakter Twojego przyjęcia.",
+        "transport": "Transport",
+        "accomodation": "Nocleg",
+        "sexHint": "Płeć może przydać się do zabaw oczepinowych lub podziękowań dla gości",
+        "ageHint": "Wiek gości może być przydatny do dobrania gatunków muzyki na przyjęciu",
+        "menuHint": "Warto zadbać o dopowiednie menu według pererencji gości",
+        "discountHint": "Sale weselne często oferują zniżki dla dzieci i usługodawców",
+        "isInvited": "Zaproszono",
+        "isConfirmed": "Potwierdzono przybycie"
     }
+
 }

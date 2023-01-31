@@ -1,13 +1,13 @@
 <ng-container *ngIf="!!selectedLang">
     <button mat-button [matMenuTriggerFor]="menu" class="lang header">
-        <img src="{{ selectedLang.flag }}" />
+        <img src="{{ selectedLang.flag }}" alt="" />
         <span>{{ selectedLang.label | uppercase }}</span>
     </button>
 
     <mat-menu #menu="matMenu">
         <ng-container *ngFor="let lang of langs; let i = index">
             <button mat-menu-item class="lang" (click)="selectLang(i)">
-                <img src="{{ lang.flag }}" />
+                <img src="{{ lang.flag }}" alt="" />
                 <span>{{ lang.label | uppercase }}</span>
             </button>
         </ng-container>

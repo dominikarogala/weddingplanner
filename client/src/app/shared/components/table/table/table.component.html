@@ -1,0 +1,36 @@
+<div class="table">
+    <ng-container *ngIf="!isElementsListEmpty; else emptyElements">
+        <div class="table--buttons">
+            <ng-content select="[buttons]"></ng-content>
+
+            <div>
+                <button
+                    mat-button
+                    color="primary"
+                    (click)="accordion.openAll(); isExpanded = true"
+                    [disabled]="isExpanded"
+                    [matTooltip]="'toDoList.expandAll' | translate"
+                    matTooltipPosition="above">
+                    <mat-icon>expand_more</mat-icon>
+                </button>
+                <button
+                    mat-button
+                    color="primary"
+                    (click)="accordion.closeAll(); isExpanded = false"
+                    [disabled]="!isExpanded"
+                    [matTooltip]="'toDoList.collapseAll' | translate"
+                    matTooltipPosition="above">
+                    <mat-icon>expand_less</mat-icon>
+                </button>
+            </div>
+        </div>
+
+        <mat-accordion #accordion="matAccordion" [multi]="true">
+            <ng-content select="[category]"></ng-content>
+        </mat-accordion>
+    </ng-container>
+
+    <ng-template #emptyElements>
+        <ng-content select="[empty]"></ng-content>
+    </ng-template>
+</div>

@@ -8,6 +8,7 @@ import {
     loadTasks,
     selectTasks,
 } from 'src/app/core/store/task';
+import { Categories } from 'src/app/shared/constants';
 import {
     CategoryDialogComponent,
     DialogMode,
@@ -36,7 +37,9 @@ export class ToDoListComponent implements OnInit {
     openNewCategoryDialog(): void {
         const dialogData: ICategoryDialogData = {
             mode: DialogMode.Creation,
+            title: 'toDoList.newCategoryTitle',
             categoryName: '',
+            options: Categories,
         };
 
         const dialogRef = this._dialog.open(CategoryDialogComponent, {

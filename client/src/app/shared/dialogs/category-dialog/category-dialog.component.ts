@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
-import { Categories } from 'src/app/shared/constants';
+import { CapitalizePipe } from 'src/app/standalone/pipes';
 import { SharedModule } from '../../shared.module';
 import { DialogMode, ICategoryDialogData } from './category-dialog.model';
 
@@ -10,12 +10,10 @@ import { DialogMode, ICategoryDialogData } from './category-dialog.model';
     templateUrl: './category-dialog.component.html',
     styleUrls: ['./category-dialog.component.scss'],
     standalone: true,
-    imports: [SharedModule],
+    imports: [SharedModule, CapitalizePipe],
 })
 export class CategoryDialogComponent implements OnInit {
-    title = '';
     confirmButtonLabel = '';
-    options = Categories;
 
     constructor(
         public dialogRef: MatDialogRef<CategoryDialogComponent>,
@@ -23,11 +21,6 @@ export class CategoryDialogComponent implements OnInit {
     ) {}
 
     ngOnInit(): void {
-        this.title =
-            this.data.mode === DialogMode.Creation
-                ? 'toDoList.newCategoryTitle'
-                : 'toDoList.categoryEditionTitle';
-
         this.confirmButtonLabel =
             this.data.mode === DialogMode.Creation ? 'app.add' : 'app.save';
     }
