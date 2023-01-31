@@ -73,19 +73,19 @@ export class AddGuestDialogComponent implements OnInit {
     }
 
     private _setDefaultValuesIfEmpty(newGuest: Partial<IGuest>) {
-        if (!newGuest.discount) {
+        if (newGuest.discount === undefined) {
             newGuest.discount = Discount.normal;
         }
 
-        if (!newGuest.age) {
+        if (newGuest.age === undefined) {
             newGuest.age = Age.adult;
         }
 
-        if (!newGuest.sex) {
+        if (newGuest.sex === undefined) {
             newGuest.sex = Sex.unspecified;
         }
 
-        if (!newGuest.menu) {
+        if (newGuest.menu === undefined) {
             newGuest.menu = Menu.standard;
         }
     }

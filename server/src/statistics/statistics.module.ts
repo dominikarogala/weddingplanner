@@ -4,6 +4,8 @@ import { Connection } from 'mongoose';
 import { AuthModule } from 'src/auth/auth.module';
 import { BudgetCategorySchema } from 'src/budget/budget.model';
 import { BudgetService } from 'src/budget/budget.service';
+import { GuestsGroupSchema } from 'src/guests/guests.model';
+import { GuestsService } from 'src/guests/guests.service';
 import { CategorySchema } from 'src/task/task.model';
 import { TaskService } from 'src/task/task.service';
 import { TenantAwareMiddleware } from 'src/tenant/tenant-aware.middleware';
@@ -34,6 +36,12 @@ import { StatisticsService } from './statistics.service';
         {
             provide: 'CATEGORY_MODEL',
             useFactory: (connection: Connection) => connection.model('Category', CategorySchema),
+            inject: ['TENANT_CONNECTION'],
+        },
+        GuestsService,
+        {
+            provide: 'GUESTS_GROUP_MODEL',
+            useFactory: (connection: Connection) => connection.model('GuestsGroup', GuestsGroupSchema),
             inject: ['TENANT_CONNECTION'],
         },
     ],

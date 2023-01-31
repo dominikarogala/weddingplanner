@@ -8,13 +8,18 @@ import { BudgetCategoriesCostComponent } from './charts/budget-categories-cost/b
 import { ChartDataService } from './chart-data.service';
 import { BasicChartComponent } from './basic-chart/basic-chart.component';
 import { TasksCategoriesDoneComponent } from './charts/tasks-categories-done/tasks-categories-done.component';
+import { GuestsSexComponent } from './charts/guests-sex/guests-sex.component';
+import { ConfirmedGuestsComponent } from './charts/confirmed-guests/confirmed-guests.component';
 
 @NgModule({
     declarations: [
         StatisticsComponent,
-        BudgetCategoriesCostComponent,
         BasicChartComponent,
+        // charts
+        BudgetCategoriesCostComponent,
+        GuestsSexComponent,
         TasksCategoriesDoneComponent,
+        ConfirmedGuestsComponent,
     ],
     imports: [
         // user

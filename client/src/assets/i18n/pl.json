@@ -98,7 +98,9 @@
         "description": "Zobacz podsumowanie najważniejszych informacji z Twojego przyjęcia w formie wygodnych statystyk.",
         "charts": {
             "budgetCategoriesCost": "Podsumowanie zaplanowanych wydatków z podziałem na kategorie",
-            "taskCategoriesDone": "Podsumowanie zaplanowanych zadań z podziałem na kategorie"
+            "taskCategoriesDone": "Podsumowanie zaplanowanych zadań z podziałem na kategorie",
+            "guestsSex": "Płeć gości",
+            "confirmedGuests": "Potwierdzeni goście"
         }
     },
     "guests": {

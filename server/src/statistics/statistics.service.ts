@@ -2,12 +2,14 @@ import { Injectable } from '@nestjs/common';
 
 import { IBudgetCategory } from 'src/budget/budget.model';
 import { BudgetService } from 'src/budget/budget.service';
+import { Sex } from 'src/guests/guests.model';
+import { GuestsService } from 'src/guests/guests.service';
 import { TaskService } from 'src/task/task.service';
-import { IBudgetCategoriesData, ITaskCategoriesDoneData } from './statistics.model';
+import { IBudgetCategoriesData, IConfirmedGuests, IGuestsSex, ITaskCategoriesDoneData } from './statistics.model';
 
 @Injectable()
 export class StatisticsService {
-    constructor(private budget: BudgetService, private task: TaskService) {}
+    constructor(private budget: BudgetService, private task: TaskService, private guest: GuestsService) {}
 
     async getBudgetCategoriesCost(): Promise<IBudgetCategoriesData> {
         const budgetInfo = await this.budget.getBudgetInfo();
@@ -29,6 +31,49 @@ export class StatisticsService {
         };
 
         return chartData;
+    }
+
+    async getGuestsSex(): Promise<IGuestsSex> {
+        const groups = await this.guest.getGuests();
+        const result = {
+            men: 0,
+            women: 0,
+            unspecified: 0,
+        };
+
+        groups.forEach(group =>
+            group.guests.forEach(guest => {
+                if (guest.sex === Sex.male) {
+                    result.men++;
+                } else if (guest.sex === Sex.female) {
+                    result.women++;
+                } else {
+                    result.unspecified++;
+                }
+            }),
+        );
+
+        return result;
+    }
+
+    async getConfirmedGuests(): Promise<IConfirmedGuests> {
+        const groups = await this.guest.getGuests();
+        const result: IConfirmedGuests = {
+            confirmed: 0,
+            notConfirmed: 0,
+        };
+
+        groups.forEach(group =>
+            group.guests.forEach(guest => {
+                if (guest.isConfirmed) {
+                    result.confirmed++;
+                } else {
+                    result.notConfirmed++;
+                }
+            }),
+        );
+
+        return result;
     }
 
     private _calculateMoney(categories: IBudgetCategory[], moneyType: string): number[] {

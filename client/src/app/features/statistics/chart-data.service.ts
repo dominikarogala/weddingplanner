@@ -8,6 +8,8 @@ import { ApiUrls } from 'src/app/shared/constants';
 import { environment } from 'src/environments/environment';
 import {
     IBudgetCategoriesCostData,
+    IConfirmedGuests,
+    IGuestsSexData,
     ITaskCategoriesDoneData,
 } from './statistics.model';
 
@@ -34,6 +36,30 @@ export class ChartDataService {
     getTaskCategoriesDoneData(): Observable<ITaskCategoriesDoneData> {
         const url = environment.baseUrl + ApiUrls.taskCategoriesDone;
         return this._http.get<ITaskCategoriesDoneData>(url).pipe(
+            catchError(() => {
+                this._toastr.error(
+                    this._translate.instant('toaster.chartDataError')
+                );
+                return EMPTY;
+            })
+        );
+    }
+
+    getGuestsSex(): Observable<IGuestsSexData> {
+        const url = environment.baseUrl + ApiUrls.guestsSex;
+        return this._http.get<IGuestsSexData>(url).pipe(
+            catchError(() => {
+                this._toastr.error(
+                    this._translate.instant('toaster.chartDataError')
+                );
+                return EMPTY;
+            })
+        );
+    }
+
+    getConfirmedGuests(): Observable<IConfirmedGuests> {
+        const url = environment.baseUrl + ApiUrls.confirmedGuests;
+        return this._http.get<IConfirmedGuests>(url).pipe(
             catchError(() => {
                 this._toastr.error(
                     this._translate.instant('toaster.chartDataError')
