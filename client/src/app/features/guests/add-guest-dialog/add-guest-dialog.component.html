@@ -22,11 +22,11 @@
 
     <div class="dialog--checkboxes">
         <mat-slide-toggle formControlName="isTransportNeeded">
-            {{ 'guests.guestNeedsTransport' | translate }}
+            {{ 'guests.transport' | translate }}
         </mat-slide-toggle>
 
         <mat-slide-toggle formControlName="isAccomodationNeeded">
-            {{ 'guests.guestNeedsAccomodation' | translate }}
+            {{ 'guests.accomodation' | translate }}
         </mat-slide-toggle>
     </div>
 
@@ -68,7 +68,7 @@
                 <mat-option
                     *ngFor="let option of discountOptions"
                     [value]="option">
-                    <img class="dialog--img" [src]="option.icon" />
+                    <img class="dialog--img" [src]="option.icon" alt="" />
                     {{ option.label }}
                 </mat-option>
             </mat-select>
@@ -83,7 +83,7 @@
             <mat-label>{{ 'guests.menuLabel' | translate }}</mat-label>
             <mat-select formControlName="menu">
                 <mat-option *ngFor="let option of menuOptions" [value]="option">
-                    <img class="dialog--img" [src]="option.icon" />
+                    <img class="dialog--img" [src]="option.icon" alt="" />
                     {{ option.label }}
                 </mat-option>
             </mat-select>

@@ -19,6 +19,20 @@
             </span>
         </button>
 
+        <!-- TODO: tłumaczenia -->
+
+        <ng-container *ngIf="!!group?.guests?.length">
+            <div class="table--header">
+                <span>{{ 'guests.name' | translate }}</span>
+                <span> Zaproszono </span>
+                <span> Potwierdzenie </span>
+                <span>{{ 'guests.menuLabel' | translate }}</span>
+                <span>{{ 'guests.discountLabel' | translate }}</span>
+                <span> {{ 'guests.accomodation' | translate }} </span>
+                <span> {{ 'guests.transport' | translate }} </span>
+            </div>
+        </ng-container>
+
         <wp-guest-table-element
             *ngFor="let guest of group.guests"
             [guest]="guest"

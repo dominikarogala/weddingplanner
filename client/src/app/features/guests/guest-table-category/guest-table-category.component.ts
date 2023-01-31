@@ -2,7 +2,10 @@ import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 
-import { addNewGuest } from 'src/app/core/store/guests';
+import {
+    addNewGuest,
+    changeGuestsGroupExpansionState,
+} from 'src/app/core/store/guests';
 import { AppState } from 'src/app/core/store/state';
 import { DialogMode } from 'src/app/shared/dialogs';
 import { AddGuestDialogComponent } from '../add-guest-dialog/add-guest-dialog.component';
@@ -35,7 +38,15 @@ export class GuestTableCategoryComponent {
         });
     }
 
-    onCategoryPanelClick(event: any): void {}
+    onCategoryPanelClick(isGroupOpen: boolean): void {
+        this._store.dispatch(
+            changeGuestsGroupExpansionState({
+                groupId: this.group.id,
+                state: isGroupOpen,
+            })
+        );
+    }
+
     deleteCategory(): void {}
 
     editCategory(): void {}

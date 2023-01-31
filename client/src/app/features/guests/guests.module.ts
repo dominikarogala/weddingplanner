@@ -12,6 +12,7 @@ import { AddGuestDialogComponent } from './add-guest-dialog/add-guest-dialog.com
 import { GuestsService } from './guests.service';
 import { GuestTableElementComponent } from './guest-table-element/guest-table-element.component';
 import { GuestTableCategoryComponent } from './guest-table-category/guest-table-category.component';
+import { YesNoPipe } from 'src/app/standalone/pipes';
 
 @NgModule({
     declarations: [
@@ -29,6 +30,7 @@ import { GuestTableCategoryComponent } from './guest-table-category/guest-table-
         // standalone
         SectionComponent,
         EditionComponent,
+        YesNoPipe,
     ],
     providers: [GuestsService],
 })

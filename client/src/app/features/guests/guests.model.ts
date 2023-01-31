@@ -31,7 +31,7 @@ export enum Discount {
     staff,
 }
 
-export interface IGuest {
+export interface IGuest extends ICategory {
     name: string;
     isInvited: boolean;
     isConfirmed: boolean;

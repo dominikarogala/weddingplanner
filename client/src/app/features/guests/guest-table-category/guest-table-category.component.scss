@@ -1,0 +1,9 @@
+.table {
+    &--header {
+        margin-top: 1em;
+        padding: 0 20px;
+        display: grid;
+        grid-template-columns: 2fr repeat(6, 1fr);
+        justify-items: left;
+    }
+}

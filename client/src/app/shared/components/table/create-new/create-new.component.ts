@@ -11,7 +11,7 @@ import {
     template: `
         <div class="create-new">
             <div class="create-new--content" (click)="itemClicked.emit()">
-                <img src="assets/images/add_files.svg" />
+                <img src="assets/images/add_files.svg" alt="" />
                 <h2>{{ text }}</h2>
             </div>
         </div>

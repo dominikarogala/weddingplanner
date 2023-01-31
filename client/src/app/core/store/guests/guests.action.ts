@@ -26,3 +26,8 @@ export const addNewGuestsGroupSuccess = createAction(
     '[Guests] Add New Guests Group Success',
     props<{ groupId: string; groupName: string }>()
 );
+
+export const changeGuestsGroupExpansionState = createAction(
+    '[Guests] Change Guests Group Expansion Status',
+    props<{ groupId: string; state: boolean }>()
+);

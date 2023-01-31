@@ -20,7 +20,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
                     <ng-content></ng-content>
                 </mat-card-content>
             </div>
-            <img *ngIf="!!image.length" [src]="image" />
+            <img *ngIf="!!image.length" [src]="image" alt="" />
         </mat-card>
     `,
 })
